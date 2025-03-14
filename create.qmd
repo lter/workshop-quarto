@@ -16,7 +16,18 @@ From your GitHub **"Repositories"** tab, click the **"New"** button. It may be e
 
 <img src="images/new-github-1.png" alt="Screen capture of top bit of 'Repositories' tab of a GitHub user's profile" width="100%" />
 
-**Add a title** to your repository and **add a description**. Also, **set the repository to "Public"**; only public repositories can be turned into websites.
+**Pick a name** for your repository and **add a description**. Also, **set the repository to "Public"**; only public repositories can be turned into websites.
+
+:::{.callout-note}
+### Repository Names & Website URLs
+
+Note that the name you pick for your repository (and who owns it) has a big impact on the URL for the website hosted there! See an example below for how those pieces of information get translated.
+
+github.com/**<span style="color:purple">owner</span>**/**<span style="color:orange">repository</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **<span style="color:purple">owner</span>**.github.io/**<span style="color:orange">repository</span>**
+
+So, think about a repository name that will make your URL informative without being overly long if someone needs to type it manually.
+
+:::
 
 <p align="center">
 <img src="images/new-github-2.png" alt="Screen capture of the top half of the Github page where new repositories are created" width="70%" />
@@ -76,20 +87,179 @@ Once you're happy with your entries to those fields, **Click "Create Project"**.
 <img src="images/rstudio-clone-7.png" alt="Screen capture of the top right corner of RStudio when there is an active project" width="60%" />
 </p>
 
-## Create the Website Skeleton
+## Start Creating the Website
 
 Now we've cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.
 
 ### 1. Add to the `.gitignore`
 
-Using the "Files" pane of RStudio, open the `.gitignore` file. Scroll to the bottom and add the following to the bottom. Those two folders are important in creating a Quarto website but we don't want Git to track changes to the files that they contain.
+Using the "Files" pane of RStudio, open the `.gitignore` file. Scroll to the bottom and add the following lines beneath whatever is already in there. Those two folders are important in creating a Quarto website but we don't want Git to track changes to the files that they contain.
 
-```
+```{r expand-gitignore}
+#| eval: false
+
 # Ignore unneeded Quarto folders
 /.quarto/
 docs/
 ```
 
+### 2. Create the Website Homepage
 
+Now we'll make what will become the home page of your website! **Create a new Quarto file** ("File" {{< fa arrow-right >}} "New File" {{< fa arrow-right >}} "Quarto Document..."). In the resulting pop-up menu you can leave everything at its default position and **click "Create"**.
 
+**Save that file as `index.qmd`**. Technically it doesn't matter where in your project folder it lives but typically you'd leave it in the top level folder (i.e., not in a sub-folder).
 
+:::{.callout-warning}
+### Note on the File Name
+
+This file must be named _exactly_ as indicated above. All lowercase "index" and it is a `.qmd` file.
+
+:::
+
+### 3. Make a YAML File
+
+Now, as discussed in the [Quarto Background](https://lter.github.io/workshop-quarto/background.html) module, Quarto documents--like many computational notebook files--are controlled by a YAML. In the case of RMarkdown, the YAML is a component of each `.Rmd` file. Quarto supports that functionality for single-file formatting but also supports a single over-arching YAML file to control the structure of a whole project, in this case: a website!
+
+So, <u>in the {{< fa terminal >}} Terminal pane of RStudio</u>, **run the following command to create the needed type of file with the right name**. Note there is a slight difference depending on your operating system so be sure to use the right one!
+
+:::{.panel-tabset}
+#### {{< fa brands apple >}} Mac / {{< fa brands linux >}} Linux
+
+```{r make-yaml_mac}
+#| eval: false
+
+touch _quarto.yml # <1>
+```
+1. `touch` is CLI-speak for 'create this file'
+
+#### {{< fa brands windows >}} Windows
+
+```{r make-yaml_win}
+#| eval: false
+
+copy NUL _quarto.yml # <1>
+```
+1. `touch` is CLI-speak for 'create this file'
+
+:::
+
+This should create a file called `_quarto.yml` in the top-level of your RStudio project.
+
+### 4. Draft the YAML
+
+Next, as you did with the `.gitignore`, use the "Files" pane of RStudio to open this file. **Copy/paste _all_ of the following into that file**.
+
+```{r customize-yaml}
+#| eval: false
+
+project:
+  type: website
+  execute-dir: project
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+execute: 
+  freeze: auto
+
+website:
+  title: "My Website" # <1>
+  repo-url: https://github.com/lter/workshop-quarto # <2>
+  repo-actions: [issue]
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        href: index.qmd
+    right: 
+      - icon: github
+        href: https://github.com/lter/workshop-quarto # <3>
+  page-footer: 
+    center: "Copyright 2025, LTER Network" # <4>
+    background: secondary
+
+format:
+  html:
+    toc: true
+    link-external-newwindow: true
+    link-external-icon: false
+```
+1. Feel free to edit this part! It defines the website title that appears on the left side of the navbar with Quarto.
+2. Change this link to your GitHub repository's link
+3. Edit this link to the same destination as \#2
+4. Change this to be the current year and your name
+
+This YAML will tell GitHub (through Quarto) that you want a simple website with a homepage made from the content of `index.qmd` and a GitHub logo in the top right corner that takes website visitors to the GitHub repository that hosts the website.
+
+### 5. GitHub Housekeeping
+
+We want this to be a Quarto website so we also need to tell GitHub not to use "Jekyll". Jekyll is the default website generation tool for GitHub and would involve extra processing we don't want. We can do this by running the following {{< fa terminal >}} command line snippet.
+
+:::{.panel-tabset}
+#### {{< fa brands apple >}} Mac / {{< fa brands linux >}} Linux
+
+```{r no-jekyll_mac}
+#| eval: false
+
+touch .nojekyll
+```
+
+#### {{< fa brands windows >}} Windows
+
+```{r no-jekyll_win}
+#| eval: false
+
+copy NUL .nojekyll
+```
+
+:::
+
+There won't actually be anything in this file but the name is enough for GitHub to change its behavior.
+
+### 6. Test it Locally
+
+To make sure that everything is set up properly so far, it is good practice to create the website on your computer (i.e., "locally") before continuing. We can do this with an operating system-agnostic {{< fa terminal >}} command line snippet.
+
+```{r preview-site}
+#| eval: false
+
+quarto preview
+```
+
+This should create a new tab in your default browser application that shows a living version of what your website will look like after GitHub starts hosting it. The preview will keep going until you manually stop it (from the Terminal pane in RStudio) so feel free to make tweaks to either `_quarto.yml` or `index.qmd` while the preview is running. The preview will update a few moments after you save your edits to either of those files.
+
+### 7. Render the Website
+
+Once you're happy with the preview, it's a good call to completely render the website just to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
+
+```{r render-site}
+#| eval: false
+
+quarto render
+```
+
+This may create a `docs/` folder and a `_freeze/` folder depending on whether you have code chunks in `index.qmd` (or anything else requiring computing power). `docs/` will show up in your file explorer but _not_ the "Git" pane of RStudio because of your edits during step 1. `_freeze/` should show up in both locations.
+
+### 8. Commit & Push!
+
+Once you've done the preceding steps, **Commit the following things: **
+
+1. Your changes to the `.gitignore`
+2. `index.qmd`
+3. `_quarto.yml` 
+4. `.nojekyll`
+5. `_freeze/` folder and _all_ of its contents
+    - If it exists
+
+**After you've committed these, push them up to the GitHub repository!**
+
+## Activity - Try it Out
+
+:::{.callout-note}
+### Your Turn!
+
+Let's take a break while each of you works through the above tutorial on your own computers!
+
+Once everyone has the fundamental structure of a website created and in GitHub we can move on to "deployment" which turns this collection of files into a living website!
+
+:::
