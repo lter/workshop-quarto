@@ -4,16 +4,27 @@ title: "Overview"
 
 ## Welcome!
 
-This workshop... _Under Construction!_
+This workshop covers how to use [Quarto](https://quarto.org/)--a tool developed by Posit--to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.
 
 ## Workshop Preparation
 
+To follow along with this workshop you will need to take the following steps:
 
+### 1. Prepare to use GitHub via RStudio
+
+This involves doing all of the [pre-workshop steps](https://lter.github.io/workshop-github/#workshop-preparation) relevant to our "Collaborative Coding with GitHub" workshop.
+
+- Install R
+- Install RStudio
+- Install Git
+- Make a GitHub account
+- Connect Git and GitHub
+- Celebrate!
+
+### 2. Install [Quarto](https://quarto.org/docs/get-started/)
+
+Before you can make a website with Quarto you will need to install it! This program seamlessly ties into RStudio so you won't need to learn how to navigate a new program.
 
 ## Note on Code Snippets
 
 Explain CLI versus R commands and where those are entered
-
-
-
-
