@@ -31,6 +31,18 @@ website:
     contents: 
       - text: "Workshop Home"
         href: index.qmd
+      - section: "Core Topics"
+        contents:
+         - text: "Quarto Background"
+           href: background.qmd
+         - text: "Create a Website"
+           href: create.qmd
+         - text: "Deploy a Website"
+           href: deploy.qmd
+      - section: "Advanced Topics"
+        contents: 
+         - text: "Customize a Website"
+           href: customize.qmd
   page-footer: 
     center: "Copyright 2025, LTER Network"
     background: secondary

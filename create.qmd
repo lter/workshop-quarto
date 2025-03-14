@@ -1,0 +1,22 @@
+---
+title: "Creating a Website"
+---
+
+## Under Construction
+
+Check back later!
+
+## Make a New GitHub Repository
+
+include /github-create.qmd
+
+## Clone that Repository
+
+include /rstudio-clone.qmd
+
+## Create the Website Skeleton
+
+Now we can create the critical website architecture.
+
+
+
