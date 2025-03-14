@@ -35,3 +35,8 @@ The "Terminal" pane of RStudio should be next to the "Console" pane of RStudio (
 <img src="images/rstudio-terminal.png" alt="Screenshot of 'Terminal' pane of RStudio" width="100%"/>
 </p>
 
+## Additional Information
+
+Quarto is developing at a rapid pace so quality of life changes and new functionalities are introduced relatively frequently. Additionally, Quarto supports user-created "extensions" that can be downloaded in a given project and then used (similar to the way user-developed R packages can be shared) so if you want to do something that Quarto itself doesn't support, chances are you'll be able to find an extension that handles it.
+
+[Quarto's documentation of website creation and formatting](https://quarto.org/docs/websites/) is extremely thorough and is a great resource as you become more comfortable with your new website.
