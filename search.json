@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Overview",
     "section": "",
-    "text": "This workshop covers how to use Quarto–a tool developed by Posit–to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.",
+    "text": "This workshop covers how to use Quarto–a tool developed by Posit–to create easily customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.",
     "crumbs": [
       "Workshop Home"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#welcome",
     "title": "Overview",
     "section": "",
-    "text": "This workshop covers how to use Quarto–a tool developed by Posit–to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.",
+    "text": "This workshop covers how to use Quarto–a tool developed by Posit–to create easily customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.",
     "crumbs": [
       "Workshop Home"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#note-on-code-snippets",
     "title": "Overview",
     "section": "Note on Code Snippets",
-    "text": "Note on Code Snippets\nExplain CLI versus R commands and where those are entered",
+    "text": "Note on Code Snippets\nNote that while most facets of this workshop can be accomplished via RStudio or GitHub, there are some code commands that must be run. These commands are mostly Command Line Interface (CLI) not R code! To make this as clear as possible, if the plain text instructions have this symbol  they should be run in the “Terminal” pane of RStudio while R code–if any–will have this symbol .\nThe “Terminal” pane of RStudio should be next to the “Console” pane of RStudio (see below). If you don’t have that pane, you can make a new one using the keyboard shortcut Alt + Shift + R (Windows) or Option + Shift + R (Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: “Code”  “Terminal”  “Open New Terminal at File Location”.",
     "crumbs": [
       "Workshop Home"
     ]
