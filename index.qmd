@@ -4,7 +4,7 @@ title: "Overview"
 
 ## Welcome!
 
-This workshop covers how to use [Quarto](https://quarto.org/)--a tool developed by Posit--to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.
+This workshop covers how to use [Quarto](https://quarto.org/)--a tool developed by Posit--to create easily customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.
 
 ## Workshop Preparation
 
@@ -27,4 +27,11 @@ Before you can make a website with Quarto you will need to install it! This prog
 
 ## Note on Code Snippets
 
-Explain CLI versus R commands and where those are entered
+Note that while most facets of this workshop can be accomplished via RStudio or GitHub, there are some code commands that must be run. These commands are mostly <u>C</u>ommand <u>L</u>ine <u>I</u>nterface (CLI) _not_ R code! To make this as clear as possible, **if the plain text instructions have this symbol {{< fa terminal >}} they should be run in the "Terminal" pane of RStudio** while R code--if any--will have this symbol {{< fa brands r-project >}}.
+
+The "Terminal" pane of RStudio should be next to the "Console" pane of RStudio (see below). If you don't have that pane, you can make a new one using the keyboard shortcut `Alt + Shift + R` (Windows) or `Option + Shift + R` (Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: "Code" {{< fa arrow-right >}} "Terminal" {{< fa arrow-right >}} "Open New Terminal at File Location".
+
+<p align="center"/>
+<img src="images/rstudio-terminal.png" alt="Screenshot of 'Terminal' pane of RStudio" width="100%"/>
+</p>
+
