@@ -44,18 +44,29 @@
     "href": "customize.html",
     "title": "Customizing a Website",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:",
     "crumbs": [
       "Advanced Topics",
       "Customize a Website"
     ]
   },
   {
-    "objectID": "customize.html#under-construction",
-    "href": "customize.html#under-construction",
+    "objectID": "customize.html#module-learning-objectives",
+    "href": "customize.html#module-learning-objectives",
     "title": "Customizing a Website",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#tbd",
+    "href": "customize.html#tbd",
+    "title": "Customizing a Website",
+    "section": "TBD",
+    "text": "TBD\nUnder construction; check back later!",
     "crumbs": [
       "Advanced Topics",
       "Customize a Website"
@@ -66,18 +77,29 @@
     "href": "background.html",
     "title": "Background",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:\n\nDefine the three critical parts of a Quarto file",
     "crumbs": [
       "Core Topics",
       "Quarto Background"
     ]
   },
   {
-    "objectID": "background.html#under-construction",
-    "href": "background.html#under-construction",
+    "objectID": "background.html#module-learning-objectives",
+    "href": "background.html#module-learning-objectives",
     "title": "Background",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:\n\nDefine the three critical parts of a Quarto file",
+    "crumbs": [
+      "Core Topics",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#core-components-of-a-quarto-file",
+    "href": "background.html#core-components-of-a-quarto-file",
+    "title": "Background",
+    "section": "Core Components of a Quarto File",
+    "text": "Core Components of a Quarto File",
     "crumbs": [
       "Core Topics",
       "Quarto Background"
@@ -88,18 +110,18 @@
     "href": "create.html",
     "title": "Creating a Website",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:\n\nUse GitHub to make a new repository\nCreate a Quarto website\nEdit files hosted on GitHub via RStudio",
     "crumbs": [
       "Core Topics",
       "Create a Website"
     ]
   },
   {
-    "objectID": "create.html#under-construction",
-    "href": "create.html#under-construction",
+    "objectID": "create.html#module-learning-objectives",
+    "href": "create.html#module-learning-objectives",
     "title": "Creating a Website",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:\n\nUse GitHub to make a new repository\nCreate a Quarto website\nEdit files hosted on GitHub via RStudio",
     "crumbs": [
       "Core Topics",
       "Create a Website"
@@ -110,7 +132,7 @@
     "href": "create.html#make-a-new-github-repository",
     "title": "Creating a Website",
     "section": "Make a New GitHub Repository",
-    "text": "Make a New GitHub Repository\ninclude /github-create.qmd",
+    "text": "Make a New GitHub Repository\nFrom your GitHub “Repositories” tab, click the “New” button. It may be either blue or green depending on your GitHub settings.\n\nAdd a title to your repository and add a description. Also, set the repository to “Public”; only public repositories can be turned into websites.\n\n\n\nOnce that is done, scroll down and decide whether to add (1) a README, (2) a .gitignore, and (3) a license. For Quarto websites, you will want a README and a .gitignore but a license is not required. If you are an RStudio user, you should pick the “R” template for your .gitignore. For more information on READMEs see here; for more information on the .gitignore see here.\n\n\n\nOnce you’ve added these two things, scroll down and click the “Create repository” button. Again, this may be either blue or green.\nAfter a few seconds you should be placed on your new repository’s landing page.",
     "crumbs": [
       "Core Topics",
       "Create a Website"
@@ -121,7 +143,7 @@
     "href": "create.html#clone-that-repository",
     "title": "Creating a Website",
     "section": "Clone that Repository",
-    "text": "Clone that Repository\ninclude /rstudio-clone.qmd",
+    "text": "Clone that Repository\nNow that you have created a repository, we need to clone it locally so we can create the content we want in RStudio. First, open RStudio and click the project button in the top right corner. If you use RStudio projects already, this will be the name of your current project. If you do not use projects it will say “Project: (None)”.\n\n\n\nWhen you click that button you should see a small menu appear. You should click “New Project…” (the topmost option). Note that if you use projects you’ll see a list of up to the 10 most recent projects filling out the rest of this menu.\n\n\n\nThis will create a pop-up window in front of RStudio where you can decide what kind of project you want to create. Because we’re cloning from an existing GitHub repository, click “Version Control”.\n\n\n\nIn the next window, choose “Git”.\n\n\n\nBefore we address the next dialog window, go back to the landing page for the GitHub repository you’d like to clone. Click the “Code” button and copy the link. The “Code” button will likely be either blue or green. In the example image below we’re using a repository that has just been created but the process is the same for repositories that already have work in them.\n\n\n\nNow, return to RStudio and paste the link that you just copied into the top field of the new project pop-up menu. You must also pick a name for your project locally as well as deciding where on your computer you’d like the local copies to live. Feel free to name the project whatever you’d like so that you will be easily able to find it later.\n\n\n\nOnce you’re happy with your entries to those fields, Click “Create Project”. You’ll know this has worked when the top right of RStudio has whatever name you entered in the second field of the preceding menu. Also, you should now have a “Git” tab in your RStudio.",
     "crumbs": [
       "Core Topics",
       "Create a Website"
@@ -132,7 +154,7 @@
     "href": "create.html#create-the-website-skeleton",
     "title": "Creating a Website",
     "section": "Create the Website Skeleton",
-    "text": "Create the Website Skeleton\nNow we can create the critical website architecture.",
+    "text": "Create the Website Skeleton\nNow we’ve cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.\n\n1. Add to the .gitignore\nUsing the “Files” pane of RStudio, open the .gitignore file. Scroll to the bottom and add the following to the bottom. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.\n# Ignore unneeded Quarto folders\n/.quarto/\ndocs/",
     "crumbs": [
       "Core Topics",
       "Create a Website"
@@ -143,18 +165,29 @@
     "href": "deploy.html",
     "title": "Deploying a Website",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:",
     "crumbs": [
       "Core Topics",
       "Deploy a Website"
     ]
   },
   {
-    "objectID": "deploy.html#under-construction",
-    "href": "deploy.html#under-construction",
+    "objectID": "deploy.html#module-learning-objectives",
+    "href": "deploy.html#module-learning-objectives",
     "title": "Deploying a Website",
     "section": "",
-    "text": "Check back later!",
+    "text": "By the end of this module, you will be able to:",
+    "crumbs": [
+      "Core Topics",
+      "Deploy a Website"
+    ]
+  },
+  {
+    "objectID": "deploy.html#tbd",
+    "href": "deploy.html#tbd",
+    "title": "Deploying a Website",
+    "section": "TBD",
+    "text": "TBD\nUnder construction; check back later!",
     "crumbs": [
       "Core Topics",
       "Deploy a Website"

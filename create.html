@@ -204,10 +204,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#under-construction" id="toc-under-construction" class="nav-link active" data-scroll-target="#under-construction">Under Construction</a></li>
+  <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
   <li><a href="#make-a-new-github-repository" id="toc-make-a-new-github-repository" class="nav-link" data-scroll-target="#make-a-new-github-repository">Make a New GitHub Repository</a></li>
   <li><a href="#clone-that-repository" id="toc-clone-that-repository" class="nav-link" data-scroll-target="#clone-that-repository">Clone that Repository</a></li>
-  <li><a href="#create-the-website-skeleton" id="toc-create-the-website-skeleton" class="nav-link" data-scroll-target="#create-the-website-skeleton">Create the Website Skeleton</a></li>
+  <li><a href="#create-the-website-skeleton" id="toc-create-the-website-skeleton" class="nav-link" data-scroll-target="#create-the-website-skeleton">Create the Website Skeleton</a>
+  <ul class="collapse">
+  <li><a href="#add-to-the-.gitignore" id="toc-add-to-the-.gitignore" class="nav-link" data-scroll-target="#add-to-the-.gitignore">1. Add to the <code>.gitignore</code></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -235,23 +238,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="under-construction" class="level2">
-<h2 class="anchored" data-anchor-id="under-construction">Under Construction</h2>
-<p>Check back later!</p>
+<section id="module-learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
+<p>By the end of this module, you will be able to:</p>
+<ul>
+<li><u>Use</u> GitHub to make a new repository</li>
+<li><u>Create</u> a Quarto website</li>
+<li><u>Edit</u> files hosted on GitHub via RStudio</li>
+</ul>
 </section>
 <section id="make-a-new-github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-new-github-repository">Make a New GitHub Repository</h2>
-<p>include /github-create.qmd</p>
+<p>From your GitHub <strong>“Repositories”</strong> tab, click the <strong>“New”</strong> button. It may be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> depending on your GitHub settings.</p>
+<p><img src="images/new-github-1.png" alt="Screen capture of top bit of 'Repositories' tab of a GitHub user's profile" width="100%"></p>
+<p><strong>Add a title</strong> to your repository and <strong>add a description</strong>. Also, <strong>set the repository to “Public”</strong>; only public repositories can be turned into websites.</p>
+<p align="center">
+<img src="images/new-github-2.png" alt="Screen capture of the top half of the Github page where new repositories are created" width="70%">
+</p>
+<p>Once that is done, scroll down and decide whether to add (1) a README, (2) a <code>.gitignore</code>, and (3) a license. For Quarto websites, <strong>you will want a README and a <code>.gitignore</code></strong> but a license is not <em>required</em>. If you are an RStudio user, <strong>you should pick the “R” template for your <code>.gitignore</code></strong>. For more information on READMEs see <a href="https://lter.github.io/workshop-github/readmes.html">here</a>; for more information on the <code>.gitignore</code> see <a href="https://lter.github.io/workshop-github/git_ignore.html">here</a>.</p>
+<p align="center">
+<img src="images/new-github-3.png" alt="Screen capture of the bottom half of the Github page where new repositories are created" width="70%">
+</p>
+<p>Once you’ve added these two things, scroll down and click the <strong>“Create repository” button</strong>. Again, this may be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong>.</p>
+<p>After a few seconds you should be placed on your new repository’s landing page.</p>
 </section>
 <section id="clone-that-repository" class="level2">
 <h2 class="anchored" data-anchor-id="clone-that-repository">Clone that Repository</h2>
-<p>include /rstudio-clone.qmd</p>
+<p>Now that you have created a repository, we need to clone it locally so we can create the content we want in RStudio. First, open RStudio and click the <strong>project button</strong> in the top right corner. If you use RStudio projects already, this will be the name of your current project. If you do not use projects it will say “Project: (None)”.</p>
+<p align="center">
+<img src="images/rstudio-clone-1.png" alt="Screen capture of the top right corner of RStudio when there is no active project" width="60%">
+</p>
+<p>When you click that button you should see a small menu appear. You should <strong>click “New Project…”</strong> (the topmost option). Note that if you use projects you’ll see a list of up to the 10 most recent projects filling out the rest of this menu.</p>
+<p align="center">
+<img src="images/rstudio-clone-2.png" alt="Screen capture of the top right corner of RStudio after the project button is clicked" width="60%">
+</p>
+<p>This will create a pop-up window in front of RStudio where you can decide what kind of project you want to create. Because we’re cloning from an existing GitHub repository, <strong>click “Version Control”</strong>.</p>
+<p align="center">
+<img src="images/rstudio-clone-3.png" alt="Screen capture of the first pop-up window from RStudio when a new project is being created" width="70%">
+</p>
+<p>In the next window, <strong>choose “Git”</strong>.</p>
+<p align="center">
+<img src="images/rstudio-clone-4.png" alt="Screen capture of the second pop-up window from RStudio when a new project is being created from version control" width="70%">
+</p>
+<p>Before we address the next dialog window, go back to the landing page for the GitHub repository you’d like to clone. <strong>Click the “Code” button and <em>copy the link</em></strong>. The “Code” button will likely be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong>. In the example image below we’re using a repository that has just been created but the process is the same for repositories that already have work in them.</p>
+<p align="center">
+<img src="images/rstudio-clone-5.png" alt="Screen capture of a GitHub repository with the 'Code' button clicked and the resulting menu open" width="100%">
+</p>
+<p>Now, return to RStudio and <strong>paste the link that you just copied</strong> into the top field of the new project pop-up menu. You must also <strong>pick a name for your project locally</strong> as well as <strong>deciding where on your computer you’d like the local copies to live</strong>. Feel free to name the project whatever you’d like so that you will be easily able to find it later.</p>
+<p align="center">
+<img src="images/rstudio-clone-6.png" alt="Screen capture of a GitHub repository with the 'Code' button clicked and the resulting menu open" width="70%">
+</p>
+<p>Once you’re happy with your entries to those fields, <strong>Click “Create Project”</strong>. You’ll know this has worked when the top right of RStudio has whatever name you entered in the second field of the preceding menu. Also, you should now have a “Git” tab in your RStudio.</p>
+<p align="center">
+<img src="images/rstudio-clone-7.png" alt="Screen capture of the top right corner of RStudio when there is an active project" width="60%">
+</p>
 </section>
 <section id="create-the-website-skeleton" class="level2">
 <h2 class="anchored" data-anchor-id="create-the-website-skeleton">Create the Website Skeleton</h2>
-<p>Now we can create the critical website architecture.</p>
+<p>Now we’ve cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.</p>
+<section id="add-to-the-.gitignore" class="level3">
+<h3 class="anchored" data-anchor-id="add-to-the-.gitignore">1. Add to the <code>.gitignore</code></h3>
+<p>Using the “Files” pane of RStudio, open the <code>.gitignore</code> file. Scroll to the bottom and add the following to the bottom. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.</p>
+<pre><code># Ignore unneeded Quarto folders
+/.quarto/
+docs/</code></pre>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
