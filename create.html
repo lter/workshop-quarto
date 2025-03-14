@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Creating a Website – Creating Websites with Quarto</title>
+<title>Creating a Website – SciComp Workshop - Creating Websites with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -42,6 +76,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-1527c1d7d2c1f019b2219b787fd9b6e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-2e8052333229bd993d516440aea6d705.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Creating Websites with Quarto</span>
+    <span class="navbar-title">SciComp Workshop - Creating Websites with Quarto</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -207,10 +243,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
   <li><a href="#make-a-new-github-repository" id="toc-make-a-new-github-repository" class="nav-link" data-scroll-target="#make-a-new-github-repository">Make a New GitHub Repository</a></li>
   <li><a href="#clone-that-repository" id="toc-clone-that-repository" class="nav-link" data-scroll-target="#clone-that-repository">Clone that Repository</a></li>
-  <li><a href="#create-the-website-skeleton" id="toc-create-the-website-skeleton" class="nav-link" data-scroll-target="#create-the-website-skeleton">Create the Website Skeleton</a>
+  <li><a href="#start-creating-the-website" id="toc-start-creating-the-website" class="nav-link" data-scroll-target="#start-creating-the-website">Start Creating the Website</a>
   <ul class="collapse">
   <li><a href="#add-to-the-.gitignore" id="toc-add-to-the-.gitignore" class="nav-link" data-scroll-target="#add-to-the-.gitignore">1. Add to the <code>.gitignore</code></a></li>
+  <li><a href="#create-the-website-homepage" id="toc-create-the-website-homepage" class="nav-link" data-scroll-target="#create-the-website-homepage">2. Create the Website Homepage</a></li>
+  <li><a href="#make-a-yaml-file" id="toc-make-a-yaml-file" class="nav-link" data-scroll-target="#make-a-yaml-file">3. Make a YAML File</a></li>
+  <li><a href="#draft-the-yaml" id="toc-draft-the-yaml" class="nav-link" data-scroll-target="#draft-the-yaml">4. Draft the YAML</a></li>
+  <li><a href="#github-housekeeping" id="toc-github-housekeeping" class="nav-link" data-scroll-target="#github-housekeeping">5. GitHub Housekeeping</a></li>
+  <li><a href="#test-it-locally" id="toc-test-it-locally" class="nav-link" data-scroll-target="#test-it-locally">6. Test it Locally</a></li>
+  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">7. Render the Website</a></li>
+  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">8. Commit &amp; Push!</a></li>
   </ul></li>
+  <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -251,7 +295,22 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="make-a-new-github-repository">Make a New GitHub Repository</h2>
 <p>From your GitHub <strong>“Repositories”</strong> tab, click the <strong>“New”</strong> button. It may be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> depending on your GitHub settings.</p>
 <p><img src="images/new-github-1.png" alt="Screen capture of top bit of 'Repositories' tab of a GitHub user's profile" width="100%"></p>
-<p><strong>Add a title</strong> to your repository and <strong>add a description</strong>. Also, <strong>set the repository to “Public”</strong>; only public repositories can be turned into websites.</p>
+<p><strong>Pick a name</strong> for your repository and <strong>add a description</strong>. Also, <strong>set the repository to “Public”</strong>; only public repositories can be turned into websites.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Repository Names &amp; Website URLs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the name you pick for your repository (and who owns it) has a big impact on the URL for the website hosted there! See an example below for how those pieces of information get translated.</p>
+<p>github.com/<strong><span style="color:purple">owner</span></strong>/<strong><span style="color:orange">repository</span></strong> &nbsp;&nbsp; <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> &nbsp;&nbsp; <strong><span style="color:purple">owner</span></strong>.github.io/<strong><span style="color:orange">repository</span></strong></p>
+<p>So, think about a repository name that will make your URL informative without being overly long if someone needs to type it manually.</p>
+</div>
+</div>
 <p align="center">
 <img src="images/new-github-2.png" alt="Screen capture of the top half of the Github page where new repositories are created" width="70%">
 </p>
@@ -293,18 +352,201 @@ ul.task-list li input[type="checkbox"] {
 <img src="images/rstudio-clone-7.png" alt="Screen capture of the top right corner of RStudio when there is an active project" width="60%">
 </p>
 </section>
-<section id="create-the-website-skeleton" class="level2">
-<h2 class="anchored" data-anchor-id="create-the-website-skeleton">Create the Website Skeleton</h2>
+<section id="start-creating-the-website" class="level2">
+<h2 class="anchored" data-anchor-id="start-creating-the-website">Start Creating the Website</h2>
 <p>Now we’ve cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.</p>
 <section id="add-to-the-.gitignore" class="level3">
 <h3 class="anchored" data-anchor-id="add-to-the-.gitignore">1. Add to the <code>.gitignore</code></h3>
-<p>Using the “Files” pane of RStudio, open the <code>.gitignore</code> file. Scroll to the bottom and add the following to the bottom. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.</p>
-<pre><code># Ignore unneeded Quarto folders
-/.quarto/
-docs/</code></pre>
-
-
+<p>Using the “Files” pane of RStudio, open the <code>.gitignore</code> file. Scroll to the bottom and add the following lines beneath whatever is already in there. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ignore unneeded Quarto folders</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>.quarto<span class="sc">/</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>docs<span class="sc">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
+<section id="create-the-website-homepage" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-website-homepage">2. Create the Website Homepage</h3>
+<p>Now we’ll make what will become the home page of your website! <strong>Create a new Quarto file</strong> (“File” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “New File” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and <strong>click “Create”</strong>.</p>
+<p><strong>Save that file as <code>index.qmd</code></strong>. Technically it doesn’t matter where in your project folder it lives but typically you’d leave it in the top level folder (i.e., not in a sub-folder).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note on the File Name
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This file must be named <em>exactly</em> as indicated above. All lowercase “index” and it is a <code>.qmd</code> file.</p>
+</div>
+</div>
+</section>
+<section id="make-a-yaml-file" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-yaml-file">3. Make a YAML File</h3>
+<p>Now, as discussed in the <a href="https://lter.github.io/workshop-quarto/background.html">Quarto Background</a> module, Quarto documents–like many computational notebook files–are controlled by a YAML. In the case of RMarkdown, the YAML is a component of each <code>.Rmd</code> file. Quarto supports that functionality for single-file formatting but also supports a single over-arching YAML file to control the structure of a whole project, in this case: a website!</p>
+<p>So, <u>in the <i class="fa-solid fa-terminal" aria-label="terminal"></i> Terminal pane of RStudio</u>, <strong>run the following command to create the needed type of file with the right name</strong>. Note there is a slight difference depending on your operating system so be sure to use the right one!</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1">1</button><span id="annotated-cell-5-1" class="code-annotation-target"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a>touch _quarto.yml</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="1" data-code-annotation="1"><code>touch</code> is CLI-speak for ‘create this file’</span>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1">1</button><span id="annotated-cell-6-1" class="code-annotation-target"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a>copy NUL _quarto.yml</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-lines="1" data-code-annotation="1"><code>touch</code> is CLI-speak for ‘create this file’</span>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>This should create a file called <code>_quarto.yml</code> in the top-level of your RStudio project.</p>
+</section>
+<section id="draft-the-yaml" class="level3">
+<h3 class="anchored" data-anchor-id="draft-the-yaml">4. Draft the YAML</h3>
+<p>Next, as you did with the <code>.gitignore</code>, use the “Files” pane of RStudio to open this file. <strong>Copy/paste <em>all</em> of the following into that file</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>  type<span class="sc">:</span> website</span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>  execute<span class="sc">-</span>dir<span class="sc">:</span> project</span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">-</span>dir<span class="sc">:</span> docs</span>
+<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>  render<span class="sc">:</span></span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> <span class="st">"*.qmd"</span></span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>execute<span class="sc">:</span> </span>
+<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>  freeze<span class="sc">:</span> auto</span>
+<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-12" class="code-annotation-target"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">"My Website"</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-13" class="code-annotation-target"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>  repo<span class="sc">-</span>url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>lter<span class="sc">/</span>workshop<span class="sc">-</span>quarto</span>
+<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a>  repo<span class="sc">-</span>actions<span class="sc">:</span> [issue]</span>
+<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a>  navbar<span class="sc">:</span></span>
+<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a>    background<span class="sc">:</span> primary</span>
+<span id="annotated-cell-2-17"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a>    left<span class="sc">:</span></span>
+<span id="annotated-cell-2-18"><a href="#annotated-cell-2-18" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> text<span class="sc">:</span> <span class="st">"Home"</span></span>
+<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a>        href<span class="sc">:</span> index.qmd</span>
+<span id="annotated-cell-2-20"><a href="#annotated-cell-2-20" aria-hidden="true" tabindex="-1"></a>    right<span class="sc">:</span> </span>
+<span id="annotated-cell-2-21"><a href="#annotated-cell-2-21" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> icon<span class="sc">:</span> github</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3">3</button><span id="annotated-cell-2-22" class="code-annotation-target"><a href="#annotated-cell-2-22" aria-hidden="true" tabindex="-1"></a>        href<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>lter<span class="sc">/</span>workshop<span class="sc">-</span>quarto</span>
+<span id="annotated-cell-2-23"><a href="#annotated-cell-2-23" aria-hidden="true" tabindex="-1"></a>  page<span class="sc">-</span>footer<span class="sc">:</span> </span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4">4</button><span id="annotated-cell-2-24" class="code-annotation-target"><a href="#annotated-cell-2-24" aria-hidden="true" tabindex="-1"></a>    center<span class="sc">:</span> <span class="st">"Copyright 2025, LTER Network"</span></span>
+<span id="annotated-cell-2-25"><a href="#annotated-cell-2-25" aria-hidden="true" tabindex="-1"></a>    background<span class="sc">:</span> secondary</span>
+<span id="annotated-cell-2-26"><a href="#annotated-cell-2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-2-27"><a href="#annotated-cell-2-27" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="annotated-cell-2-28"><a href="#annotated-cell-2-28" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
+<span id="annotated-cell-2-29"><a href="#annotated-cell-2-29" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="annotated-cell-2-30"><a href="#annotated-cell-2-30" aria-hidden="true" tabindex="-1"></a>    link<span class="sc">-</span>external<span class="sc">-</span>newwindow<span class="sc">:</span> true</span>
+<span id="annotated-cell-2-31"><a href="#annotated-cell-2-31" aria-hidden="true" tabindex="-1"></a>    link<span class="sc">-</span>external<span class="sc">-</span>icon<span class="sc">:</span> false</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="12" data-code-annotation="1">Feel free to edit this part! It defines the website title that appears on the left side of the navbar with Quarto.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="13" data-code-annotation="2">Change this link to your GitHub repository’s link</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="22" data-code-annotation="3">Edit this link to the same destination as #2</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="24" data-code-annotation="4">Change this to be the current year and your name</span>
+</dd>
+</dl>
+</div>
+</div>
+<p>This YAML will tell GitHub (through Quarto) that you want a simple website with a homepage made from the content of <code>index.qmd</code> and a GitHub logo in the top right corner that takes website visitors to the GitHub repository that hosts the website.</p>
+</section>
+<section id="github-housekeeping" class="level3">
+<h3 class="anchored" data-anchor-id="github-housekeeping">5. GitHub Housekeeping</h3>
+<p>We want this to be a Quarto website so we also need to tell GitHub not to use “Jekyll”. Jekyll is the default website generation tool for GitHub and would involve extra processing we don’t want. We can do this by running the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>touch .nojekyll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>copy NUL .nojekyll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>There won’t actually be anything in this file but the name is enough for GitHub to change its behavior.</p>
+</section>
+<section id="test-it-locally" class="level3">
+<h3 class="anchored" data-anchor-id="test-it-locally">6. Test it Locally</h3>
+<p>To make sure that everything is set up properly so far, it is good practice to create the website on your computer (i.e., “locally”) before continuing. We can do this with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This should create a new tab in your default browser application that shows a living version of what your website will look like after GitHub starts hosting it. The preview will keep going until you manually stop it (from the Terminal pane in RStudio) so feel free to make tweaks to either <code>_quarto.yml</code> or <code>index.qmd</code> while the preview is running. The preview will update a few moments after you save your edits to either of those files.</p>
+</section>
+<section id="render-the-website" class="level3">
+<h3 class="anchored" data-anchor-id="render-the-website">7. Render the Website</h3>
+<p>Once you’re happy with the preview, it’s a good call to completely render the website just to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This may create a <code>docs/</code> folder and a <code>_freeze/</code> folder depending on whether you have code chunks in <code>index.qmd</code> (or anything else requiring computing power). <code>docs/</code> will show up in your file explorer but <em>not</em> the “Git” pane of RStudio because of your edits during step 1. <code>_freeze/</code> should show up in both locations.</p>
+</section>
+<section id="commit-push" class="level3">
+<h3 class="anchored" data-anchor-id="commit-push">8. Commit &amp; Push!</h3>
+<p>Once you’ve done the preceding steps, <strong>Commit the following things: </strong></p>
+<ol type="1">
+<li>Your changes to the <code>.gitignore</code></li>
+<li><code>index.qmd</code></li>
+<li><code>_quarto.yml</code></li>
+<li><code>.nojekyll</code></li>
+<li><code>_freeze/</code> folder and <em>all</em> of its contents
+<ul>
+<li>If it exists</li>
+</ul></li>
+</ol>
+<p><strong>After you’ve committed these, push them up to the GitHub repository!</strong></p>
+</section>
+</section>
+<section id="activity---try-it-out" class="level2">
+<h2 class="anchored" data-anchor-id="activity---try-it-out">Activity - Try it Out</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s take a break while each of you works through the above tutorial on your own computers!</p>
+<p>Once everyone has the fundamental structure of a website created and in GitHub we can move on to “deployment” which turns this collection of files into a living website!</p>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -815,25 +1057,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       };
     }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
           }
-        });
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;
