@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Overview",
     "section": "",
-    "text": "This workshop… Under Construction!",
+    "text": "This workshop covers how to use Quarto–a tool developed by Posit–to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.",
     "crumbs": [
       "Workshop Home"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#welcome",
     "title": "Overview",
     "section": "",
-    "text": "This workshop… Under Construction!",
+    "text": "This workshop covers how to use Quarto–a tool developed by Posit–to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.",
     "crumbs": [
       "Workshop Home"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#workshop-preparation",
     "title": "Overview",
     "section": "Workshop Preparation",
-    "text": "Workshop Preparation",
+    "text": "Workshop Preparation\nTo follow along with this workshop you will need to take the following steps:\n\n1. Prepare to use GitHub via RStudio\nThis involves doing all of the pre-workshop steps relevant to our “Collaborative Coding with GitHub” workshop.\n\nInstall R\nInstall RStudio\nInstall Git\nMake a GitHub account\nConnect Git and GitHub\nCelebrate!\n\n\n\n2. Install Quarto\nBefore you can make a website with Quarto you will need to install it! This program seamlessly ties into RStudio so you won’t need to learn how to navigate a new program.",
     "crumbs": [
       "Workshop Home"
     ]
@@ -37,6 +37,127 @@
     "text": "Note on Code Snippets\nExplain CLI versus R commands and where those are entered",
     "crumbs": [
       "Workshop Home"
+    ]
+  },
+  {
+    "objectID": "customize.html",
+    "href": "customize.html",
+    "title": "Customizing a Website",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#under-construction",
+    "href": "customize.html#under-construction",
+    "title": "Customizing a Website",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Background",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Core Topics",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#under-construction",
+    "href": "background.html#under-construction",
+    "title": "Background",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Core Topics",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "create.html",
+    "href": "create.html",
+    "title": "Creating a Website",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Core Topics",
+      "Create a Website"
+    ]
+  },
+  {
+    "objectID": "create.html#under-construction",
+    "href": "create.html#under-construction",
+    "title": "Creating a Website",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Core Topics",
+      "Create a Website"
+    ]
+  },
+  {
+    "objectID": "create.html#make-a-new-github-repository",
+    "href": "create.html#make-a-new-github-repository",
+    "title": "Creating a Website",
+    "section": "Make a New GitHub Repository",
+    "text": "Make a New GitHub Repository\ninclude /github-create.qmd",
+    "crumbs": [
+      "Core Topics",
+      "Create a Website"
+    ]
+  },
+  {
+    "objectID": "create.html#clone-that-repository",
+    "href": "create.html#clone-that-repository",
+    "title": "Creating a Website",
+    "section": "Clone that Repository",
+    "text": "Clone that Repository\ninclude /rstudio-clone.qmd",
+    "crumbs": [
+      "Core Topics",
+      "Create a Website"
+    ]
+  },
+  {
+    "objectID": "create.html#create-the-website-skeleton",
+    "href": "create.html#create-the-website-skeleton",
+    "title": "Creating a Website",
+    "section": "Create the Website Skeleton",
+    "text": "Create the Website Skeleton\nNow we can create the critical website architecture.",
+    "crumbs": [
+      "Core Topics",
+      "Create a Website"
+    ]
+  },
+  {
+    "objectID": "deploy.html",
+    "href": "deploy.html",
+    "title": "Deploying a Website",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Core Topics",
+      "Deploy a Website"
+    ]
+  },
+  {
+    "objectID": "deploy.html#under-construction",
+    "href": "deploy.html#under-construction",
+    "title": "Deploying a Website",
+    "section": "",
+    "text": "Check back later!",
+    "crumbs": [
+      "Core Topics",
+      "Deploy a Website"
     ]
   }
 ]

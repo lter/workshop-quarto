@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Overview – Creating Websites with Quarto</title>
+<title>Customizing a Website – Creating Websites with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Workshop Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./customize.html">Advanced Topics</a></li><li class="breadcrumb-item"><a href="./customize.html">Customize a Website</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Workshop Home</span></a>
   </div>
 </li>
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./customize.html" class="sidebar-item-text sidebar-link">
+  <a href="./customize.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Customize a Website</span></a>
   </div>
 </li>
@@ -204,13 +204,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome!</a></li>
-  <li><a href="#workshop-preparation" id="toc-workshop-preparation" class="nav-link" data-scroll-target="#workshop-preparation">Workshop Preparation</a>
-  <ul class="collapse">
-  <li><a href="#prepare-to-use-github-via-rstudio" id="toc-prepare-to-use-github-via-rstudio" class="nav-link" data-scroll-target="#prepare-to-use-github-via-rstudio">1. Prepare to use GitHub via RStudio</a></li>
-  <li><a href="#install-quarto" id="toc-install-quarto" class="nav-link" data-scroll-target="#install-quarto">2. Install Quarto</a></li>
-  </ul></li>
-  <li><a href="#note-on-code-snippets" id="toc-note-on-code-snippets" class="nav-link" data-scroll-target="#note-on-code-snippets">Note on Code Snippets</a></li>
+  <li><a href="#under-construction" id="toc-under-construction" class="nav-link active" data-scroll-target="#under-construction">Under Construction</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -219,9 +213,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./customize.html">Advanced Topics</a></li><li class="breadcrumb-item"><a href="./customize.html">Customize a Website</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Overview</h1>
+<h1 class="title">Customizing a Website</h1>
 </div>
 
 
@@ -238,33 +232,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p>This workshop covers how to use <a href="https://quarto.org/">Quarto</a>–a tool developed by Posit–to create easily-customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.</p>
-</section>
-<section id="workshop-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-preparation">Workshop Preparation</h2>
-<p>To follow along with this workshop you will need to take the following steps:</p>
-<section id="prepare-to-use-github-via-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="prepare-to-use-github-via-rstudio">1. Prepare to use GitHub via RStudio</h3>
-<p>This involves doing all of the <a href="https://lter.github.io/workshop-github/#workshop-preparation">pre-workshop steps</a> relevant to our “Collaborative Coding with GitHub” workshop.</p>
-<ul>
-<li>Install R</li>
-<li>Install RStudio</li>
-<li>Install Git</li>
-<li>Make a GitHub account</li>
-<li>Connect Git and GitHub</li>
-<li>Celebrate!</li>
-</ul>
-</section>
-<section id="install-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="install-quarto">2. Install <a href="https://quarto.org/docs/get-started/">Quarto</a></h3>
-<p>Before you can make a website with Quarto you will need to install it! This program seamlessly ties into RStudio so you won’t need to learn how to navigate a new program.</p>
-</section>
-</section>
-<section id="note-on-code-snippets" class="level2">
-<h2 class="anchored" data-anchor-id="note-on-code-snippets">Note on Code Snippets</h2>
-<p>Explain CLI versus R commands and where those are entered</p>
+<section id="under-construction" class="level2">
+<h2 class="anchored" data-anchor-id="under-construction">Under Construction</h2>
+<p>Check back later!</p>
 
 
 </section>
