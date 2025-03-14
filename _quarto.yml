@@ -9,7 +9,7 @@ execute:
   freeze: auto
 
 website:
-  title: "Creating Websites with Quarto"
+  title: "SciComp Workshop - Creating Websites with Quarto"
   favicon: images/logos/hex_scicomptools.png
   repo-url: https://github.com/lter/workshop-quarto
   repo-actions: [issue]
@@ -54,6 +54,7 @@ format:
   html:
     code-overflow: scroll
     code-line-numbers: false
+    code-annotations: hover
     code-copy: hover
     theme:
        light: _extensions/lter/lter_scss-theme/theme_lter-edu-light.scss
