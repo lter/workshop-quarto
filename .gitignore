@@ -47,3 +47,13 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# R project file
+*.Rproj
+
+# Special Mac files
+.DS_Store
+
+# Quarto rendering folders
+/.quarto/
+docs/
