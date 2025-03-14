@@ -2,6 +2,16 @@
 title: "Background"
 ---
 
-## Under Construction
+## Module Learning Objectives
 
-Check back later!
+By the end of this module, you will be able to:
+
+- <u>Define</u> the three critical parts of a Quarto file
+
+## Core Components of a Quarto File
+
+
+
+
+
+

@@ -2,6 +2,12 @@
 title: "Deploying a Website"
 ---
 
-## Under Construction
+## Module Learning Objectives
 
-Check back later!
+By the end of this module, you will be able to:
+
+- <u></u>
+
+## TBD
+
+Under construction; check back later!
