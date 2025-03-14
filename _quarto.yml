@@ -10,16 +10,33 @@ execute:
 
 website:
   title: "Creating Websites with Quarto"
+  favicon: images/logos/hex_scicomptools.png
   repo-url: https://github.com/lter/workshop-quarto
   repo-actions: [issue]
   navbar:
     background: primary
     right: 
+      - text: "SciComp Team"
+        menu:
+          - href: https://lter.github.io/scicomp/
+            text: "Home"
+          - href: https://lter.github.io/scicomp/staff.html
+            text: "People"
       - icon: github
         href: https://github.com/lter/workshop-quarto
+  sidebar:
+    style: "docked"
+    background: secondary
+    search: true
+    contents: 
+      - text: "Workshop Home"
+        href: index.qmd
   page-footer: 
     center: "Copyright 2025, LTER Network"
     background: secondary
+  margin-footer: |
+    <img src="images/logos/nceas.png" alt="Logo for NCEAS (National Center for Ecological Analysis and Synthesis)" width="40%"/>
+    <img src="images/logos/lter.png" alt="Logo for the LTER Network Office" width="40%"/>
 
 format:
   html:
