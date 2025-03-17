@@ -6,12 +6,100 @@ title: "Background"
 
 By the end of this module, you will be able to:
 
+- <u>Explain</u> why Quarto is useful in this context 
 - <u>Define</u> the three critical parts of a Quarto file
+- <u>Describe</u> why some Quarto projects use a single YAML file across multiple Quarto documents
+
+## Why Quarto
+
+Quarto is new software developed by Posit--the company that maintains RStudio. Quarto is extremely versatile and supports several progamming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of 'bells and whistles' that makes it worthwhile to embrace.
+
+This workshop uses Quarto for the following reasons:
+
+- The learning curve for novice coders is relatively gentle
+    - Much R knowledge and intuition is directly transferable!
+- Making a (simple) website is straightforward
+- Quarto can be used in a variety of applications
+    - So learning it here will give you tools you can apply elsewhere!
+
+If you're broadly curious about Quarto, check out their website, [quarto.org](https://quarto.org/).
 
 ## Core Components of a Quarto File
 
+Quarto documents are a type of "computational notebook" like RMarkdown files and--for python coders--Jypter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!
 
+Notebook files contain three fundamental components that allow them to be "rendered" (sometimes also called "knit") to produce a new static report file. This is often a PDF or an HTML file though for website purposes we'll be using the HTML version so that each notebook file can become a page in your website.
 
+Typically, these notebooks have three structural components:
 
+1. YAML
+    - Pronounced \[ _YEAH-mull_ \]
+2. Embedded code chunks
+3. Plain text
+    - Possibly formatted with Markdown syntax
 
+:::{.panel-tabset}
+
+#### YAML
+
+The YAML (<u>Y</u>et <u>A</u>nother <u>M</u>arkup <u>L</u>anguage) defines document-level metadata. Most fundamentally, the YAML defines what file type will be produced when the report is rendered. It can also be used to define the top-level title, author, and date information. Finally, it can change the default options for code chunks throughout the document (more on code chunk options elsewhere).
+
+Different notebook file types will specify the YAML differently but in both Quarto documents and R Markdown files, the YAML is defined in the first few lines of the report and starts/ends with a line containing three hyphens. This looks something like this:
+
+```{.bash}
+---
+title: "Reproducible Reports"
+output: html_document
+---
+```
+
+Among other roles, the YAML defines what type of output file is produced when the notebook is "rendered" (a.k.a. "knit"). Most commonly this is either a single PDF or HTML file but more complex YAMLs can be used to create full websites or scientific manuscripts!
+
+#### Plain Text
+
+The text outside of the YAML and code chunks is plain text that accepts Markdown syntax to accomplish text format tweaks. Dedicated text-formatting software (e.g., Microsoft Word, Gmail, etc.) provides buttons and hot keys for these sorts of format alterations but many programming IDEs do not provide such user interface elements.[^1] Markdown syntax is used to support this same functionality.
+
+Some fundamental Markdown options include:
+
+- \*\*bold text\*\* {{< fa arrow-right >}} **bold text**
+- \_italic text\_ {{< fa arrow-right >}} _italic text_
+- \`code text\` {{< fa arrow-right >}} `code text`
+- \[hyperlinked text\]\(https://lter.github.io/ssecr/mod_reports.html\) {{< fa arrow-right >}} [hyperlinked text](https://lter.github.io/ssecr/mod_reports.html)
+
+For a more complete glossary of fundamental Markdown syntax options see [here](https://www.markdownguide.org/basic-syntax/). You may also want to explore [the 'back end' of this workshop's website](https://github.com/lter/workshop-quarto) as _every_ page is built using Quarto documents.
+
+[^1]: Note that with the addition of the "Visual" tab in RStudio there are button options for many text format changes. Markdown syntax is still useful to know for general knowledge reasons though! 
+#### Code Chunks
+
+The code chunks embedded in notebooks are essentially a fragmented script containing runable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you'll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.
+
+In Quarto documents, code chunks look like this[^2]:
+
+```{.bash}
+\```{r demo-chunk}
+#| echo: true # <1>
+
+# Round pi to 2 digits #<2>
+round(x = pi, digits = 2)
+\```
+```
+1. You may specify chunk-specific options using this syntax (i.e., `#| option_name: option_setting`). Options you want to apply to _all_ chunks across a notebook should be specified once in the YAML and can exclude the leading `#|` bit of the format.
+2. If your Markdown text provides sufficient context you may exclude comments in code chunks but opinions differ on which is "more" appropriate
+
+```
+# Round pi to 2 digits
+round(x = pi, digits = 2)
+```
+
+[^2]: Normally code chunks start and end with three backticks (\`\`\`) but to embed this code chunk example we need to "escape" the first backtick (using a backslash) so that the notebook interprets it correctly.
+
+:::
+
+## Website YAMLs
+
+When working in a single Quarto document, that document needs its own YAML so that Quarto 'knows' how to render it (and into what!). However, for multi-document projects like websites, this would be intensely cumbersome because every page would need extensive YAML information so that each document showed up where you expected it and all formatting was consistent across documents.
+
+To solve this problem Quarto uses a single YAML file for these larger projects that controls project-wide (i.e., across-document) formatting and structure. You can still use the YAML section within a single document if you want it to behave _differently_ from other pages but any formatting you want to apply across all pages should be specified in this cross-document YAML.
+
+We'll discuss what goes into that project-wide YAML in the next workshop module but for now it is only important you understand its general purpose and know that <u>it _must_ always be named `_quarto.yml`</u> for it to work as you expect.
 
