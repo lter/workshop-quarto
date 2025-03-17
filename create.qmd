@@ -29,6 +29,17 @@ So, think about a repository name that will make your URL informative without be
 
 :::
 
+:::{.callout-warning}
+### Repository Name / URL Exception
+
+There is one critical exception to the above rule for how the website URL is related to the GitHub repository's name!
+
+If you name a repository "**<span style="color:purple">owner</span>**.github.io" (so the repository link is "github.com/**<span style="color:purple">owner</span>**/**<span style="color:purple">owner</span>**.github.io") then the website's URL is simplified to be the _same as the repository name_ (i.e., "**<span style="color:purple">owner</span>**.github.io").
+
+For example, the repository [github.com/njlyon0/njlyon0.github.io](https://github.com/njlyon0/njlyon0.github.io) hosts the website [njlyon0.github.io](https://njlyon0.github.io/).
+
+:::
+
 <p align="center">
 <img src="images/new-github-2.png" alt="Screen capture of the top half of the Github page where new repositories are created" width="70%" />
 </p>
