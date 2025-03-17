@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,6 +76,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-1527c1d7d2c1f019b2219b787fd9b6e6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-2e8052333229bd993d516440aea6d705.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -205,7 +241,16 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
-  <li><a href="#tbd" id="toc-tbd" class="nav-link" data-scroll-target="#tbd">TBD</a></li>
+  <li><a href="#deployment-options" id="toc-deployment-options" class="nav-link" data-scroll-target="#deployment-options">Deployment Options</a></li>
+  <li><a href="#github-actions-ghas" id="toc-github-actions-ghas" class="nav-link" data-scroll-target="#github-actions-ghas">GitHub Actions (GHAs)</a></li>
+  <li><a href="#set-up-a-quarto-website-deployment-gha" id="toc-set-up-a-quarto-website-deployment-gha" class="nav-link" data-scroll-target="#set-up-a-quarto-website-deployment-gha">Set Up a Quarto Website Deployment GHA</a>
+  <ul class="collapse">
+  <li><a href="#make-a-gh-pages-branch" id="toc-make-a-gh-pages-branch" class="nav-link" data-scroll-target="#make-a-gh-pages-branch">1. Make a <code>gh-pages</code> Branch</a></li>
+  <li><a href="#pull-the-new-branch" id="toc-pull-the-new-branch" class="nav-link" data-scroll-target="#pull-the-new-branch">2. Pull the New Branch</a></li>
+  <li><a href="#create-the-local-part-of-a-gha" id="toc-create-the-local-part-of-a-gha" class="nav-link" data-scroll-target="#create-the-local-part-of-a-gha">3. Create the Local Part of a GHA</a></li>
+  <li><a href="#check-that-worked" id="toc-check-that-worked" class="nav-link" data-scroll-target="#check-that-worked">4. Check That Worked</a></li>
+  </ul></li>
+  <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -237,12 +282,140 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
 <p>By the end of this module, you will be able to:</p>
 <ul>
-<li><u></u></li>
+<li><u>Define</u> “deploy” in the context of Quarto websites</li>
+<li><u>Describe</u> the purpose of GitHub Actions (GHAs)</li>
+<li><u>Use</u> a GHA to deploy a Quarto website</li>
 </ul>
 </section>
-<section id="tbd" class="level2">
-<h2 class="anchored" data-anchor-id="tbd">TBD</h2>
+<section id="deployment-options" class="level2">
+<h2 class="anchored" data-anchor-id="deployment-options">Deployment Options</h2>
 <p>Under construction; check back later!</p>
+</section>
+<section id="github-actions-ghas" class="level2">
+<h2 class="anchored" data-anchor-id="github-actions-ghas">GitHub Actions (GHAs)</h2>
+<p>Under construction; check back later!</p>
+</section>
+<section id="set-up-a-quarto-website-deployment-gha" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-a-quarto-website-deployment-gha">Set Up a Quarto Website Deployment GHA</h2>
+<section id="make-a-gh-pages-branch" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-gh-pages-branch">1. Make a <code>gh-pages</code> Branch</h3>
+<p>GitHub “branches” are typically short-lived developent spaces that operate parallel to the ‘main’ branch of a repository. The main branch is either called <code>main</code> or <code>master</code> (for older repositories) and if you don’t think you are using branches, you are at least using <code>main</code>! Branches are not the focus of this workshop but if you’d like to learn more, check out <a href="https://lter.github.io/workshop-github/branches.html">the relevant module of the SciComp GitHub workshop</a>.</p>
+<p>For deploying a Quarto website though we’ll create a <code>gh-pages</code> branch that we will never have to work on directly! Once this branch exists, we’ll set up a GitHub action that renders your website into this branch and deploys from there. Doing this means you will rarely have to render your site on your machine and can instead trust the magic of GitHub Actions to transform your edits into a living website on its own.</p>
+<p>To begin, <strong>go to your repository’s home page</strong>. Once there, <strong>click the “1 Branch” button</strong>. It is in the same row of buttons as the “Code” button. Note that you can see your current branch name (likely <code>main</code>) just to the left of that button.</p>
+<p align="center">
+<img src="images/branch-01.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%">
+</p>
+<p>In the resulting page, <strong>click the “New Branch” button</strong>. As with the “Code” button, it will be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> depending on your GitHub settings.</p>
+<p align="center">
+<img src="images/branch-02.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%">
+</p>
+<p>A small pop-up window will appear with an empty text field for you to enter the name of your branch. <strong>Type <em>exactly</em> “gh-pages” and click “Create new branch”</strong>. The following steps will not work if you type something other than <code>gh-pages</code> (hyphen between “gh” and “pages). Also note that you <em>can</em> make the”gh-pages” branch in RStudio and push it up to this repository but making this branch through GitHub and pulling it to your computer is more straightforward.</p>
+<p align="center">
+<img src="images/branch-03.png" alt="Screenshot of the pop-up window where new branches are named before they are created" width="50%">
+</p>
+<p>Once you’ve done that, the pop-up window should close and you should find yourself back on the ‘branches’ page but there will now be two active branches: <code>main</code> (or <code>master</code>) and <code>gh-pages</code>!</p>
+<p align="center">
+<img src="images/branch-04.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%">
+</p>
+<p>You can now return to your repository’s landing page. You may see an <strong><span style="color:orange">orange</span></strong> circle or a check mark that is either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> next to the most recent commit message but we can safely ignore this for now.</p>
+<p align="center">
+<img src="images/branch-05.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%">
+</p>
+</section>
+<section id="pull-the-new-branch" class="level3">
+<h3 class="anchored" data-anchor-id="pull-the-new-branch">2. Pull the New Branch</h3>
+<p>Return to your local clone of this repository (i.e., the relevant RStudio project) and pull. This should change nothing but now your RStudio ‘knows’ that the repository has two branches. Note that if you instead make the new branch in RStudio you’d instead push that branch up to GitHub at this point.</p>
+</section>
+<section id="create-the-local-part-of-a-gha" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-local-part-of-a-gha">3. Create the Local Part of a GHA</h3>
+<p>Now that GitHub is properly set up, we need to define our desired GitHub Action. We do this by creating a new file locally in a particular file path then committing and pushing that file. Interestingly, the type of file that controls GHA settings is actually another YAML file!</p>
+<p>So, <u>in the <i class="fa-solid fa-terminal" aria-label="terminal"></i> Terminal pane of RStudio</u>, <strong>run the following commands to create the needed file path and the GitHub Action’s YAML file with the right name</strong>. Note there is a slight difference depending on your operating system so be sure to use the right one!</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>mkdir .github</span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>mkdir .github<span class="sc">/</span>workflows</span>
+<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>touch .github<span class="sc">/</span>workflows<span class="sc">/</span>publish.yml </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1"><code>mkdir</code> is CLI-speak for ‘make this folder’</span>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>mkdir .github</span>
+<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>mkdir .github<span class="sc">/</span>workflows</span>
+<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>copy NUL .github<span class="sc">/</span>workflows<span class="sc">/</span>publish.yml</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1"><code>mkdir</code> is CLI-speak for ‘make this folder’</span>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>One <code>publish.yml</code> exists on your computer, <strong>use the “Files” pane of RStudio to navigate to the file and open it</strong>. When you have it open, <strong>copy/paste <em>all</em> of the following into that file</strong>.</p>
+<pre><code>on:
+  workflow_dispatch:
+  push:
+    branches: main
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+<p>Once you have created this file and put the necessary stuff into it, <strong>commit the new file and push it</strong>!</p>
+</section>
+<section id="check-that-worked" class="level3">
+<h3 class="anchored" data-anchor-id="check-that-worked">4. Check That Worked</h3>
+<section id="under-construction-check-back-later" class="level4">
+<h4 class="anchored" data-anchor-id="under-construction-check-back-later">Under Construction; check back later</h4>
+</section>
+</section>
+</section>
+<section id="activity---try-it-out" class="level2">
+<h2 class="anchored" data-anchor-id="activity---try-it-out">Activity - Try it Out</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s take a break while each of you works through the above tutorial on your own computers!</p>
+<p>Once everyone has a working GitHub Action established we can move on to talking about how to add pages to the site and customize some formatting elements.</p>
+</div>
+</div>
 
 
 </section>
