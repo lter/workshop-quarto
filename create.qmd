@@ -150,7 +150,7 @@ touch _quarto.yml # <1>
 
 copy NUL _quarto.yml # <1>
 ```
-1. `touch` is CLI-speak for 'create this file'
+1. This is CLI-speak for 'create this file'
 
 :::
 
