@@ -149,6 +149,50 @@
     ]
   },
   {
+    "objectID": "add.html",
+    "href": "add.html",
+    "title": "Add a Page to the Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nCreate a new page for an existing Quarto website",
+    "crumbs": [
+      "Core Topics",
+      "Add to a Website"
+    ]
+  },
+  {
+    "objectID": "add.html#module-learning-objectives",
+    "href": "add.html#module-learning-objectives",
+    "title": "Add a Page to the Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nCreate a new page for an existing Quarto website",
+    "crumbs": [
+      "Core Topics",
+      "Add to a Website"
+    ]
+  },
+  {
+    "objectID": "add.html#create-a-new-page",
+    "href": "add.html#create-a-new-page",
+    "title": "Add a Page to the Website",
+    "section": "Create a New Page",
+    "text": "Create a New Page\n\n1. Make a .qmd File\nNow that you’ve created and deployed your website, adding content is straightforward! To add a page to your website, first you’ll create a new Quarto file (“File”  “New File”  “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and click “Create”.\nOnce the file exists, edit it as you see fit. Make commits as you would normally but do not push yet!\n\n\n\n\n\n\nFile Name to Page Name\n\n\n\nWhile the website homepage file had to be saved as index.qmd, you can save this Quarto file as whatever makes sense to you! For example:\nfile.qmd        owner.github.io/repository/file.html\n\n\n\n\n\n\n\n\nSub-Folders for Larger Websites\n\n\n\nIf you want to use sub-folders to organize your pages locally and keep the top-level of your GitHub repository nice and tidy, Quarto supports that! The URL produced from .qmd files placed in sub-folders will also include the folder name though, so be aware.\nfolder/file.qmd        owner.github.io/repository/folder/file.html\n\n\n\n\n2. Add the New Page to _quarto.yml\nFor this page to show up in your website, you need to edit _quarto.yml so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.).\nIn RStudio, uses the “Files” pane to open quarto.yml and add the new page to the relevant part of the YAML. In the example below, the new file is papers.qmd and we want it to be accessible from the navigation bar at the top of the website from the word “Publications” (see lines 20-21).\n\n\n\n\n\n\n\n\n\nWatch Out for Indentation!!\n\n\n\nWhile indentation does not affect R code, it absolutely affects YAML code! A common source of error for Quarto websites is improper indentation for a new YAML element so double check the indentation of your additions against comparable rows that you know already work.\n\n\n\n\n3. Test it Locally\nTo make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic  command line snippet.\n\nquarto preview\n\nIf something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n4. Render the Website\nOnce you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n5. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour new .qmd file\nAny changes to _quarto.yml\nAny changes to _freeze/\n\nIf there are any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!\n\n\n6. Allow the GitHub Action to Complete\nWait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
+    "crumbs": [
+      "Core Topics",
+      "Add to a Website"
+    ]
+  },
+  {
+    "objectID": "add.html#activity---try-it-out",
+    "href": "add.html#activity---try-it-out",
+    "title": "Add a Page to the Website",
+    "section": "Activity - Try it Out",
+    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you adds a new page to your website!",
+    "crumbs": [
+      "Core Topics",
+      "Add to a Website"
+    ]
+  },
+  {
     "objectID": "create.html",
     "href": "create.html",
     "title": "Creating a Website",

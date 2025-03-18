@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Background – SciComp Workshop - Creating Websites with Quarto</title>
+<title>Add a Page to the Website – SciComp Workshop - Creating Websites with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./background.html">Quarto Background</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./add.html">Add to a Website</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./background.html" class="sidebar-item-text sidebar-link active">
+  <a href="./background.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Quarto Background</span></a>
   </div>
 </li>
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./add.html" class="sidebar-item-text sidebar-link">
+  <a href="./add.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Add to a Website</span></a>
   </div>
 </li>
@@ -247,9 +247,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
-  <li><a href="#why-quarto" id="toc-why-quarto" class="nav-link" data-scroll-target="#why-quarto">Why Quarto</a></li>
-  <li><a href="#core-components-of-a-quarto-file" id="toc-core-components-of-a-quarto-file" class="nav-link" data-scroll-target="#core-components-of-a-quarto-file">Core Components of a Quarto File</a></li>
-  <li><a href="#website-yamls" id="toc-website-yamls" class="nav-link" data-scroll-target="#website-yamls">Website YAMLs</a></li>
+  <li><a href="#create-a-new-page" id="toc-create-a-new-page" class="nav-link" data-scroll-target="#create-a-new-page">Create a New Page</a>
+  <ul class="collapse">
+  <li><a href="#make-a-.qmd-file" id="toc-make-a-.qmd-file" class="nav-link" data-scroll-target="#make-a-.qmd-file">1. Make a <code>.qmd</code> File</a></li>
+  <li><a href="#add-the-new-page-to-_quarto.yml" id="toc-add-the-new-page-to-_quarto.yml" class="nav-link" data-scroll-target="#add-the-new-page-to-_quarto.yml">2. Add the New Page to <code>_quarto.yml</code></a></li>
+  <li><a href="#test-it-locally" id="toc-test-it-locally" class="nav-link" data-scroll-target="#test-it-locally">3. Test it Locally</a></li>
+  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">4. Render the Website</a></li>
+  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">5. Commit &amp; Push!</a></li>
+  <li><a href="#allow-the-github-action-to-complete" id="toc-allow-the-github-action-to-complete" class="nav-link" data-scroll-target="#allow-the-github-action-to-complete">6. Allow the GitHub Action to Complete</a></li>
+  </ul></li>
+  <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -258,9 +265,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./background.html">Quarto Background</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Core Topics</a></li><li class="breadcrumb-item"><a href="./add.html">Add to a Website</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Background</h1>
+<h1 class="title">Add a Page to the Website</h1>
 </div>
 
 
@@ -281,107 +288,144 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
 <p>By the end of this module, you will be able to:</p>
 <ul>
-<li><u>Explain</u> why Quarto is useful in this context</li>
-<li><u>Define</u> the three critical parts of a Quarto file</li>
-<li><u>Describe</u> why some Quarto projects use a single YAML file across multiple Quarto documents</li>
+<li><u>Create</u> a new page for an existing Quarto website</li>
 </ul>
 </section>
-<section id="why-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="why-quarto">Why Quarto</h2>
-<p>Quarto is new software developed by Posit–the company that maintains RStudio. Quarto is extremely versatile and supports several progamming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of ‘bells and whistles’ that makes it worthwhile to embrace.</p>
-<p>This workshop uses Quarto for the following reasons:</p>
-<ul>
-<li>The learning curve for novice coders is relatively gentle
-<ul>
-<li>Much R knowledge and intuition is directly transferable!</li>
-</ul></li>
-<li>Making a (simple) website is straightforward</li>
-<li>Quarto can be used in a variety of applications
-<ul>
-<li>So learning it here will give you tools you can apply elsewhere!</li>
-</ul></li>
-</ul>
-<p>If you’re broadly curious about Quarto, check out their website, <a href="https://quarto.org/">quarto.org</a>.</p>
+<section id="create-a-new-page" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-new-page">Create a New Page</h2>
+<section id="make-a-.qmd-file" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-.qmd-file">1. Make a <code>.qmd</code> File</h3>
+<p>Now that you’ve created and deployed your website, adding content is straightforward! To add a page to your website, first <strong>you’ll create a new Quarto file</strong> (“File” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “New File” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and <strong>click “Create”</strong>.</p>
+<p>Once the file exists, edit it as you see fit. <strong>Make commits as you would normally but <em>do not</em> push yet!</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+File Name to Page Name
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While the website homepage file <em>had</em> to be saved as <code>index.qmd</code>, <strong>you can save this Quarto file as whatever makes sense to you!</strong> For example:</p>
+<p><strong><span style="color:green">file</span>.qmd</strong> &nbsp;&nbsp; <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> &nbsp;&nbsp; owner.github.io/repository/<strong><span style="color:green">file</span>.html</strong></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sub-Folders for Larger Websites
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to use sub-folders to organize your pages locally and keep the top-level of your GitHub repository nice and tidy, Quarto supports that! The URL produced from <code>.qmd</code> files placed in sub-folders will also include the folder name though, so be aware.</p>
+<p><strong><span style="color:blue">folder</span></strong>/<strong><span style="color:green">file</span>.qmd</strong> &nbsp;&nbsp; <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> &nbsp;&nbsp; owner.github.io/repository/<strong><span style="color:blue">folder</span></strong>/<strong><span style="color:green">file</span>.html</strong></p>
+</div>
+</div>
 </section>
-<section id="core-components-of-a-quarto-file" class="level2">
-<h2 class="anchored" data-anchor-id="core-components-of-a-quarto-file">Core Components of a Quarto File</h2>
-<p>Quarto documents are a type of “computational notebook” like RMarkdown files and–for python coders–Jypter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!</p>
-<p>Notebook files contain three fundamental components that allow them to be “rendered” (sometimes also called “knit”) to produce a new static report file. This is often a PDF or an HTML file though for website purposes we’ll be using the HTML version so that each notebook file can become a page in your website.</p>
-<p>Typically, these notebooks have three structural components:</p>
+<section id="add-the-new-page-to-_quarto.yml" class="level3">
+<h3 class="anchored" data-anchor-id="add-the-new-page-to-_quarto.yml">2. Add the New Page to <code>_quarto.yml</code></h3>
+<p>For this page to show up in your website, you need to edit <code>_quarto.yml</code> so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.).</p>
+<p>In RStudio, uses the “Files” pane to <strong>open <code>quarto.yml</code> and add the new page to the relevant part of the YAML</strong>. In the example below, the new file is <code>papers.qmd</code> and we want it to be accessible from the navigation bar at the top of the website from the word “Publications” (see lines 20-21).</p>
+<p align="center">
+<img src="images/new-page-yaml-edits-01.png" alt="Screenshot of the YAML from a Quarto website where a new page has been linked from the navbar" width="100%">
+</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Watch Out for Indentation!!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While indentation does not affect R code, it <u><em>absolutely</em> affects YAML code</u>! A common source of error for Quarto websites is improper indentation for a new YAML element so double check the indentation of your additions against comparable rows that you know already work.</p>
+</div>
+</div>
+</section>
+<section id="test-it-locally" class="level3">
+<h3 class="anchored" data-anchor-id="test-it-locally">3. Test it Locally</h3>
+<p>To make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remember to End the Preview!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The preview will keep going until you manually stop it</strong> so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.</p>
+</div>
+</div>
+</section>
+<section id="render-the-website" class="level3">
+<h3 class="anchored" data-anchor-id="render-the-website">4. Render the Website</h3>
+<p>Once you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="commit-push" class="level3">
+<h3 class="anchored" data-anchor-id="commit-push">5. Commit &amp; Push!</h3>
+<p>Once you’ve done the preceding steps, <strong>Commit the following things: </strong></p>
 <ol type="1">
-<li>YAML
+<li>Your new <code>.qmd</code> file</li>
+<li>Any changes to <code>_quarto.yml</code></li>
+<li>Any changes to <code>_freeze/</code>
 <ul>
-<li>Pronounced [ <em>YEAH-mull</em> ]</li>
-</ul></li>
-<li>Embedded code chunks</li>
-<li>Plain text
-<ul>
-<li>Possibly formatted with Markdown syntax</li>
+<li>If there are any</li>
 </ul></li>
 </ol>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">YAML</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Plain Text</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>The YAML (<u>Y</u>et <u>A</u>nother <u>M</u>arkup <u>L</u>anguage) defines document-level metadata. Most fundamentally, the YAML defines what file type will be produced when the report is rendered. It can also be used to define the top-level title, author, and date information. Finally, it can change the default options for code chunks throughout the document (more on code chunk options elsewhere).</p>
-<p>Different notebook file types will specify the YAML differently but in both Quarto documents and R Markdown files, the YAML is defined in the first few lines of the report and starts/ends with a line containing three hyphens. This looks something like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"Reproducible Reports"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">output:</span> html_document</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Among other roles, the YAML defines what type of output file is produced when the notebook is “rendered” (a.k.a. “knit”). Most commonly this is either a single PDF or HTML file but more complex YAMLs can be used to create full websites or scientific manuscripts!</p>
+<p><strong>After you’ve committed these, push them up to the GitHub repository!</strong></p>
+</section>
+<section id="allow-the-github-action-to-complete" class="level3">
+<h3 class="anchored" data-anchor-id="allow-the-github-action-to-complete">6. Allow the GitHub Action to Complete</h3>
+<p>Wait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>The text outside of the YAML and code chunks is plain text that accepts Markdown syntax to accomplish text format tweaks. Dedicated text-formatting software (e.g., Microsoft Word, Gmail, etc.) provides buttons and hot keys for these sorts of format alterations but many programming IDEs do not provide such user interface elements.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Markdown syntax is used to support this same functionality.</p>
-<p>Some fundamental Markdown options include:</p>
-<ul>
-<li>**bold text** <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <strong>bold text</strong></li>
-<li>_italic text_ <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <em>italic text</em></li>
-<li>`code text` <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <code>code text</code></li>
-<li>[hyperlinked text](https://lter.github.io/ssecr/mod_reports.html) <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <a href="https://lter.github.io/ssecr/mod_reports.html">hyperlinked text</a></li>
-</ul>
-<p>For a more complete glossary of fundamental Markdown syntax options see <a href="https://www.markdownguide.org/basic-syntax/">here</a>. You may also want to explore <a href="https://github.com/lter/workshop-quarto">the ‘back end’ of this workshop’s website</a> as <em>every</em> page is built using Quarto documents.</p>
-<p>The code chunks embedded in notebooks are essentially a fragmented script containing runable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you’ll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.</p>
-<p>In Quarto documents, code chunks look like this<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
-<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\`</span><span class="kw">``</span>{r demo-chunk}</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Round pi to 2 digits</span></span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">round</span><span class="er">(</span><span class="ex">x</span> = pi, digits = 2<span class="kw">)</span></span>
-<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">\`</span><span class="kw">``</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="1">You may specify chunk-specific options using this syntax (i.e., <code>#| option_name: option_setting</code>). Options you want to apply to <em>all</em> chunks across a notebook should be specified once in the YAML and can exclude the leading <code>#|</code> bit of the format.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="2">If your Markdown text provides sufficient context you may exclude comments in code chunks but opinions differ on which is “more” appropriate</span>
-</dd>
-</dl>
-<pre><code># Round pi to 2 digits
-round(x = pi, digits = 2)</code></pre>
+<div class="callout-title-container flex-fill">
+Site Not Updating? Refresh the Page!
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.</p>
 </div>
 </div>
 </section>
-<section id="website-yamls" class="level2">
-<h2 class="anchored" data-anchor-id="website-yamls">Website YAMLs</h2>
-<p>When working in a single Quarto document, that document needs its own YAML so that Quarto ‘knows’ how to render it (and into what!). However, for multi-document projects like websites, this would be intensely cumbersome because every page would need extensive YAML information so that each document showed up where you expected it and all formatting was consistent across documents.</p>
-<p>To solve this problem Quarto uses a single YAML file for these larger projects that controls project-wide (i.e., across-document) formatting and structure. You can still use the YAML section within a single document if you want it to behave <em>differently</em> from other pages but any formatting you want to apply across all pages should be specified in this cross-document YAML.</p>
-<p>We’ll discuss what goes into that project-wide YAML in the next workshop module but for now it is only important you understand its general purpose and know that <u>it <em>must</em> always be named <code>_quarto.yml</code></u> for it to work as you expect.</p>
+</section>
+<section id="activity---try-it-out" class="level2">
+<h2 class="anchored" data-anchor-id="activity---try-it-out">Activity - Try it Out</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s take a break while each of you adds a new page to your website!</p>
+</div>
+</div>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Note that with the addition of the “Visual” tab in RStudio there are button options for many text format changes. Markdown syntax is still useful to know for general knowledge reasons though! #### Code Chunks<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Normally code chunks start and end with three backticks (```) but to embed this code chunk example we need to “escape” the first backtick (using a backslash) so that the notebook interprets it correctly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
