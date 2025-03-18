@@ -14,7 +14,7 @@ By the end of this module, you will be able to:
 
 Technically, when we render a Quarto project we are asking Quarto to convert the `.qmd` file into `.html` and apply a CSS (<u>C</u>ascading <u>S</u>tyle <u>S</u>heets) stylesheet. This is why your deployed website up to this point has had a blue navbar, a white background, and black text (to name a few theme elements governed by the implied CSS stylesheet).
 
-Quarto supports us making our own, customized stylesheets with [SCSS](https://sass-lang.com/) (<u>S</u>assy CSS; pronounced "sass") to tailor the look and feel of our website to exactly our personal preference. These files are written in a combination of CSS and SCSS so the syntax might look a little alien to you but this workshop will try to provide a useful level of practical detail for you to engage with these stylesheets even if this is your first foray into that world.
+Quarto supports us making our own, customized stylesheets with [Sass](https://sass-lang.com/) (<u>S</u>yntactically <u>A</u>wesome <u>S</u>tyle<u>s</u>heet) to tailor the look and feel of our website to exactly our personal preference. The relevant file type is `.scss` (<u>S</u>assy CSS; still pronounced "sass"). These files can be written in a combination of CSS and Sass so the syntax might look a little alien to you but this workshop will try to provide a useful level of practical detail for you to engage with these stylesheets even if this is your first foray into that world.
 
 :::{.callout-note}
 #### R Versus SCSS Comparison
@@ -34,27 +34,138 @@ $object: value;
 ```
 :::
 
-## Create SCSS Stylesheets
+## Customize with Sass Stylesheets
 
-### Create the Files
+### 1. Create the Files
 
+While RStudio supports creating CSS files through the graphical user interface, we'll need to use the {{< fa terminal >}} command line to create the `.scss` stylesheets that Quarto most readily accepts. We can do this by running the following {{< fa terminal >}} command line snippet.
 
-### Choose Colors
+:::{.panel-tabset}
+#### {{< fa brands apple >}} Mac / {{< fa brands linux >}} Linux
 
+```{r scss_mac}
+#| eval: false
 
+touch theme_light.scss
+touch theme_dark.scss
+```
 
-### Choose a Font
+#### {{< fa brands windows >}} Windows
 
+```{r scss_win}
+#| eval: false
 
+copy NUL theme_light.scss
+copy NUL theme_dark.scss
+```
 
-## Integrate into Website
+:::
 
-### 1. Add the Stylesheets to `_quarto.yml`
+We recommend naming the two files like this so that when RStudio and GitHub sort your files, the two theme files will be sorted next to one another.
 
+### 2. Add Template Content
 
+From the RStudio "Files" pane, **find and open both new `.scss` files**. We can then edit them in RStudio. **To start, copy/paste the below code chunk into _both_ files**. This will make light and dark mode look identical but it'll make it easier to change one of them once you're happy with the other. Copy/pasting also helps make sure the formatting is right in both files.
 
+```{r customize-scss}
+#| eval: false
 
-### 2. Test it Locally
+/*-- scss:defaults --*/
+
+// Colors
+/* Found on https://coolors.co/palettes/trending */
+$org-1: #ff9f1c;
+$org-2: #ffbf69;
+$mint-1: #2ec4b6;
+$mint-2: #cbf3f0;
+$url-blue: #4361ee;
+
+/* generally useful other colors */
+$cream: #F4F3EE;
+$charcoal: #191919;
+$gray-1: #8A817C;
+$gray-2: #BCB8B1;
+$gray-3: #d6d6d6;
+
+// Fonts
+$font-size: 25px;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+// Base document colors
+$navbar-bg: $org-1; // navbar
+$navbar-fg: $charcoal; // navbar foreground elements
+$navbar-hl: $org-2; // highlight color when hovering on a page
+$sidebar-bg: $org-2; // sidebar
+$sidebar-fg: $charcoal; // sidebar foreground elements
+$body-bg: $cream; // page background
+$body-color: $charcoal; // page text
+$footer-bg: $mint-1; // footer
+$footer-fg: $charcoal; // footer text
+$link-color: $url-blue; // hyperlinks
+
+// Code text
+$code-bg: $gray-2; // inline code background color
+$code-color: $charcoal; // inline code text color
+$code-block-bg: $gray-2; // code block background color
+
+/*-- scss:rules --*/
+
+// Underline URLs
+.reveal .slide a { text-decoration: underline; }
+
+// Improve background contrast for code chunk ouput
+pre code:not(.sourceCode) { background-color: $gray-2; }
+```
+
+### 3. Integrate into the Website
+
+To get your website to use these `.scss` files, we'll need to make some minor edits to the website's YAML. **Open `_quarto.yml` in RStudio and add the following lines**.
+
+:::{.callout-warning}
+#### Paste in the Right Place!
+
+Note that the below code chunk includes a `html:` element but your existing `_quarto.yml` will already have that element! That bit is included below so you know _where_ to copy/paste the new lines into your existing YAML.
+
+If you're using a mostly unmodified `_quarto.yml`, this will be about 4 lines up from the very bottom.
+:::
+
+```{r yaml-scss}
+#| eval: false
+
+  html:
+    theme:
+      light: theme_light.scss
+      dark: theme_dark.scss
+    mainfont: Open Sans
+```
+
+**Double check that your indenting is right after you copy/paste those lines!** `theme:` and `mainfont` should both be one indent more than `html:` while `light:` and `dark:` should have an additional indent beyond `theme:`.
+
+### 4. Customize Stylesheet Contents
+
+The Sass code you copy/pasted into your new `.scss` files is functional and inoffensive but likely does not reflect your personal aesthetic sensibilities. So, take some time to find some colors that you prefer. This is also a great time to make your dark mode actually a dark mode (currently it has the same content as the light mode `.scss` file).
+
+#### Customizing Colors
+
+First, I'd recommend visiting [coolors.co](https://coolors.co/palettes/popular) and looking at their trending color palettes for one that feels like your vibe. To incorporate that in your site **you'll need to copy the hexadecimal code (6-digit color code) and add it to the relevant `.scss` file**.
+
+Typically the simplest way to do this is to **assign each color to a variable name**, just like the default colors you copy/pasted in earlier (e.g., `$cream: #F4F3EE;`). Be sure that each line starts with a `$` and ends with a `;`.
+
+Once you've assigned variable names to your new color(s), **update the existing fields in the lower half of the `.scss` file** with those variable names. Consult the comments for some explanation of what those variable names are called. Remember too that each variable name needs to start with `$` when you invoke it (so that Sass knows you're talking about an existing variable). 
+
+#### Customizing Fonts
+
+To find new possible fonts, check out Google Fonts ([fonts.google.com](https://fonts.google.com/)) and search around for one that seems like a good fit for your personal style. When you have identified a font that you like, follow these instructions:
+
+1. Click on the font to go to its homepage
+2. Click the **<span style="color:blue"/>blue</span>** "Get font" button in the top right corner of the page
+3. Click the **<span style="color:blue"/>blue</span>** "{{< fa code >}} Get embed code" button
+4. Click the `@import` radiobutton in the top of the resulting sidebar
+5. In the first code chunk, copy everything between the two `<style>` HTML tags
+6. In your `.scss` files, paste the copied text somewhere near the font that is already there to begin with
+7. Finally, update the `mainfont:` element of `_quarto.yml` with the new font name
+
+### 5. Test it Locally
 
 This step can be especially critical when fiddling with (that's the technical term) colors for your website. Use the preview extensively to be sure you're happy with your chosen color palette. We can start a preview session with an operating system-agnostic {{< fa terminal >}} command line snippet.
 
@@ -71,7 +182,7 @@ quarto preview
 
 :::
 
-### 3. Render the Website
+### 6. Render the Website
 
 Once you're happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
 
@@ -81,7 +192,7 @@ Once you're happy with the preview, completely render the website to make sure a
 quarto render
 ```
 
-### 4. Commit & Push!
+### 7. Commit & Push!
 
 Once you've done the preceding steps, **Commit the following things: **
 
@@ -92,7 +203,7 @@ Once you've done the preceding steps, **Commit the following things: **
 
 After you've committed these, **push them up to the GitHub repository!**
 
-### 5. Allow the GitHub Action to Complete
+### 8. Allow the GitHub Action to Complete
 
 As with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!
 
