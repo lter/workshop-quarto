@@ -12,14 +12,27 @@ By the end of this module, you will be able to:
 
 ## SCSS Background
 
+Technically, when we render a Quarto project we are asking Quarto to convert the `.qmd` file into `.html` and apply a CSS (<u>C</u>ascading <u>S</u>tyle <u>S</u>heets) stylesheet. This is why your deployed website up to this point has had a blue navbar, a white background, and black text (to name a few theme elements governed by the implied CSS stylesheet).
 
+Quarto supports us making our own, customized stylesheets with [SCSS](https://sass-lang.com/) (<u>S</u>assy CSS; pronounced "sass") to tailor the look and feel of our website to exactly our personal preference. These files are written in a combination of CSS and SCSS so the syntax might look a little alien to you but this workshop will try to provide a useful level of practical detail for you to engage with these stylesheets even if this is your first foray into that world.
 
+:::{.callout-note}
+#### R Versus SCSS Comparison
 
-Under construction; check back later!
+If you're an R coder, it might be helpful to compare how R assigns values to objects versus how SCSS binds values to variables as well as how to write a comment (i.e., a non-coding line).
 
+{{< fa brands r-project >}} R code
+```
+# Comment
+object <- value
+```
 
-
-
+{{< fa brands sass >}} Sass code
+```
+// Comment
+$object: value;
+```
+:::
 
 ## Create SCSS Stylesheets
 
