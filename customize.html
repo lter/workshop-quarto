@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,6 +76,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-537f1fc6b58adcf79f9daaedc5f9cda7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-ecb28a28e63e15350669b7ffdf75c736.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -211,7 +247,23 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
-  <li><a href="#tbd" id="toc-tbd" class="nav-link" data-scroll-target="#tbd">TBD</a></li>
+  <li><a href="#scss-background" id="toc-scss-background" class="nav-link" data-scroll-target="#scss-background">SCSS Background</a></li>
+  <li><a href="#create-scss-stylesheets" id="toc-create-scss-stylesheets" class="nav-link" data-scroll-target="#create-scss-stylesheets">Create SCSS Stylesheets</a>
+  <ul class="collapse">
+  <li><a href="#create-the-files" id="toc-create-the-files" class="nav-link" data-scroll-target="#create-the-files">Create the Files</a></li>
+  <li><a href="#choose-colors" id="toc-choose-colors" class="nav-link" data-scroll-target="#choose-colors">Choose Colors</a></li>
+  <li><a href="#choose-a-font" id="toc-choose-a-font" class="nav-link" data-scroll-target="#choose-a-font">Choose a Font</a></li>
+  </ul></li>
+  <li><a href="#integrate-into-website" id="toc-integrate-into-website" class="nav-link" data-scroll-target="#integrate-into-website">Integrate into Website</a>
+  <ul class="collapse">
+  <li><a href="#add-the-stylesheets-to-_quarto.yml" id="toc-add-the-stylesheets-to-_quarto.yml" class="nav-link" data-scroll-target="#add-the-stylesheets-to-_quarto.yml">1. Add the Stylesheets to <code>_quarto.yml</code></a></li>
+  <li><a href="#test-it-locally" id="toc-test-it-locally" class="nav-link" data-scroll-target="#test-it-locally">2. Test it Locally</a></li>
+  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">3. Render the Website</a></li>
+  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">4. Commit &amp; Push!</a></li>
+  <li><a href="#allow-the-github-action-to-complete" id="toc-allow-the-github-action-to-complete" class="nav-link" data-scroll-target="#allow-the-github-action-to-complete">5. Allow the GitHub Action to Complete</a></li>
+  </ul></li>
+  <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -243,12 +295,114 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
 <p>By the end of this module, you will be able to:</p>
 <ul>
-<li><u></u></li>
+<li><u>Identify</u> components of SCSS stylesheets</li>
+<li><u>Describe</u> key code syntax differences between SCSS and R code</li>
+<li><u>Use</u> SCSS stylesheets to customize a deployed Quarto website</li>
 </ul>
 </section>
-<section id="tbd" class="level2">
-<h2 class="anchored" data-anchor-id="tbd">TBD</h2>
+<section id="scss-background" class="level2">
+<h2 class="anchored" data-anchor-id="scss-background">SCSS Background</h2>
 <p>Under construction; check back later!</p>
+</section>
+<section id="create-scss-stylesheets" class="level2">
+<h2 class="anchored" data-anchor-id="create-scss-stylesheets">Create SCSS Stylesheets</h2>
+<section id="create-the-files" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-files">Create the Files</h3>
+</section>
+<section id="choose-colors" class="level3">
+<h3 class="anchored" data-anchor-id="choose-colors">Choose Colors</h3>
+</section>
+<section id="choose-a-font" class="level3">
+<h3 class="anchored" data-anchor-id="choose-a-font">Choose a Font</h3>
+</section>
+</section>
+<section id="integrate-into-website" class="level2">
+<h2 class="anchored" data-anchor-id="integrate-into-website">Integrate into Website</h2>
+<section id="add-the-stylesheets-to-_quarto.yml" class="level3">
+<h3 class="anchored" data-anchor-id="add-the-stylesheets-to-_quarto.yml">1. Add the Stylesheets to <code>_quarto.yml</code></h3>
+</section>
+<section id="test-it-locally" class="level3">
+<h3 class="anchored" data-anchor-id="test-it-locally">2. Test it Locally</h3>
+<p>This step can be especially critical when fiddling with (that’s the technical term) colors for your website. Use the preview extensively to be sure you’re happy with your chosen color palette. We can start a preview session with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remember to End the Preview!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The preview will keep going until you manually stop it</strong> so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.</p>
+</div>
+</div>
+</section>
+<section id="render-the-website" class="level3">
+<h3 class="anchored" data-anchor-id="render-the-website">3. Render the Website</h3>
+<p>Once you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="commit-push" class="level3">
+<h3 class="anchored" data-anchor-id="commit-push">4. Commit &amp; Push!</h3>
+<p>Once you’ve done the preceding steps, <strong>Commit the following things: </strong></p>
+<ol type="1">
+<li>Your new <code>.scss</code> files</li>
+<li>Any changes to <code>_quarto.yml</code></li>
+<li>Any changes to <code>_freeze/</code>
+<ul>
+<li>If there are any</li>
+</ul></li>
+</ol>
+<p>After you’ve committed these, <strong>push them up to the GitHub repository!</strong></p>
+</section>
+<section id="allow-the-github-action-to-complete" class="level3">
+<h3 class="anchored" data-anchor-id="allow-the-github-action-to-complete">5. Allow the GitHub Action to Complete</h3>
+<p>As with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Site Not Updating? Refresh the Page!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="activity---try-it-out" class="level2">
+<h2 class="anchored" data-anchor-id="activity---try-it-out">Activity - Try it Out</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s take a break while each of you fleshes out your custom stylesheets!</p>
+</div>
+</div>
+</section>
+<section id="additional-information" class="level2">
+<h2 class="anchored" data-anchor-id="additional-information">Additional Information</h2>
+<ul>
+<li>UCSB Master of Environmental Data Science (MEDS) “<a href="https://ucsb-meds.github.io/EDS-296-DS-portfolios/course-materials/week2-customizing-websites.html">Customizing Quarto Websites</a>” lesson
+<ul>
+<li><a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide">Lecture slides</a> for that lesson</li>
+</ul></li>
+</ul>
 
 
 </section>

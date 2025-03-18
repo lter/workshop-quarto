@@ -54,7 +54,7 @@
     "href": "customize.html",
     "title": "Customizing a Website",
     "section": "",
-    "text": "By the end of this module, you will be able to:",
+    "text": "By the end of this module, you will be able to:\n\nIdentify components of SCSS stylesheets\nDescribe key code syntax differences between SCSS and R code\nUse SCSS stylesheets to customize a deployed Quarto website",
     "crumbs": [
       "Advanced Topics",
       "Customize a Website"
@@ -65,18 +65,62 @@
     "href": "customize.html#module-learning-objectives",
     "title": "Customizing a Website",
     "section": "",
-    "text": "By the end of this module, you will be able to:",
+    "text": "By the end of this module, you will be able to:\n\nIdentify components of SCSS stylesheets\nDescribe key code syntax differences between SCSS and R code\nUse SCSS stylesheets to customize a deployed Quarto website",
     "crumbs": [
       "Advanced Topics",
       "Customize a Website"
     ]
   },
   {
-    "objectID": "customize.html#tbd",
-    "href": "customize.html#tbd",
+    "objectID": "customize.html#scss-background",
+    "href": "customize.html#scss-background",
     "title": "Customizing a Website",
-    "section": "TBD",
-    "text": "TBD\nUnder construction; check back later!",
+    "section": "SCSS Background",
+    "text": "SCSS Background\nUnder construction; check back later!",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#create-scss-stylesheets",
+    "href": "customize.html#create-scss-stylesheets",
+    "title": "Customizing a Website",
+    "section": "Create SCSS Stylesheets",
+    "text": "Create SCSS Stylesheets\n\nCreate the Files\n\n\nChoose Colors\n\n\nChoose a Font",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#integrate-into-website",
+    "href": "customize.html#integrate-into-website",
+    "title": "Customizing a Website",
+    "section": "Integrate into Website",
+    "text": "Integrate into Website\n\n1. Add the Stylesheets to _quarto.yml\n\n\n2. Test it Locally\nThis step can be especially critical when fiddling with (that’s the technical term) colors for your website. Use the preview extensively to be sure you’re happy with your chosen color palette. We can start a preview session with an operating system-agnostic  command line snippet.\n\nquarto preview\n\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n3. Render the Website\nOnce you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n4. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour new .scss files\nAny changes to _quarto.yml\nAny changes to _freeze/\n\nIf there are any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!\n\n\n5. Allow the GitHub Action to Complete\nAs with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#activity---try-it-out",
+    "href": "customize.html#activity---try-it-out",
+    "title": "Customizing a Website",
+    "section": "Activity - Try it Out",
+    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you fleshes out your custom stylesheets!",
+    "crumbs": [
+      "Advanced Topics",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#additional-information",
+    "href": "customize.html#additional-information",
+    "title": "Customizing a Website",
+    "section": "Additional Information",
+    "text": "Additional Information\n\nUCSB Master of Environmental Data Science (MEDS) “Customizing Quarto Websites” lesson\n\nLecture slides for that lesson",
     "crumbs": [
       "Advanced Topics",
       "Customize a Website"
