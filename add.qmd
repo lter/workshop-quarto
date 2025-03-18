@@ -2,57 +2,171 @@
 title: "Add a Page to the Website"
 ---
 
+## Module Learning Objectives
+
+By the end of this module, you will be able to:
+
+- <u>Create</u> a new page for an existing Quarto website
+
+## Create a New Page
+
+### 1. Make a `.qmd` File
+
+Now that you've created and deployed your website, adding content is straightforward! To add a page to your website, first **you'll create a new Quarto file** ("File" {{< fa arrow-right >}} "New File" {{< fa arrow-right >}} "Quarto Document..."). In the resulting pop-up menu you can leave everything at its default position and **click "Create"**.
+
+Once the file exists, edit it as you see fit. **Make commits as you would normally but _do not_ push yet!**
+
+:::{.callout-note}
+#### File Name to Page Name
+
+While the website homepage file _had_ to be saved as `index.qmd`, **you can save this Quarto file as whatever makes sense to you!** For example:
+
+**<span style="color:green">file</span>****.qmd**  &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; owner.github.io/repository/**<span style="color:green">file</span>****.html**
+
+:::
+
+:::{.callout-note}
+#### Sub-Folders for Larger Websites
+
+If you want to use sub-folders to organize your pages locally and keep the top-level of your GitHub repository nice and tidy, Quarto supports that! The URL produced from `.qmd` files placed in sub-folders will also include the folder name though, so be aware.
+
+**<span style="color:blue">folder</span>**/**<span style="color:green">file</span>****.qmd**  &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; owner.github.io/repository/**<span style="color:blue">folder</span>**/**<span style="color:green">file</span>****.html**
+
+:::
+
+### 2. Add the New Page to `_quarto.yml`
+
+For this page to show up in your website, you need to edit `_quarto.yml` so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.).
+
+In RStudio, uses the "Files" pane to **open `quarto.yml` and add the new page to the relevant part of the YAML**. In the example below, the new file is `papers.qmd` and we want it to be accessible from the navigation bar at the top of the website from the word "Publications" (see lines 20-21).
+
+<p align="center"/>
+<img src="images/new-page-yaml-edits-01.png" alt="Screenshot of the YAML from a Quarto website where a new page has been linked from the navbar" width="100%"/>
+</p>
+
+:::{.callout-warning}
+#### Watch Out for Indentation!!
+
+While indentation does not affect R code, it <u>_absolutely_ affects YAML code</u>! A common source of error for Quarto websites is improper indentation for a new YAML element so double check the indentation of your additions against comparable rows that you know already work.
+
+:::
+
+### 3. Test it Locally
+
+To make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic {{< fa terminal >}} command line snippet.
+
+```{r preview-site}
+#| eval: false
+
+quarto preview
+```
+
+If something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.
+
+:::{.callout-warning}
+#### Remember to End the Preview!
+
+**The preview will keep going until you manually stop it** so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you're ready to move on.
+
+:::
+
+### 4. Render the Website
+
+Once you're happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
+
+```{r render-site}
+#| eval: false
+
+quarto render
+```
+
+### 5. Commit & Push!
+
+Once you've done the preceding steps, **Commit the following things: **
+
+1. Your new `.qmd` file
+2. Any changes to `_quarto.yml`
+3. Any changes to `_freeze/` 
+    - If there are any
+
+**After you've committed these, push them up to the GitHub repository!**
+
+### 6. Allow the GitHub Action to Complete
+
+Wait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the "Actions" tab of the GitHub repository.
+
+:::{.callout-warning}
+#### Site Not Updating? Refresh the Page!
+
+If your site is not updating but you've followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.
+
+:::
+
+## Activity - Try it Out
+
+:::{.callout-note}
+### Your Turn!
+
+Let's take a break while each of you adds a new page to your website!
+
+:::
+
+
+# Basement
+
+**Save that file as `index.qmd`**. Technically it doesn't matter where in your project folder it lives but typically you'd leave it in the top level folder (i.e., not in a sub-folder).
+
 
 Now that you have a live website you can build whatever you'd like! Given the wide range of possibility, we'll only cover how to add a new page but the same process applies to any edit to the living webpage.
 
 To add a new page **create a new Quarto document.** You can do this by going to the "File" menu, entering the "New File" options, and selecting "Quarto Document..."
 
 <p align="center">
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-1.png" width = "60%" />
+<img src="images/website-tutorial_new-content-1.png" width = "60%" />
 </p>
 
 Similarly to an R markdown file, this will open a new window that lets you enter a title and author as well as decide what format you want to render files to along with some other settings options. **You only need to click the "Create" button** in the bottom right of this dialogue (though you can definitely play with the other options and text boxes as you desire).
 
 <p align="center">
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-2.png" width = "75%" />
+<img src="images/website-tutorial_new-content-2.png" width = "75%" />
 </p>
 
 After a moment, a new .qmd file will open in Quarto's visual editor. **For the purposes of this tutorial, you only need to add a `title` in the top of the file** but for a real website you can add whatever content sparks joy for you!
 
 <p align="center">
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-3.png" width = "75%" />
+<img src="images/website-tutorial_new-content-3.png" width = "75%" />
 </p>
 
 **Save that file into your project folder.** Its name can be anything but be sure that you remember what you name it!
 
 <p align="center">
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-4.png" width = "60%" />
+<img src="images/website-tutorial_new-content-4.png" width = "60%" />
 </p>
 
 **Add the name of the new Quarto document to the .yml file** in the website navbar area (in this example the file is called "more-stuff.qmd").
 
 <p align="center">
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-5.png" width = "75%" />
+<img src="images/website-tutorial_new-content-5.png" width = "75%" />
 </p>
 
 Once you've added the file to the fundamental architecture of your website, you need to tell Quarto to re-build the part of the website that GitHub looks for when it deploys. To do this **run `quarto render` in the Terminal.**
 
 If you want to *preview* your changes, run `quarto preview` in the Terminal and a new browser window will be displayed showing your current website content. This preview continues until you click the **<span style="color:red">red</span>** stop sign icon in RStudio so be sure to end it when you're done with the preview!
 
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-6.png" width = "100%" />
+<img src="images/website-tutorial_new-content-6.png" width = "100%" />
 
 Regardless, once you've run either `quarto render` or `quarto preview` **you need to stage and commit all changed files indicated in the Git pane of RStudio**. As a reminder, to stage files you check the box next to them, to commit staged files, type an informative message and press the "Commit" button in the right side of the window.
 
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-7.png" width = "100%" />
+<img src="images/website-tutorial_new-content-7.png" width = "100%" />
 
 Switch back to GitHub and you'll see an **<span style="color:orange">amber</span>** dot next to the commit hash just beneath and to the left of the **<span style="color:green">green</span>** "Code" button.
 
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-8.png" width = "100%" />
+<img src="images/website-tutorial_new-content-8.png" width = "100%" />
 
 When the **<span style="color:orange">amber</span>** dot turns into a **<span style="color:green">green</span>** check mark that means that your edits to your website are now included in the live version of your site!
 
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-9.png" width = "100%" />
+<img src="images/website-tutorial_new-content-9.png" width = "100%" />
 
 When you visit your website you may need to refresh the page for your edits to appear but all new visitors will see the updated content when they load the page.
 
-<img src="images/tutorial_quarto-website/website-tutorial_new-content-10.png" width = "100%" />
+<img src="images/website-tutorial_new-content-10.png" width = "100%" />
