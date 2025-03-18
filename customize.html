@@ -248,19 +248,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
   <li><a href="#scss-background" id="toc-scss-background" class="nav-link" data-scroll-target="#scss-background">SCSS Background</a></li>
-  <li><a href="#create-scss-stylesheets" id="toc-create-scss-stylesheets" class="nav-link" data-scroll-target="#create-scss-stylesheets">Create SCSS Stylesheets</a>
+  <li><a href="#customize-with-sass-stylesheets" id="toc-customize-with-sass-stylesheets" class="nav-link" data-scroll-target="#customize-with-sass-stylesheets">Customize with Sass Stylesheets</a>
   <ul class="collapse">
-  <li><a href="#create-the-files" id="toc-create-the-files" class="nav-link" data-scroll-target="#create-the-files">Create the Files</a></li>
-  <li><a href="#choose-colors" id="toc-choose-colors" class="nav-link" data-scroll-target="#choose-colors">Choose Colors</a></li>
-  <li><a href="#choose-a-font" id="toc-choose-a-font" class="nav-link" data-scroll-target="#choose-a-font">Choose a Font</a></li>
-  </ul></li>
-  <li><a href="#integrate-into-website" id="toc-integrate-into-website" class="nav-link" data-scroll-target="#integrate-into-website">Integrate into Website</a>
-  <ul class="collapse">
-  <li><a href="#add-the-stylesheets-to-_quarto.yml" id="toc-add-the-stylesheets-to-_quarto.yml" class="nav-link" data-scroll-target="#add-the-stylesheets-to-_quarto.yml">1. Add the Stylesheets to <code>_quarto.yml</code></a></li>
-  <li><a href="#test-it-locally" id="toc-test-it-locally" class="nav-link" data-scroll-target="#test-it-locally">2. Test it Locally</a></li>
-  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">3. Render the Website</a></li>
-  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">4. Commit &amp; Push!</a></li>
-  <li><a href="#allow-the-github-action-to-complete" id="toc-allow-the-github-action-to-complete" class="nav-link" data-scroll-target="#allow-the-github-action-to-complete">5. Allow the GitHub Action to Complete</a></li>
+  <li><a href="#create-the-files" id="toc-create-the-files" class="nav-link" data-scroll-target="#create-the-files">1. Create the Files</a></li>
+  <li><a href="#add-template-content" id="toc-add-template-content" class="nav-link" data-scroll-target="#add-template-content">2. Add Template Content</a></li>
+  <li><a href="#integrate-into-the-website" id="toc-integrate-into-the-website" class="nav-link" data-scroll-target="#integrate-into-the-website">3. Integrate into the Website</a></li>
+  <li><a href="#customize-stylesheet-contents" id="toc-customize-stylesheet-contents" class="nav-link" data-scroll-target="#customize-stylesheet-contents">4. Customize Stylesheet Contents</a></li>
+  <li><a href="#test-it-locally" id="toc-test-it-locally" class="nav-link" data-scroll-target="#test-it-locally">5. Test it Locally</a></li>
+  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">6. Render the Website</a></li>
+  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">7. Commit &amp; Push!</a></li>
+  <li><a href="#allow-the-github-action-to-complete" id="toc-allow-the-github-action-to-complete" class="nav-link" data-scroll-target="#allow-the-github-action-to-complete">8. Allow the GitHub Action to Complete</a></li>
   </ul></li>
   <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
   <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
@@ -302,30 +299,157 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="scss-background" class="level2">
 <h2 class="anchored" data-anchor-id="scss-background">SCSS Background</h2>
-<p>Under construction; check back later!</p>
+<p>Technically, when we render a Quarto project we are asking Quarto to convert the <code>.qmd</code> file into <code>.html</code> and apply a CSS (<u>C</u>ascading <u>S</u>tyle <u>S</u>heets) stylesheet. This is why your deployed website up to this point has had a blue navbar, a white background, and black text (to name a few theme elements governed by the implied CSS stylesheet).</p>
+<p>Quarto supports us making our own, customized stylesheets with <a href="https://sass-lang.com/">Sass</a> (<u>S</u>yntactically <u>A</u>wesome <u>S</u>tyle<u>s</u>heet) to tailor the look and feel of our website to exactly our personal preference. The relevant file type is <code>.scss</code> (<u>S</u>assy CSS; still pronounced “sass”). These files can be written in a combination of CSS and Sass so the syntax might look a little alien to you but this workshop will try to provide a useful level of practical detail for you to engage with these stylesheets even if this is your first foray into that world.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Versus SCSS Comparison
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re an R coder, it might be helpful to compare how R assigns values to objects versus how SCSS binds values to variables as well as how to write a comment (i.e., a non-coding line).</p>
+<p><i class="fa-brands fa-r-project" aria-label="r-project"></i> R code</p>
+<pre><code># Comment
+object &lt;- value</code></pre>
+<p><i class="fa-brands fa-sass" aria-label="sass"></i> Sass code</p>
+<pre><code>// Comment
+$object: value;</code></pre>
+</div>
+</div>
 </section>
-<section id="create-scss-stylesheets" class="level2">
-<h2 class="anchored" data-anchor-id="create-scss-stylesheets">Create SCSS Stylesheets</h2>
+<section id="customize-with-sass-stylesheets" class="level2">
+<h2 class="anchored" data-anchor-id="customize-with-sass-stylesheets">Customize with Sass Stylesheets</h2>
 <section id="create-the-files" class="level3">
-<h3 class="anchored" data-anchor-id="create-the-files">Create the Files</h3>
+<h3 class="anchored" data-anchor-id="create-the-files">1. Create the Files</h3>
+<p>While RStudio supports creating CSS files through the graphical user interface, we’ll need to use the <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line to create the <code>.scss</code> stylesheets that Quarto most readily accepts. We can do this by running the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>touch theme_light.scss</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>touch theme_dark.scss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>copy NUL theme_light.scss</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>copy NUL theme_dark.scss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>We recommend naming the two files like this so that when RStudio and GitHub sort your files, the two theme files will be sorted next to one another.</p>
 </section>
-<section id="choose-colors" class="level3">
-<h3 class="anchored" data-anchor-id="choose-colors">Choose Colors</h3>
+<section id="add-template-content" class="level3">
+<h3 class="anchored" data-anchor-id="add-template-content">2. Add Template Content</h3>
+<p>From the RStudio “Files” pane, <strong>find and open both new <code>.scss</code> files</strong>. We can then edit them in RStudio. <strong>To start, copy/paste the below code chunk into <em>both</em> files</strong>. This will make light and dark mode look identical but it’ll make it easier to change one of them once you’re happy with the other. Copy/pasting also helps make sure the formatting is right in both files.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">*</span><span class="sc">--</span> scss<span class="sc">:</span>defaults <span class="sc">--</span><span class="er">*/</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> Colors</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">*</span> Found on https<span class="sc">:</span><span class="er">//</span>coolors.co<span class="sc">/</span>palettes<span class="sc">/</span>trending <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>org<span class="dv">-1</span><span class="sc">:</span> <span class="co">#ff9f1c;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>org<span class="dv">-2</span><span class="sc">:</span> <span class="co">#ffbf69;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>mint<span class="dv">-1</span><span class="sc">:</span> <span class="co">#2ec4b6;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>mint<span class="dv">-2</span><span class="sc">:</span> <span class="co">#cbf3f0;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>url<span class="sc">-</span>blue<span class="sc">:</span> <span class="co">#4361ee;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="er">/*</span> generally useful other colors <span class="sc">*</span><span class="er">/</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>cream<span class="sc">:</span> <span class="co">#F4F3EE;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>charcoal<span class="sc">:</span> <span class="co">#191919;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>gray<span class="dv">-1</span><span class="sc">:</span> <span class="co">#8A817C;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>gray<span class="dv">-2</span><span class="sc">:</span> <span class="co">#BCB8B1;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="er">$</span>gray<span class="dv">-3</span><span class="sc">:</span> <span class="co">#d6d6d6;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> Fonts</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>font<span class="sc">-</span>size<span class="sc">:</span> <span class="dv">25</span>px;</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>import <span class="fu">url</span>(<span class="st">'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap'</span>);</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">/</span> Base document colors</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>navbar<span class="sc">-</span>bg<span class="sc">:</span> <span class="er">$</span>org<span class="dv">-1</span>; <span class="sc">/</span><span class="er">/</span> navbar</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>navbar<span class="sc">-</span>fg<span class="sc">:</span> <span class="er">$</span>charcoal; <span class="sc">/</span><span class="er">/</span> navbar foreground elements</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>navbar<span class="sc">-</span>hl<span class="sc">:</span> <span class="er">$</span>org<span class="dv">-2</span>; <span class="sc">/</span><span class="er">/</span> highlight color when hovering on a page</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>sidebar<span class="sc">-</span>bg<span class="sc">:</span> <span class="er">$</span>org<span class="dv">-2</span>; <span class="sc">/</span><span class="er">/</span> sidebar</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>sidebar<span class="sc">-</span>fg<span class="sc">:</span> <span class="er">$</span>charcoal; <span class="sc">/</span><span class="er">/</span> sidebar foreground elements</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>body<span class="sc">-</span>bg<span class="sc">:</span> <span class="er">$</span>cream; <span class="sc">/</span><span class="er">/</span> page background</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>body<span class="sc">-</span>color<span class="sc">:</span> <span class="er">$</span>charcoal; <span class="sc">/</span><span class="er">/</span> page text</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>footer<span class="sc">-</span>bg<span class="sc">:</span> <span class="er">$</span>mint<span class="dv">-1</span>; <span class="sc">/</span><span class="er">/</span> footer</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>footer<span class="sc">-</span>fg<span class="sc">:</span> <span class="er">$</span>charcoal; <span class="sc">/</span><span class="er">/</span> footer text</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>link<span class="sc">-</span>color<span class="sc">:</span> <span class="er">$</span>url<span class="sc">-</span>blue; <span class="sc">/</span><span class="er">/</span> hyperlinks</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">/</span> Code text</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>code<span class="sc">-</span>bg<span class="sc">:</span> <span class="er">$</span>gray<span class="dv">-2</span>; <span class="sc">/</span><span class="er">/</span> inline code background color</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>code<span class="sc">-</span>color<span class="sc">:</span> <span class="er">$</span>charcoal; <span class="sc">/</span><span class="er">/</span> inline code text color</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>code<span class="sc">-</span>block<span class="sc">-</span>bg<span class="sc">:</span> <span class="er">$</span>gray<span class="dv">-2</span>; <span class="sc">/</span><span class="er">/</span> code block background color</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">*</span><span class="sc">--</span> scss<span class="sc">:</span>rules <span class="sc">--</span><span class="er">*/</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="er">//</span> Underline URLs</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>.reveal .slide a { text<span class="sc">-</span>decoration<span class="sc">:</span> underline; }</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span><span class="er">/</span> Improve background contrast <span class="cf">for</span> code chunk ouput</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>pre code<span class="sc">:</span><span class="fu">not</span>(.sourceCode) { background<span class="sc">-</span>color<span class="sc">:</span> <span class="er">$</span>gray<span class="dv">-2</span>; }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="choose-a-font" class="level3">
-<h3 class="anchored" data-anchor-id="choose-a-font">Choose a Font</h3>
+<section id="integrate-into-the-website" class="level3">
+<h3 class="anchored" data-anchor-id="integrate-into-the-website">3. Integrate into the Website</h3>
+<p>To get your website to use these <code>.scss</code> files, we’ll need to make some minor edits to the website’s YAML. <strong>Open <code>_quarto.yml</code> in RStudio and add the following lines</strong>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Paste in the Right Place!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the below code chunk includes a <code>html:</code> element but your existing <code>_quarto.yml</code> will already have that element! That bit is included below so you know <em>where</em> to copy/paste the new lines into your existing YAML.</p>
+<p>If you’re using a mostly unmodified <code>_quarto.yml</code>, this will be about 4 lines up from the very bottom.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      light<span class="sc">:</span> theme_light.scss</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      dark<span class="sc">:</span> theme_dark.scss</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    mainfont<span class="sc">:</span> Open Sans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Double check that your indenting is right after you copy/paste those lines!</strong> <code>theme:</code> and <code>mainfont</code> should both be one indent more than <code>html:</code> while <code>light:</code> and <code>dark:</code> should have an additional indent beyond <code>theme:</code>.</p>
 </section>
+<section id="customize-stylesheet-contents" class="level3">
+<h3 class="anchored" data-anchor-id="customize-stylesheet-contents">4. Customize Stylesheet Contents</h3>
+<p>The Sass code you copy/pasted into your new <code>.scss</code> files is functional and inoffensive but likely does not reflect your personal aesthetic sensibilities. So, take some time to find some colors that you prefer. This is also a great time to make your dark mode actually a dark mode (currently it has the same content as the light mode <code>.scss</code> file).</p>
+<section id="customizing-colors" class="level4">
+<h4 class="anchored" data-anchor-id="customizing-colors">Customizing Colors</h4>
+<p>First, I’d recommend visiting <a href="https://coolors.co/palettes/popular">coolors.co</a> and looking at their trending color palettes for one that feels like your vibe. To incorporate that in your site <strong>you’ll need to copy the hexadecimal code (6-digit color code) and add it to the relevant <code>.scss</code> file</strong>.</p>
+<p>Typically the simplest way to do this is to <strong>assign each color to a variable name</strong>, just like the default colors you copy/pasted in earlier (e.g., <code>$cream: #F4F3EE;</code>). Be sure that each line starts with a <code>$</code> and ends with a <code>;</code>.</p>
+<p>Once you’ve assigned variable names to your new color(s), <strong>update the existing fields in the lower half of the <code>.scss</code> file</strong> with those variable names. Consult the comments for some explanation of what those variable names are called. Remember too that each variable name needs to start with <code>$</code> when you invoke it (so that Sass knows you’re talking about an existing variable).</p>
 </section>
-<section id="integrate-into-website" class="level2">
-<h2 class="anchored" data-anchor-id="integrate-into-website">Integrate into Website</h2>
-<section id="add-the-stylesheets-to-_quarto.yml" class="level3">
-<h3 class="anchored" data-anchor-id="add-the-stylesheets-to-_quarto.yml">1. Add the Stylesheets to <code>_quarto.yml</code></h3>
+<section id="customizing-fonts" class="level4">
+<h4 class="anchored" data-anchor-id="customizing-fonts">Customizing Fonts</h4>
+<p>To find new possible fonts, check out Google Fonts (<a href="https://fonts.google.com/">fonts.google.com</a>) and search around for one that seems like a good fit for your personal style. When you have identified a font that you like, follow these instructions:</p>
+<ol type="1">
+<li>Click on the font to go to its homepage</li>
+<li>Click the <strong><span style="color:blue">blue</span></strong> “Get font” button in the top right corner of the page</li>
+<li>Click the <strong><span style="color:blue">blue</span></strong> “<i class="fa-solid fa-code" aria-label="code"></i> Get embed code” button</li>
+<li>Click the <code>@import</code> radiobutton in the top of the resulting sidebar</li>
+<li>In the first code chunk, copy everything between the two <code>&lt;style&gt;</code> HTML tags</li>
+<li>In your <code>.scss</code> files, paste the copied text somewhere near the font that is already there to begin with</li>
+<li>Finally, update the <code>mainfont:</code> element of <code>_quarto.yml</code> with the new font name</li>
+</ol>
+</section>
 </section>
 <section id="test-it-locally" class="level3">
-<h3 class="anchored" data-anchor-id="test-it-locally">2. Test it Locally</h3>
+<h3 class="anchored" data-anchor-id="test-it-locally">5. Test it Locally</h3>
 <p>This step can be especially critical when fiddling with (that’s the technical term) colors for your website. Use the preview extensively to be sure you’re happy with your chosen color palette. We can start a preview session with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -342,14 +466,14 @@ Remember to End the Preview!
 </div>
 </section>
 <section id="render-the-website" class="level3">
-<h3 class="anchored" data-anchor-id="render-the-website">3. Render the Website</h3>
+<h3 class="anchored" data-anchor-id="render-the-website">6. Render the Website</h3>
 <p>Once you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="commit-push" class="level3">
-<h3 class="anchored" data-anchor-id="commit-push">4. Commit &amp; Push!</h3>
+<h3 class="anchored" data-anchor-id="commit-push">7. Commit &amp; Push!</h3>
 <p>Once you’ve done the preceding steps, <strong>Commit the following things: </strong></p>
 <ol type="1">
 <li>Your new <code>.scss</code> files</li>
@@ -362,7 +486,7 @@ Remember to End the Preview!
 <p>After you’ve committed these, <strong>push them up to the GitHub repository!</strong></p>
 </section>
 <section id="allow-the-github-action-to-complete" class="level3">
-<h3 class="anchored" data-anchor-id="allow-the-github-action-to-complete">5. Allow the GitHub Action to Complete</h3>
+<h3 class="anchored" data-anchor-id="allow-the-github-action-to-complete">8. Allow the GitHub Action to Complete</h3>
 <p>As with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
