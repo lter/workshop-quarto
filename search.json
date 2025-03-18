@@ -285,7 +285,7 @@
     "href": "deploy.html#deployment-options",
     "title": "Deploying a Website",
     "section": "Deployment Options",
-    "text": "Deployment Options\nUnder construction; check back later!",
+    "text": "Deployment Options\nWhile you created the structure and content of a website in the prior workshop module, you will need to take some additional steps in order to get the ‘actual’ website to exist. This process of translating a Quarto project into a living website is known as “deploying” that website. There are many options for where a website can be deployed and hosted but for the purposes of this workshop, we’ll be focusing on deploying via GitHub Pages.\nWe’re focusing on deploying via GitHub Pages because:\n\ngeneral GitHub knowledge translates smoothly to GitHub Pages\nwebsites hosted in GitHub can be edited directly through GitHub\n\nReducing the barrier to entry for novice coders interested in editing an existing website\n\nthe LTER Scientific Computing team already encourages the adoption of GitHub for many other purposes\n\nE.g., reproducibility, code citation, collaboration, project management",
     "crumbs": [
       "Core Topics",
       "Deploy a Website"
@@ -296,7 +296,7 @@
     "href": "deploy.html#github-actions-ghas",
     "title": "Deploying a Website",
     "section": "GitHub Actions (GHAs)",
-    "text": "GitHub Actions (GHAs)\nUnder construction; check back later!",
+    "text": "GitHub Actions (GHAs)\nOnce you’ve chosent to deploy via GitHub Pages, there are still several methods for successfully deploying! The instructions in this workshop use a GitHub feature called a “GitHub Action” (GHA) because this allows GitHub to automatically re-render and update the website whenever changes are made to any part of the website’s content.\nThis is a huge benefit for website updating because it reduces the need for manual “rendering” of website files locally and makes it simpler to maintain the website in the long term. Additionally, it also allows many pages in the website to be edited directly through GitHub (because rendering can be done online rather than needing to be done locally).\nGitHub supports GHAs for a wide variety of automation purposes beyond website rendering (e.g., running tests on new code, checking compatibility with multiple operating systems, etc.) but the website rendering functionality is a great entry point into the world of GHAs if you do not already use them in your work on GitHub.\nAnother benefit of this approach is that GitHub Actions are free for public repositories! So you can host a personal, lab, or project website without needing to pay anything.",
     "crumbs": [
       "Core Topics",
       "Deploy a Website"
@@ -319,6 +319,17 @@
     "title": "Deploying a Website",
     "section": "Activity - Try it Out",
     "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you works through the above tutorial on your own computers!\nOnce everyone has a working GitHub Action established we can move on to talking about how to add pages to the site and customize some formatting elements.",
+    "crumbs": [
+      "Core Topics",
+      "Deploy a Website"
+    ]
+  },
+  {
+    "objectID": "deploy.html#additional-information",
+    "href": "deploy.html#additional-information",
+    "title": "Deploying a Website",
+    "section": "Additional Information",
+    "text": "Additional Information\n\nQuarto deployment documentation: quarto.org/docs/publishing\nGitHub Actions documentation: github.com/features/actions",
     "crumbs": [
       "Core Topics",
       "Deploy a Website"

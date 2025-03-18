@@ -260,6 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pull-updates-locally" id="toc-pull-updates-locally" class="nav-link" data-scroll-target="#pull-updates-locally">7. Pull Updates Locally</a></li>
   </ul></li>
   <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -298,11 +299,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="deployment-options" class="level2">
 <h2 class="anchored" data-anchor-id="deployment-options">Deployment Options</h2>
-<p>Under construction; check back later!</p>
+<p>While you created the structure and content of a website in the prior workshop module, you will need to take some additional steps in order to get the ‘actual’ website to exist. This process of translating a Quarto project into a living website is known as “deploying” that website. There are <em>many</em> options for where a website can be deployed and hosted but for the purposes of this workshop, we’ll be focusing on deploying via GitHub Pages.</p>
+<p>We’re focusing on deploying via GitHub Pages because:</p>
+<ul>
+<li>general GitHub knowledge translates smoothly to GitHub Pages</li>
+<li>websites hosted in GitHub can be edited directly through GitHub
+<ul>
+<li>Reducing the barrier to entry for novice coders interested in editing an existing website</li>
+</ul></li>
+<li>the LTER Scientific Computing team already encourages the adoption of GitHub for many other purposes
+<ul>
+<li>E.g., reproducibility, code citation, collaboration, project management</li>
+</ul></li>
+</ul>
 </section>
 <section id="github-actions-ghas" class="level2">
 <h2 class="anchored" data-anchor-id="github-actions-ghas">GitHub Actions (GHAs)</h2>
-<p>Under construction; check back later!</p>
+<p>Once you’ve chosent to deploy via GitHub Pages, there are still several methods for successfully deploying! The instructions in this workshop use a GitHub feature called a “GitHub Action” (GHA) because this allows GitHub to automatically re-render and update the website whenever changes are made to any part of the website’s content.</p>
+<p>This is a <em>huge</em> benefit for website updating because it reduces the need for manual “rendering” of website files locally and makes it simpler to maintain the website in the long term. Additionally, it also allows many pages in the website to be edited directly through GitHub (because rendering can be done online rather than needing to be done locally).</p>
+<p>GitHub supports GHAs for a wide variety of automation purposes beyond website rendering (e.g., running tests on new code, checking compatibility with multiple operating systems, etc.) but the website rendering functionality is a great entry point into the world of GHAs if you do not already use them in your work on GitHub.</p>
+<p>Another benefit of this approach is that <u>GitHub Actions are free for public repositories</u>! So you can host a personal, lab, or project website without needing to pay anything.</p>
 </section>
 <section id="set-up-a-quarto-website-deployment-gha" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-a-quarto-website-deployment-gha">Set Up a Quarto Website Deployment GHA</h2>
@@ -464,6 +480,13 @@ Your Turn!
 <p>Once everyone has a working GitHub Action established we can move on to talking about how to add pages to the site and customize some formatting elements.</p>
 </div>
 </div>
+</section>
+<section id="additional-information" class="level2">
+<h2 class="anchored" data-anchor-id="additional-information">Additional Information</h2>
+<ul>
+<li>Quarto deployment documentation: <a href="https://quarto.org/docs/publishing/">quarto.org/docs/publishing</a></li>
+<li>GitHub Actions documentation: <a href="https://github.com/features/actions">github.com/features/actions</a></li>
+</ul>
 
 
 </section>
