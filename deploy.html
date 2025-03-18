@@ -248,7 +248,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#make-a-gh-pages-branch" id="toc-make-a-gh-pages-branch" class="nav-link" data-scroll-target="#make-a-gh-pages-branch">1. Make a <code>gh-pages</code> Branch</a></li>
   <li><a href="#pull-the-new-branch" id="toc-pull-the-new-branch" class="nav-link" data-scroll-target="#pull-the-new-branch">2. Pull the New Branch</a></li>
   <li><a href="#create-the-local-part-of-a-gha" id="toc-create-the-local-part-of-a-gha" class="nav-link" data-scroll-target="#create-the-local-part-of-a-gha">3. Create the Local Part of a GHA</a></li>
-  <li><a href="#check-that-worked" id="toc-check-that-worked" class="nav-link" data-scroll-target="#check-that-worked">4. Check That Worked</a></li>
+  <li><a href="#commit-push-publish.yml-to-github" id="toc-commit-push-publish.yml-to-github" class="nav-link" data-scroll-target="#commit-push-publish.yml-to-github">4. Commit &amp; Push <code>publish.yml</code> to GitHub</a></li>
+  <li><a href="#watch-the-github-action-work" id="toc-watch-the-github-action-work" class="nav-link" data-scroll-target="#watch-the-github-action-work">5. Watch the GitHub Action Work</a></li>
+  <li><a href="#make-the-website-link-more-accessible" id="toc-make-the-website-link-more-accessible" class="nav-link" data-scroll-target="#make-the-website-link-more-accessible">6. Make the Website Link More Accessible</a></li>
+  <li><a href="#pull-updates-locally" id="toc-pull-updates-locally" class="nav-link" data-scroll-target="#pull-updates-locally">7. Pull Updates Locally</a></li>
   </ul></li>
   <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
   </ul>
@@ -393,13 +396,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        env<span class="sc">:</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>          GITHUB_TOKEN<span class="sc">:</span> <span class="er">$</span>{{ secrets.GITHUB_TOKEN }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once you have created this file and put the necessary stuff into it, <strong>commit the new file and push it</strong>!</p>
 </section>
-<section id="check-that-worked" class="level3">
-<h3 class="anchored" data-anchor-id="check-that-worked">4. Check That Worked</h3>
-<section id="under-construction-check-back-later" class="level4">
-<h4 class="anchored" data-anchor-id="under-construction-check-back-later">Under Construction; check back later</h4>
+<section id="commit-push-publish.yml-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="commit-push-publish.yml-to-github">4. Commit &amp; Push <code>publish.yml</code> to GitHub</h3>
+<p>Once you have created <code>publish.yml</code> and put the necessary stuff into it, <strong>commit the new file and push it</strong>! Be sure that it is in the correct file path (i.e., “.github” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “workflows” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “publish.yml”).</p>
 </section>
+<section id="watch-the-github-action-work" class="level3">
+<h3 class="anchored" data-anchor-id="watch-the-github-action-work">5. Watch the GitHub Action Work</h3>
+<p>After you push <code>publish.yml</code>, return to your repository landing page and you should see an <strong><span style="color:orange">orange</span></strong> circle next to that commit message.</p>
+<p align="center">
+<img src="images/gha-01.png" alt="Screenshot of the top part of a GitHub repository's landing page while a GitHub Action is in progress" width="100%">
+</p>
+<p>If you <strong>click the “Actions” tab</strong> at the top of the repository’s landing page you can get more specific information about the GitHub Action’s progress.</p>
+<p align="center">
+<img src="images/gha-02.png" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is in progress" width="100%">
+</p>
+<p>At first, there will be a progress circle next to a “workflow run” that has the same name as the most recent commit. When that finishes it will be replaced by a check mark. Once this finishes, a new action called “pages build and deployment” will automatically start. Once <em>that</em> action is done, you should have an updated website!</p>
+<p align="center">
+<img src="images/gha-03.png" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is complete" width="100%">
+</p>
+<p>If you don’t want to watch the actions complete from the “Actions” tab, you can check their status from the repository landing page; a circle means one of those actions is in progress and a checkmark indicates they are finished.</p>
+<p align="center">
+<img src="images/gha-04.png" alt="Screenshot of the top part of a GitHub repository's landing page after a GitHub Action is complete" width="100%">
+</p>
+</section>
+<section id="make-the-website-link-more-accessible" class="level3">
+<h3 class="anchored" data-anchor-id="make-the-website-link-more-accessible">6. Make the Website Link More Accessible</h3>
+<p>After the GitHub Action completes, your website is live but you’ll need to take an extra step to make that link directly accessible from the landing page of the repository. To start <strong>click the gear (<i class="fa-solid fa-gear" aria-label="gear"></i>) icon next to “About” in the right sidebar of the repository</strong>.</p>
+<p align="center">
+<img src="images/about-mod-01.png" alt="Screenshot of the pop-up menu that allows editing the 'About' sidebar of a GitHub repository with all fields left at defaults" width="60%">
+</p>
+<p>In the resulting pop-up menu, <strong>check the box for “Use your GitHub Pages website”</strong> under the “Website” field. Feel free to customize the other fields however you’d like! When you’re done, <strong>click the “Save changes” button</strong> to close this menu and update your “About” sidebar.</p>
+<p align="center">
+<img src="images/about-mod-03.png" alt="Screenshot of the 'About' sidebar of a GitHub repository with a GitHub Pages website included" width="40%">
+</p>
+<p>You should now see the website in the “About” sidebar of the repository!</p>
+</section>
+<section id="pull-updates-locally" class="level3">
+<h3 class="anchored" data-anchor-id="pull-updates-locally">7. Pull Updates Locally</h3>
+<p>As with any other time when you work in your GitHub repository, <strong>you should now pull the latest changes to your local clone</strong>. This is unlikely to be the cause of a conflict because (A) no files have changed since you last pushed and (B) the only edits in the <code>gh-pages</code> branch should be whatever the GitHub Action does behind the scenes. However, <u>it’s still good practice to pull regularly</u>!</p>
+<p>RStudio should return a message like the following:</p>
+<p align="center">
+<img src="images/post-gha-pull-01.png" alt="Screenshot of the message from RStudio when you pull after a GitHub Action is completed" width="70%">
+</p>
+<p>Essentially this just means the your local <code>gh-pages</code> branch is now caught up with the website rendering / deployment that you set up GitHub to do on your behalf.</p>
 </section>
 </section>
 <section id="activity---try-it-out" class="level2">
