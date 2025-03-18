@@ -123,13 +123,63 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-Once you have created this file and put the necessary stuff into it, **commit the new file and push it**!
+### 4. Commit & Push `publish.yml` to GitHub
 
-### 4. Check That Worked
+Once you have created `publish.yml` and put the necessary stuff into it, **commit the new file and push it**! Be sure that it is in the correct file path (i.e., ".github" {{< fa arrow-right >}} "workflows" {{< fa arrow-right >}} "publish.yml").
 
+### 5. Watch the GitHub Action Work
 
-#### Under Construction; check back later
+After you push `publish.yml`, return to your repository landing page and you should see an **<span style="color:orange">orange</span>** circle next to that commit message.
 
+<p align="center"/>
+<img src="images/gha-01.png" alt="Screenshot of the top part of a GitHub repository's landing page while a GitHub Action is in progress" width="100%"/>
+</p>
+
+If you **click the "Actions" tab** at the top of the repository's landing page you can get more specific information about the GitHub Action's progress.
+
+<p align="center"/>
+<img src="images/gha-02.png" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is in progress" width="100%"/>
+</p>
+
+At first, there will be a progress circle next to a "workflow run" that has the same name as the most recent commit. When that finishes it will be replaced by a check mark. Once this finishes, a new action called "pages build and deployment" will automatically start. Once _that_ action is done, you should have an updated website!
+
+<p align="center"/>
+<img src="images/gha-03.png" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is complete" width="100%"/>
+</p>
+
+If you don't want to watch the actions complete from the "Actions" tab, you can check their status from the repository landing page; a circle means one of those actions is in progress and a checkmark indicates they are finished.
+
+<p align="center"/>
+<img src="images/gha-04.png" alt="Screenshot of the top part of a GitHub repository's landing page after a GitHub Action is complete" width="100%"/>
+</p>
+
+### 6. Make the Website Link More Accessible
+
+After the GitHub Action completes, your website is live but you'll need to take an extra step to make that link directly accessible from the landing page of the repository. To start **click the gear ({{< fa gear >}}) icon next to "About" in the right sidebar of the repository**.
+
+<p align="center"/>
+<img src="images/about-mod-01.png" alt="Screenshot of the pop-up menu that allows editing the 'About' sidebar of a GitHub repository with all fields left at defaults" width="60%"/>
+</p>
+
+In the resulting pop-up menu, **check the box for "Use your GitHub Pages website"** under the "Website" field. Feel free to customize the other fields however you'd like! When you're done, **click the "Save changes" button** to close this menu and update your "About" sidebar.
+
+<p align="center"/>
+<img src="images/about-mod-03.png" alt="Screenshot of the 'About' sidebar of a GitHub repository with a GitHub Pages website included" width="40%"/>
+</p>
+
+You should now see the website in the "About" sidebar of the repository!
+
+### 7. Pull Updates Locally
+
+As with any other time when you work in your GitHub repository, **you should now pull the latest changes to your local clone**. This is unlikely to be the cause of a conflict because (A) no files have changed since you last pushed and (B) the only edits in the `gh-pages` branch should be whatever the GitHub Action does behind the scenes. However, <u>it's still good practice to pull regularly</u>!
+
+RStudio should return a message like the following:
+
+<p align="center"/>
+<img src="images/post-gha-pull-01.png" alt="Screenshot of the message from RStudio when you pull after a GitHub Action is completed" width="70%"/>
+</p>
+
+Essentially this just means the your local `gh-pages` branch is now caught up with the website rendering / deployment that you set up GitHub to do on your behalf.
 
 ## Activity - Try it Out
 
