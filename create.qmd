@@ -138,7 +138,7 @@ Now we'll make what will become the home page of your website! **Create a new Qu
 **Save that file as `index.qmd`**. Technically it doesn't matter where in your project folder it lives but typically you'd leave it in the top level folder (i.e., not in a sub-folder).
 
 :::{.callout-warning}
-### Note on the File Name
+#### Note on the File Name
 
 This file must be named _exactly_ as indicated above. All lowercase "index" and it is a `.qmd` file.
 
