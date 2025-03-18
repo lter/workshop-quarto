@@ -39,6 +39,8 @@ website:
            href: create.qmd
          - text: "Deploy a Website"
            href: deploy.qmd
+         - text: "Add to a Website"
+           href: add.qmd
       - section: "Advanced Topics"
         contents: 
          - text: "Customize a Website"
