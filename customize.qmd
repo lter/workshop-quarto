@@ -6,8 +6,100 @@ title: "Customizing a Website"
 
 By the end of this module, you will be able to:
 
-- <u></u>
+- <u>Identify</u> components of SCSS stylesheets
+- <u>Describe</u> key code syntax differences between SCSS and R code
+- <u>Use</u> SCSS stylesheets to customize a deployed Quarto website
 
-## TBD
+## SCSS Background
+
+
+
 
 Under construction; check back later!
+
+
+
+
+
+## Create SCSS Stylesheets
+
+### Create the Files
+
+
+### Choose Colors
+
+
+
+### Choose a Font
+
+
+
+## Integrate into Website
+
+### 1. Add the Stylesheets to `_quarto.yml`
+
+
+
+
+### 2. Test it Locally
+
+This step can be especially critical when fiddling with (that's the technical term) colors for your website. Use the preview extensively to be sure you're happy with your chosen color palette. We can start a preview session with an operating system-agnostic {{< fa terminal >}} command line snippet.
+
+```{r preview-site}
+#| eval: false
+
+quarto preview
+```
+
+:::{.callout-warning}
+#### Remember to End the Preview!
+
+**The preview will keep going until you manually stop it** so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you're ready to move on.
+
+:::
+
+### 3. Render the Website
+
+Once you're happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
+
+```{r render-site}
+#| eval: false
+
+quarto render
+```
+
+### 4. Commit & Push!
+
+Once you've done the preceding steps, **Commit the following things: **
+
+1. Your new `.scss` files
+2. Any changes to `_quarto.yml`
+3. Any changes to `_freeze/` 
+    - If there are any
+
+After you've committed these, **push them up to the GitHub repository!**
+
+### 5. Allow the GitHub Action to Complete
+
+As with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!
+
+:::{.callout-warning}
+#### Site Not Updating? Refresh the Page!
+
+If your site is not updating but you've followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.
+
+:::
+
+## Activity - Try it Out
+
+:::{.callout-note}
+### Your Turn!
+
+Let's take a break while each of you fleshes out your custom stylesheets!
+
+:::
+
+## Additional Information
+
+- UCSB Master of Environmental Data Science (MEDS) "[Customizing Quarto Websites](https://ucsb-meds.github.io/EDS-296-DS-portfolios/course-materials/week2-customizing-websites.html)" lesson
+    - [Lecture slides](https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide) for that lesson
