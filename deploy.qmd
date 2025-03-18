@@ -93,7 +93,9 @@ copy NUL .github/workflows/publish.yml
 
 One `publish.yml` exists on your computer, **use the "Files" pane of RStudio to navigate to the file and open it**. When you have it open, **copy/paste _all_ of the following into that file**.
 
-```
+```{r gha-yaml-contents}
+#| eval: false
+
 on:
   workflow_dispatch:
   push:
