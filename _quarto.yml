@@ -55,7 +55,7 @@ format:
     code-overflow: scroll
     code-line-numbers: false
     code-annotations: hover
-    code-copy: hover
+    code-copy: true
     theme:
        light: _extensions/lter/lter_scss-theme/theme_lter-edu-light.scss
        dark: _extensions/lter/lter_scss-theme/theme_lter-edu-dark.scss
