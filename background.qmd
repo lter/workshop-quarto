@@ -69,6 +69,7 @@ Some fundamental Markdown options include:
 For a more complete glossary of fundamental Markdown syntax options see [here](https://www.markdownguide.org/basic-syntax/). You may also want to explore [the 'back end' of this workshop's website](https://github.com/lter/workshop-quarto) as _every_ page is built using Quarto documents.
 
 [^1]: Note that with the addition of the "Visual" tab in RStudio there are button options for many text format changes. Markdown syntax is still useful to know for general knowledge reasons though! 
+
 #### Code Chunks
 
 The code chunks embedded in notebooks are essentially a fragmented script containing runable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you'll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.
