@@ -12,7 +12,7 @@ By the end of this module, you will be able to:
 
 ## Why Quarto
 
-Quarto is new software developed by Posit--the company that maintains RStudio. Quarto is extremely versatile and supports several progamming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of 'bells and whistles' that makes it worthwhile to embrace.
+Quarto is new software developed by Posit--the company that maintains RStudio. Quarto is extremely versatile and supports several programming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of 'bells and whistles' that makes it worthwhile to embrace.
 
 This workshop uses Quarto for the following reasons:
 
@@ -26,7 +26,7 @@ If you're broadly curious about Quarto, check out their website, [quarto.org](ht
 
 ## Core Components of a Quarto File
 
-Quarto documents are a type of "computational notebook" like RMarkdown files and--for python coders--Jypter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!
+Quarto documents are a type of "computational notebook" like RMarkdown files and--for python coders--Jupyter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!
 
 Notebook files contain three fundamental components that allow them to be "rendered" (sometimes also called "knit") to produce a new static report file. This is often a PDF or an HTML file though for website purposes we'll be using the HTML version so that each notebook file can become a page in your website.
 
@@ -72,7 +72,7 @@ For a more complete glossary of fundamental Markdown syntax options see [here](h
 
 #### Code Chunks
 
-The code chunks embedded in notebooks are essentially a fragmented script containing runable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you'll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.
+The code chunks embedded in notebooks are essentially a fragmented script containing runnable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you'll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.
 
 In Quarto documents, code chunks look like this[^2]:
 

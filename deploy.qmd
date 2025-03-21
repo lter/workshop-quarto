@@ -24,7 +24,7 @@ We're focusing on deploying via GitHub Pages because:
 
 ## GitHub Actions (GHAs)
 
-Once you've chosent to deploy via GitHub Pages, there are still several methods for successfully deploying! The instructions in this workshop use a GitHub feature called a "GitHub Action" (GHA) because this allows GitHub to automatically re-render and update the website whenever changes are made to any part of the website's content.
+Once you've chosen to deploy via GitHub Pages, there are still several methods for successfully deploying! The instructions in this workshop use a GitHub feature called a "GitHub Action" (GHA) because this allows GitHub to automatically re-render and update the website whenever changes are made to any part of the website's content.
 
 This is a _huge_ benefit for website updating because it reduces the need for manual "rendering" of website files locally and makes it simpler to maintain the website in the long term. Additionally, it also allows many pages in the website to be edited directly through GitHub (because rendering can be done online rather than needing to be done locally).
 
@@ -36,7 +36,7 @@ Another benefit of this approach is that <u>GitHub Actions are free for public r
 
 ### 1. Make a `gh-pages` Branch
 
-GitHub "branches" are typically short-lived developent spaces that operate parallel to the 'main' branch of a repository. The main branch is either called `main` or `master` (for older repositories) and if you don't think you are using branches, you are at least using `main`! Branches are not the focus of this workshop but if you'd like to learn more, check out [the relevant module of the SciComp GitHub workshop](https://lter.github.io/workshop-github/branches.html).
+GitHub "branches" are typically short-lived development spaces that operate parallel to the 'main' branch of a repository. The main branch is either called `main` or `master` (for older repositories) and if you don't think you are using branches, you are at least using `main`! Branches are not the focus of this workshop but if you'd like to learn more, check out [the relevant module of the SciComp GitHub workshop](https://lter.github.io/workshop-github/branches.html).
 
 For deploying a Quarto website though we'll create a `gh-pages` branch that we will never have to work on directly! Once this branch exists, we'll set up a GitHub action that renders your website into this branch and deploys from there. Doing this means you will rarely have to render your site on your machine and can instead trust the magic of GitHub Actions to transform your edits into a living website on its own.
 
