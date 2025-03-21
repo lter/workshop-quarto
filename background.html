@@ -288,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="why-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="why-quarto">Why Quarto</h2>
-<p>Quarto is new software developed by Posit–the company that maintains RStudio. Quarto is extremely versatile and supports several progamming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of ‘bells and whistles’ that makes it worthwhile to embrace.</p>
+<p>Quarto is new software developed by Posit–the company that maintains RStudio. Quarto is extremely versatile and supports several programming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of ‘bells and whistles’ that makes it worthwhile to embrace.</p>
 <p>This workshop uses Quarto for the following reasons:</p>
 <ul>
 <li>The learning curve for novice coders is relatively gentle
@@ -305,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="core-components-of-a-quarto-file" class="level2">
 <h2 class="anchored" data-anchor-id="core-components-of-a-quarto-file">Core Components of a Quarto File</h2>
-<p>Quarto documents are a type of “computational notebook” like RMarkdown files and–for python coders–Jypter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!</p>
+<p>Quarto documents are a type of “computational notebook” like RMarkdown files and–for python coders–Jupyter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!</p>
 <p>Notebook files contain three fundamental components that allow them to be “rendered” (sometimes also called “knit”) to produce a new static report file. This is often a PDF or an HTML file though for website purposes we’ll be using the HTML version so that each notebook file can become a page in your website.</p>
 <p>Typically, these notebooks have three structural components:</p>
 <ol type="1">
@@ -343,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For a more complete glossary of fundamental Markdown syntax options see <a href="https://www.markdownguide.org/basic-syntax/">here</a>. You may also want to explore <a href="https://github.com/lter/workshop-quarto">the ‘back end’ of this workshop’s website</a> as <em>every</em> page is built using Quarto documents.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>The code chunks embedded in notebooks are essentially a fragmented script containing runable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you’ll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.</p>
+<p>The code chunks embedded in notebooks are essentially a fragmented script containing runnable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you’ll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.</p>
 <p>In Quarto documents, code chunks look like this<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
 <div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\`</span><span class="kw">``</span>{r demo-chunk}</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
