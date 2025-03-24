@@ -31,18 +31,20 @@ website:
     contents: 
       - text: "Workshop Home"
         href: index.qmd
-      - section: "Core Topics"
+      - section: "Create"
         contents:
          - text: "Quarto Background"
            href: background.qmd
-         - text: "Create a Website"
+         - text: "Make Structure"
            href: create.qmd
-         - text: "Deploy a Website"
+         - text: "Deploy via GitHub"
            href: deploy.qmd
-         - text: "Add to a Website"
-           href: add.qmd
-      - section: "Advanced Topics"
+      - section: "Edit"
         contents: 
+         - text: "Add a Page"
+           href: add.qmd
+         - text: "Edit via GitHub"
+           href: add.qmd
          - text: "Customize a Website"
            href: customize.qmd
   page-footer: 
