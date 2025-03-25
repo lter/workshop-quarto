@@ -8,5 +8,42 @@ By the end of this module, you will be able to:
 
 - <u>Use</u> GitHub to edit an existing website
 
+## GitHub Editing Background
 
+Once you've created and deployed a website some edits can actually be made directly through GitHub! There are some limitations to where this is possible as well as some drawbacks of editing via GitHub but the benefits of this approach can often outweigh the negatives. See below for more details.
+
+:::{.panel-tabset}
+### Strengths
+
+See below for some of the primary benefits of editing websites through GitHub:
+
+**1. Edits to website do not require knowledge of RStudio and/or Git**
+
+This makes the barrier to entry for collaborators much lower than it would be for the code workflow developed by your group.
+
+**2. Edits can be implemented more quickly**
+
+For RStudio-Git experts this increase efficiency is reduced (because they are faster at navigating those steps) but for even intermediate RStudio users it is often faster to edit the website directly in this way.
+
+### Limitations
+
+See below for some of the primary weaknesses of editing websites through GitHub:
+
+**1. Can only edit one file at a time**
+
+As we will shortly demonstrate, GitHub only allows for editing a single file at a time. This is not always an issue but for changes that require editing two files it means that one of the edits is non-functional and may even cause a failure of the GitHub Action for updating the live website. For example adding a new image to the website would require (1) adding the image to GitHub and (2) embedding that image in the website.
+
+**2. Can't preview changes**
+
+All of the previous modules in this workshop made extensive use of the {{< fa terminal >}} `quarto preview` command so that changes to the website could be checked to make sure they work as desired. When editing directly through GitHub, there is no such feature and it is easy to make one-character typos that break either part of a page or the entire website.
+
+**3. Editing through GitHub does not work when code computation is needed**
+
+When the page to edit includes _any_ code chunks, the edited page _must_ be rendered locally (with the {{< fa terminal >}} `quarto render` command) for the GitHub Action to succeed and the live site to be updated. So, making edits--even if they are not to the code chunks themselves--on pages that contain code chunks <u>cannot be done successfully through GitHub alone</u>. Note that you may edit one page in a website that includes code chunks so long as _the specific page you are editing_ does not include code chunks.
+
+If you edit a page through RStudio and running the {{< fa terminal >}} `quarto render` command causes _any_ changes to the `_freeze/` folder, that page cannot be edited successfully through GitHub. Your intuition for such changes will improve as you work more with Quarto via RStudio and/or GitHub but keeping an eye out for whether the `_freeze/` folder appears in RStudio's "Git" pane is a good rule of thumb.
+
+:::
+
+## How to Edit Through GitHub
 
