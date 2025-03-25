@@ -44,7 +44,7 @@ website:
          - text: "Add a Page"
            href: add.qmd
          - text: "Edit via GitHub"
-           href: add.qmd
+           href: edit.qmd
          - text: "Customize a Website"
            href: customize.qmd
   page-footer: 
