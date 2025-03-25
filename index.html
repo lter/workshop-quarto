@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Core Topics</span></a>
+ <span class="menu-text">Create</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -168,19 +168,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./create.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Create a Website</span></a>
+ <span class="menu-text">Make Structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./deploy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Deploy a Website</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./add.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Add to a Website</span></a>
+ <span class="menu-text">Deploy via GitHub</span></a>
   </div>
 </li>
       </ul>
@@ -188,12 +182,24 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Advanced Topics</span></a>
+ <span class="menu-text">Edit</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./add.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Add a Page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./add.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edit via GitHub</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./customize.html" class="sidebar-item-text sidebar-link">
@@ -269,12 +275,26 @@ ul.task-list li input[type="checkbox"] {
 <section id="install-quarto" class="level3">
 <h3 class="anchored" data-anchor-id="install-quarto">2. Install <a href="https://quarto.org/docs/get-started/">Quarto</a></h3>
 <p>Before you can make a website with Quarto you will need to install it! This program seamlessly ties into RStudio so you won’t need to learn how to navigate a new program.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preparation Shortcut!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>If you are <em>exclusively</em> interested in editing an <u>existing</u> Quarto website, all you need to do is create a GitHub profile!</strong> Additionally, you may want to skip directly to <a href="https://lter.github.io/workshop-quarto/edit.html">the ‘Edit’ module</a> as that contains all the information you are likely to need.</p>
+<p>However, note that editing websites directly through GitHub can cause issues and most such issues <em>must be resolved in RStudio</em> so the other preparation steps are required if you will be responsible for fixing any issues caused by direct edits to pages in GitHub.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="note-on-code-snippets" class="level2">
 <h2 class="anchored" data-anchor-id="note-on-code-snippets">Note on Code Snippets</h2>
 <p>Note that while most facets of this workshop can be accomplished via RStudio or GitHub, there are some code commands that must be run. These commands are mostly <u>C</u>ommand <u>L</u>ine <u>I</u>nterface (CLI) <em>not</em> R code! To make this as clear as possible, <strong>if the plain text instructions have this symbol <i class="fa-solid fa-terminal" aria-label="terminal"></i> they should be run in the “Terminal” pane of RStudio</strong> while R code–if any–will have this symbol <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
-<p>The “Terminal” pane of RStudio should be next to the “Console” pane of RStudio (see below). If you don’t have that pane, you can make a new one using the keyboard shortcut <code>Alt + Shift + R</code> (Windows) or <code>Option + Shift + R</code> (Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: “Code” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Terminal” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Open New Terminal at File Location”.</p>
+<p>The “Terminal” pane of RStudio should be next to the “Console” pane of RStudio (see below). If you don’t have that pane, you can make a new one using the keyboard shortcut <code>Alt + Shift + R</code> (<i class="fa-brands fa-windows" aria-label="windows"></i> Windows) or <code>Option + Shift + R</code> (<i class="fa-brands fa-apple" aria-label="apple"></i> Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: “Code” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Terminal” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Open New Terminal at File Location”.</p>
 <p align="center">
 <img src="images/rstudio-terminal.png" alt="Screenshot of 'Terminal' pane of RStudio" width="100%">
 </p>

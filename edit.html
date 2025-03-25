@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Creating a Website – SciComp Workshop - Creating Websites with Quarto</title>
+<title>Edit an Existing Website Through GitHub – SciComp Workshop - Creating Websites with Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Create</a></li><li class="breadcrumb-item"><a href="./create.html">Make Structure</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Edit an Existing Website Through GitHub</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./create.html" class="sidebar-item-text sidebar-link active">
+  <a href="./create.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Make Structure</span></a>
   </div>
 </li>
@@ -253,20 +253,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
-  <li><a href="#make-a-new-github-repository" id="toc-make-a-new-github-repository" class="nav-link" data-scroll-target="#make-a-new-github-repository">Make a New GitHub Repository</a></li>
-  <li><a href="#clone-that-repository" id="toc-clone-that-repository" class="nav-link" data-scroll-target="#clone-that-repository">Clone that Repository</a></li>
-  <li><a href="#start-creating-the-website" id="toc-start-creating-the-website" class="nav-link" data-scroll-target="#start-creating-the-website">Start Creating the Website</a>
+  <li><a href="#github-editing-background" id="toc-github-editing-background" class="nav-link" data-scroll-target="#github-editing-background">GitHub Editing Background</a></li>
+  <li><a href="#how-to-edit-through-github" id="toc-how-to-edit-through-github" class="nav-link" data-scroll-target="#how-to-edit-through-github">How to Edit Through GitHub</a>
   <ul class="collapse">
-  <li><a href="#add-to-the-.gitignore" id="toc-add-to-the-.gitignore" class="nav-link" data-scroll-target="#add-to-the-.gitignore">1. Add to the <code>.gitignore</code></a></li>
-  <li><a href="#create-the-website-homepage" id="toc-create-the-website-homepage" class="nav-link" data-scroll-target="#create-the-website-homepage">2. Create the Website Homepage</a></li>
-  <li><a href="#make-a-yaml-file" id="toc-make-a-yaml-file" class="nav-link" data-scroll-target="#make-a-yaml-file">3. Make a YAML File</a></li>
-  <li><a href="#draft-the-yaml" id="toc-draft-the-yaml" class="nav-link" data-scroll-target="#draft-the-yaml">4. Draft the YAML</a></li>
-  <li><a href="#github-housekeeping" id="toc-github-housekeeping" class="nav-link" data-scroll-target="#github-housekeeping">5. GitHub Housekeeping</a></li>
-  <li><a href="#test-it-locally" id="toc-test-it-locally" class="nav-link" data-scroll-target="#test-it-locally">6. Test it Locally</a></li>
-  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">7. Render the Website</a></li>
-  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">8. Commit &amp; Push!</a></li>
+  <li><a href="#find-the-relevant-.qmd-on-github" id="toc-find-the-relevant-.qmd-on-github" class="nav-link" data-scroll-target="#find-the-relevant-.qmd-on-github">1. Find the Relevant <code>.qmd</code> on GitHub</a></li>
+  <li><a href="#start-editing" id="toc-start-editing" class="nav-link" data-scroll-target="#start-editing">2. Start Editing</a></li>
+  <li><a href="#commit-changes" id="toc-commit-changes" class="nav-link" data-scroll-target="#commit-changes">3. Commit Changes</a></li>
+  <li><a href="#allow-the-github-action-to-complete" id="toc-allow-the-github-action-to-complete" class="nav-link" data-scroll-target="#allow-the-github-action-to-complete">4. Allow the GitHub Action to Complete</a></li>
   </ul></li>
-  <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
+  <li><a href="#what-to-do-if-the-github-action-fails" id="toc-what-to-do-if-the-github-action-fails" class="nav-link" data-scroll-target="#what-to-do-if-the-github-action-fails">What to do if the GitHub Action Fails</a>
+  <ul class="collapse">
+  <li><a href="#pull-changes" id="toc-pull-changes" class="nav-link" data-scroll-target="#pull-changes">1. Pull Changes</a></li>
+  <li><a href="#preview-locally" id="toc-preview-locally" class="nav-link" data-scroll-target="#preview-locally">2. Preview Locally</a></li>
+  <li><a href="#render-the-website" id="toc-render-the-website" class="nav-link" data-scroll-target="#render-the-website">3. Render the Website</a></li>
+  <li><a href="#commit-push" id="toc-commit-push" class="nav-link" data-scroll-target="#commit-push">4. Commit &amp; Push!</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -275,9 +276,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Create</a></li><li class="breadcrumb-item"><a href="./create.html">Make Structure</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Creating a Website</h1>
+<h1 class="title">Edit an Existing Website Through GitHub</h1>
 </div>
 
 
@@ -298,302 +299,143 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
 <p>By the end of this module, you will be able to:</p>
 <ul>
-<li><u>Use</u> GitHub to make a new repository</li>
-<li><u>Create</u> a Quarto website</li>
-<li><u>Edit</u> files hosted on GitHub via RStudio</li>
+<li><u>Use</u> GitHub to edit an existing website</li>
 </ul>
 </section>
-<section id="make-a-new-github-repository" class="level2">
-<h2 class="anchored" data-anchor-id="make-a-new-github-repository">Make a New GitHub Repository</h2>
-<p>From your GitHub <strong>“Repositories”</strong> tab, click the <strong>“New”</strong> button. It may be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> depending on your GitHub settings.</p>
-<p><img src="images/new-github-1.png" alt="Screen capture of top bit of 'Repositories' tab of a GitHub user's profile" width="100%"></p>
-<p><strong>Pick a name</strong> for your repository and <strong>add a description</strong>. Also, <strong>set the repository to “Public”</strong>; only public repositories can be turned into websites.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Repository Names &amp; Website URLs
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Note that the name you pick for your repository (and who owns it) has a big impact on the URL for the website hosted there! See an example below for how those pieces of information get translated.</p>
-<p>github.com/<strong><span style="color:purple">owner</span></strong>/<strong><span style="color:orange">repository</span></strong> &nbsp;&nbsp; <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> &nbsp;&nbsp; <strong><span style="color:purple">owner</span></strong>.github.io/<strong><span style="color:orange">repository</span></strong></p>
-<p>So, think about a repository name that will make your URL informative without being overly long if someone needs to type it manually.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Repository Name / URL Exception
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>There is one critical exception to the above rule for how the website URL is related to the GitHub repository’s name!</p>
-<p>If you name a repository “<strong><span style="color:orange">owner.github.io</span></strong>” (so the repository link is “github.com/<strong><span style="color:purple">owner</span></strong>/<strong><span style="color:orange">owner.github.io</span></strong>”) then the website’s URL is simplified to be the <em>same as the repository name</em> (i.e., “<strong>owner.github.io</strong>”).</p>
-<p>For example, the repository <a href="https://github.com/njlyon0/njlyon0.github.io">github.com/njlyon0/njlyon0.github.io</a> hosts the website <a href="https://njlyon0.github.io/">njlyon0.github.io</a>.</p>
-</div>
-</div>
-<p align="center">
-<img src="images/new-github-2.png" alt="Screen capture of the top half of the Github page where new repositories are created" width="70%">
-</p>
-<p>Once that is done, scroll down and decide whether to add (1) a README, (2) a <code>.gitignore</code>, and (3) a license. For Quarto websites, <strong>you will want a README and a <code>.gitignore</code></strong> but a license is not <em>required</em>. If you are an RStudio user, <strong>you should pick the “R” template for your <code>.gitignore</code></strong>. For more information on READMEs see <a href="https://lter.github.io/workshop-github/readmes.html">here</a>; for more information on the <code>.gitignore</code> see <a href="https://lter.github.io/workshop-github/git_ignore.html">here</a>.</p>
-<p align="center">
-<img src="images/new-github-3.png" alt="Screen capture of the bottom half of the Github page where new repositories are created" width="70%">
-</p>
-<p>Once you’ve added these two things, scroll down and click the <strong>“Create repository” button</strong>. Again, this may be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong>.</p>
-<p>After a few seconds you should be placed on your new repository’s landing page.</p>
-</section>
-<section id="clone-that-repository" class="level2">
-<h2 class="anchored" data-anchor-id="clone-that-repository">Clone that Repository</h2>
-<p>Now that you have created a repository, we need to clone it locally so we can create the content we want in RStudio. First, open RStudio and click the <strong>project button</strong> in the top right corner. If you use RStudio projects already, this will be the name of your current project. If you do not use projects it will say “Project: (None)”.</p>
-<p align="center">
-<img src="images/rstudio-clone-1.png" alt="Screen capture of the top right corner of RStudio when there is no active project" width="60%">
-</p>
-<p>When you click that button you should see a small menu appear. You should <strong>click “New Project…”</strong> (the topmost option). Note that if you use projects you’ll see a list of up to the 10 most recent projects filling out the rest of this menu.</p>
-<p align="center">
-<img src="images/rstudio-clone-2.png" alt="Screen capture of the top right corner of RStudio after the project button is clicked" width="60%">
-</p>
-<p>This will create a pop-up window in front of RStudio where you can decide what kind of project you want to create. Because we’re cloning from an existing GitHub repository, <strong>click “Version Control”</strong>.</p>
-<p align="center">
-<img src="images/rstudio-clone-3.png" alt="Screen capture of the first pop-up window from RStudio when a new project is being created" width="70%">
-</p>
-<p>In the next window, <strong>choose “Git”</strong>.</p>
-<p align="center">
-<img src="images/rstudio-clone-4.png" alt="Screen capture of the second pop-up window from RStudio when a new project is being created from version control" width="70%">
-</p>
-<p>Before we address the next dialog window, go back to the landing page for the GitHub repository you’d like to clone. <strong>Click the “Code” button and <em>copy the link</em></strong>. The “Code” button will likely be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong>. In the example image below we’re using a repository that has just been created but the process is the same for repositories that already have work in them.</p>
-<p align="center">
-<img src="images/rstudio-clone-5.png" alt="Screen capture of a GitHub repository with the 'Code' button clicked and the resulting menu open" width="100%">
-</p>
-<p>Now, return to RStudio and <strong>paste the link that you just copied</strong> into the top field of the new project pop-up menu. You must also <strong>pick a name for your project locally</strong> as well as <strong>deciding where on your computer you’d like the local copies to live</strong>. Feel free to name the project whatever you’d like so that you will be easily able to find it later.</p>
-<p align="center">
-<img src="images/rstudio-clone-6.png" alt="Screen capture of a GitHub repository with the 'Code' button clicked and the resulting menu open" width="70%">
-</p>
-<p>Once you’re happy with your entries to those fields, <strong>Click “Create Project”</strong>. You’ll know this has worked when the top right of RStudio has whatever name you entered in the second field of the preceding menu. Also, you should now have a “Git” tab in your RStudio.</p>
-<p align="center">
-<img src="images/rstudio-clone-7.png" alt="Screen capture of the top right corner of RStudio when there is an active project" width="60%">
-</p>
-</section>
-<section id="start-creating-the-website" class="level2">
-<h2 class="anchored" data-anchor-id="start-creating-the-website">Start Creating the Website</h2>
-<p>Now we’ve cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.</p>
-<section id="add-to-the-.gitignore" class="level3">
-<h3 class="anchored" data-anchor-id="add-to-the-.gitignore">1. Add to the <code>.gitignore</code></h3>
-<p>Using the “Files” pane of RStudio, open the <code>.gitignore</code> file. Scroll to the bottom and add the following lines beneath whatever is already in there. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ignore unneeded Quarto folders</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>.quarto<span class="sc">/</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>docs<span class="sc">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Other Good <code>.gitignore</code> Additions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You might also consider adding the following to your <code>.gitignore</code>. This well help keep your repository free of unneeded contents as the website grows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R Project</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span>.Rproj</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mac files</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>.DS_Store</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="create-the-website-homepage" class="level3">
-<h3 class="anchored" data-anchor-id="create-the-website-homepage">2. Create the Website Homepage</h3>
-<p>Now we’ll make what will become the home page of your website! <strong>Create a new Quarto file</strong> (“File” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “New File” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and <strong>click “Create”</strong>.</p>
-<p><strong>Save that file as <code>index.qmd</code></strong>. Technically it doesn’t matter where in your project folder it lives but typically you’d leave it in the top level folder (i.e., not in a sub-folder).</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note on the File Name
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This file must be named <em>exactly</em> as indicated above. All lowercase “index” and it is a <code>.qmd</code> file.</p>
-</div>
-</div>
-</section>
-<section id="make-a-yaml-file" class="level3">
-<h3 class="anchored" data-anchor-id="make-a-yaml-file">3. Make a YAML File</h3>
-<p>Now, as discussed in the <a href="https://lter.github.io/workshop-quarto/background.html">Quarto Background</a> module, Quarto documents–like many computational notebook files–are controlled by a YAML. In the case of RMarkdown, the YAML is a component of each <code>.Rmd</code> file. Quarto supports that functionality for single-file formatting but also supports a single over-arching YAML file to control the structure of a whole project, in this case: a website!</p>
-<p>So, <u>in the <i class="fa-solid fa-terminal" aria-label="terminal"></i> Terminal pane of RStudio</u>, <strong>run the following command to create the needed type of file with the right name</strong>. Note there is a slight difference depending on your operating system so be sure to use the right one!</p>
+<section id="github-editing-background" class="level2">
+<h2 class="anchored" data-anchor-id="github-editing-background">GitHub Editing Background</h2>
+<p>Once you’ve created and deployed a website some edits can actually be made directly through GitHub! There are some limitations to where this is possible as well as some drawbacks of editing via GitHub but the benefits of this approach can often outweigh the negatives. See below for more details.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Strengths</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Limitations</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1">1</button><span id="annotated-cell-6-1" class="code-annotation-target"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a>touch _quarto.yml</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="1" data-code-annotation="1"><code>touch</code> is CLI-speak for ‘create this file’</span>
-</dd>
-</dl>
-</div>
-</div>
+<p>See below for some of the primary benefits of editing websites through GitHub:</p>
+<p><strong>1. Edits to website do not require knowledge of RStudio and/or Git</strong></p>
+<p>This makes the barrier to entry for collaborators much lower than it would be for the code workflow developed by your group.</p>
+<p><strong>2. Edits can be implemented more quickly</strong></p>
+<p>For RStudio-Git experts this increase efficiency is reduced (because they are faster at navigating those steps) but for even intermediate RStudio users it is often faster to edit the website directly in this way.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1">1</button><span id="annotated-cell-7-1" class="code-annotation-target"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a>copy NUL _quarto.yml</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-7" data-code-lines="1" data-code-annotation="1">This is CLI-speak for ‘create this file’</span>
-</dd>
-</dl>
+<p>See below for some of the primary weaknesses of editing websites through GitHub:</p>
+<p><strong>1. Can only edit one file at a time</strong></p>
+<p>As we will shortly demonstrate, GitHub only allows for editing a single file at a time. This is not always an issue but for changes that require editing two files it means that one of the edits is non-functional and may even cause a failure of the GitHub Action for updating the live website. For example adding a new image to the website would require (1) adding the image to GitHub and (2) embedding that image in the website.</p>
+<p><strong>2. Can’t preview changes</strong></p>
+<p>All of the previous modules in this workshop made extensive use of the <i class="fa-solid fa-terminal" aria-label="terminal"></i> <code>quarto preview</code> command so that changes to the website could be checked to make sure they work as desired. When editing directly through GitHub, there is no such feature and it is easy to make one-character typos that break either part of a page or the entire website.</p>
+<p><strong>3. Editing through GitHub does not work when code computation is needed</strong></p>
+<p>When the page to edit includes <em>any</em> code chunks, the edited page <em>must</em> be rendered locally (with the <i class="fa-solid fa-terminal" aria-label="terminal"></i> <code>quarto render</code> command) for the GitHub Action to succeed and the live site to be updated. So, making edits–even if they are not to the code chunks themselves–on pages that contain code chunks <u>cannot be done successfully through GitHub alone</u>. Note that you may edit one page in a website that includes code chunks so long as <em>the specific page you are editing</em> does not include code chunks.</p>
+<p>If you edit a page through RStudio and running the <i class="fa-solid fa-terminal" aria-label="terminal"></i> <code>quarto render</code> command causes <em>any</em> changes to the <code>_freeze/</code> folder, that page cannot be edited successfully through GitHub. Your intuition for such changes will improve as you work more with Quarto via RStudio and/or GitHub but keeping an eye out for whether the <code>_freeze/</code> folder appears in RStudio’s “Git” pane is a good rule of thumb.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<p>This should create a file called <code>_quarto.yml</code> in the top-level of your RStudio project.</p>
 </section>
-<section id="draft-the-yaml" class="level3">
-<h3 class="anchored" data-anchor-id="draft-the-yaml">4. Draft the YAML</h3>
-<p>Next, as you did with the <code>.gitignore</code>, use the “Files” pane of RStudio to open this file. <strong>Copy/paste <em>all</em> of the following into that file</strong>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>project<span class="sc">:</span></span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>  type<span class="sc">:</span> website</span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>  execute<span class="sc">-</span>dir<span class="sc">:</span> project</span>
-<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">-</span>dir<span class="sc">:</span> docs</span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a>  render<span class="sc">:</span></span>
-<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> <span class="st">"*.qmd"</span></span>
-<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-8"><a href="#annotated-cell-2-8" aria-hidden="true" tabindex="-1"></a>execute<span class="sc">:</span> </span>
-<span id="annotated-cell-2-9"><a href="#annotated-cell-2-9" aria-hidden="true" tabindex="-1"></a>  freeze<span class="sc">:</span> auto</span>
-<span id="annotated-cell-2-10"><a href="#annotated-cell-2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-11"><a href="#annotated-cell-2-11" aria-hidden="true" tabindex="-1"></a>website<span class="sc">:</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-12" class="code-annotation-target"><a href="#annotated-cell-2-12" aria-hidden="true" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">"My Website"</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-13" class="code-annotation-target"><a href="#annotated-cell-2-13" aria-hidden="true" tabindex="-1"></a>  repo<span class="sc">-</span>url<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>lter<span class="sc">/</span>workshop<span class="sc">-</span>quarto</span>
-<span id="annotated-cell-2-14"><a href="#annotated-cell-2-14" aria-hidden="true" tabindex="-1"></a>  repo<span class="sc">-</span>actions<span class="sc">:</span> [issue]</span>
-<span id="annotated-cell-2-15"><a href="#annotated-cell-2-15" aria-hidden="true" tabindex="-1"></a>  navbar<span class="sc">:</span></span>
-<span id="annotated-cell-2-16"><a href="#annotated-cell-2-16" aria-hidden="true" tabindex="-1"></a>    background<span class="sc">:</span> primary</span>
-<span id="annotated-cell-2-17"><a href="#annotated-cell-2-17" aria-hidden="true" tabindex="-1"></a>    left<span class="sc">:</span></span>
-<span id="annotated-cell-2-18"><a href="#annotated-cell-2-18" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> text<span class="sc">:</span> <span class="st">"Home"</span></span>
-<span id="annotated-cell-2-19"><a href="#annotated-cell-2-19" aria-hidden="true" tabindex="-1"></a>        href<span class="sc">:</span> index.qmd</span>
-<span id="annotated-cell-2-20"><a href="#annotated-cell-2-20" aria-hidden="true" tabindex="-1"></a>    right<span class="sc">:</span> </span>
-<span id="annotated-cell-2-21"><a href="#annotated-cell-2-21" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> icon<span class="sc">:</span> github</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="3">3</button><span id="annotated-cell-2-22" class="code-annotation-target"><a href="#annotated-cell-2-22" aria-hidden="true" tabindex="-1"></a>        href<span class="sc">:</span> https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>lter<span class="sc">/</span>workshop<span class="sc">-</span>quarto</span>
-<span id="annotated-cell-2-23"><a href="#annotated-cell-2-23" aria-hidden="true" tabindex="-1"></a>  page<span class="sc">-</span>footer<span class="sc">:</span> </span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="4">4</button><span id="annotated-cell-2-24" class="code-annotation-target"><a href="#annotated-cell-2-24" aria-hidden="true" tabindex="-1"></a>    center<span class="sc">:</span> <span class="st">"Copyright 2025, LTER Network"</span></span>
-<span id="annotated-cell-2-25"><a href="#annotated-cell-2-25" aria-hidden="true" tabindex="-1"></a>    background<span class="sc">:</span> secondary</span>
-<span id="annotated-cell-2-26"><a href="#annotated-cell-2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-2-27"><a href="#annotated-cell-2-27" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
-<span id="annotated-cell-2-28"><a href="#annotated-cell-2-28" aria-hidden="true" tabindex="-1"></a>  html<span class="sc">:</span></span>
-<span id="annotated-cell-2-29"><a href="#annotated-cell-2-29" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="annotated-cell-2-30"><a href="#annotated-cell-2-30" aria-hidden="true" tabindex="-1"></a>    link<span class="sc">-</span>external<span class="sc">-</span>newwindow<span class="sc">:</span> true</span>
-<span id="annotated-cell-2-31"><a href="#annotated-cell-2-31" aria-hidden="true" tabindex="-1"></a>    link<span class="sc">-</span>external<span class="sc">-</span>icon<span class="sc">:</span> false</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="12" data-code-annotation="1">Feel free to edit this part! It defines the website title that appears on the left side of the navbar with Quarto.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="13" data-code-annotation="2">Change this link to your GitHub repository’s link</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="22" data-code-annotation="3">Edit this link to the same destination as #2</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="24" data-code-annotation="4">Change this to be the current year and your name</span>
-</dd>
-</dl>
-</div>
-</div>
-<p>This YAML will tell GitHub (through Quarto) that you want a simple website with a homepage made from the content of <code>index.qmd</code> and a GitHub logo in the top right corner that takes website visitors to the GitHub repository that hosts the website.</p>
+<section id="how-to-edit-through-github" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-edit-through-github">How to Edit Through GitHub</h2>
+<section id="find-the-relevant-.qmd-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="find-the-relevant-.qmd-on-github">1. Find the Relevant <code>.qmd</code> on GitHub</h3>
+<p>On GitHub, find and click the name of the <code>.qmd</code> file you want to edit. In the example below we have clicked the file that builds the website homepage (<code>index.qmd</code>).</p>
+<p align="center">
+<img src="images/edit-in-gh-01.png" alt="Screenshot of the contents of a single file in a GitHub repository" width="100%">
+</p>
 </section>
-<section id="github-housekeeping" class="level3">
-<h3 class="anchored" data-anchor-id="github-housekeeping">5. GitHub Housekeeping</h3>
-<p>We want this to be a Quarto website so we also need to tell GitHub not to use “Jekyll”. Jekyll is the default website generation tool for GitHub and would involve extra processing we don’t want. We can do this by running the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>touch .nojekyll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>copy NUL .nojekyll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<p>There won’t actually be anything in this file but the name is enough for GitHub to change its behavior.</p>
+<section id="start-editing" class="level3">
+<h3 class="anchored" data-anchor-id="start-editing">2. Start Editing</h3>
+<p>Once you have opened the file you want to edit, click the pencil icon just above and to the right of the file’s contents. This should open a slightly different interface that allows you to edit the file with a “Commit changes…” button (in the top right corner) grayed out until you make at least one change.</p>
+<p align="center">
+<img src="images/edit-in-gh-02.png" alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface" width="100%">
+</p>
+<p>After you make any edits, the “Commit changes…” button will become click-able.</p>
+<p align="center">
+<img src="images/edit-in-gh-03.png" alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface after some edits have been made" width="100%">
+</p>
 </section>
-<section id="test-it-locally" class="level3">
-<h3 class="anchored" data-anchor-id="test-it-locally">6. Test it Locally</h3>
-<p>To make sure that everything is set up properly so far, it is good practice to create the website on your computer (i.e., “locally”) before continuing. We can do this with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This should create a new tab in your default browser application that shows a living version of what your website will look like after GitHub starts hosting it. The preview will keep going until you manually stop it (from the Terminal pane in RStudio) so feel free to make tweaks to either <code>_quarto.yml</code> or <code>index.qmd</code> while the preview is running. The preview will update a few moments after you save your edits to either of those files.</p>
-</section>
-<section id="render-the-website" class="level3">
-<h3 class="anchored" data-anchor-id="render-the-website">7. Render the Website</h3>
-<p>Once you’re happy with the preview, it’s a good call to completely render the website just to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This may create a <code>docs/</code> folder and a <code>_freeze/</code> folder depending on whether you have code chunks in <code>index.qmd</code> (or anything else requiring computing power). <code>docs/</code> will show up in your file explorer but <em>not</em> the “Git” pane of RStudio because of your edits during step 1. <code>_freeze/</code> should show up in both locations.</p>
-</section>
-<section id="commit-push" class="level3">
-<h3 class="anchored" data-anchor-id="commit-push">8. Commit &amp; Push!</h3>
-<p>Once you’ve done the preceding steps, <strong>Commit the following things: </strong></p>
-<ol type="1">
-<li>Your changes to the <code>.gitignore</code></li>
-<li><code>index.qmd</code></li>
-<li><code>_quarto.yml</code></li>
-<li><code>.nojekyll</code></li>
-<li><code>_freeze/</code> folder and <em>all</em> of its contents
-<ul>
-<li>If it exists</li>
-</ul></li>
-</ol>
-<p><strong>After you’ve committed these, push them up to the GitHub repository!</strong></p>
-</section>
-</section>
-<section id="activity---try-it-out" class="level2">
-<h2 class="anchored" data-anchor-id="activity---try-it-out">Activity - Try it Out</h2>
+<section id="commit-changes" class="level3">
+<h3 class="anchored" data-anchor-id="commit-changes">3. Commit Changes</h3>
+<p>Once you are done editing, you can commit your changes! Note that the top field is the ‘actual’ commit message and the “Extended description” will not be immediately apparent when people are looking at the commit history of this repository. <strong>We recommend <em>replacing</em> the default text in the first field with something more informative.</strong> You can of course include extended description if you want but that is not necessary.</p>
+<p align="center">
+<img src="images/edit-in-gh-04.png" alt="Screenshot of the 'commit changes' pop-up menu that appears when you are editing files directly through GitHub" width="60%">
+</p>
+<p>The fields in the bottom of the pop-up menu (“Commit Email” and the radiobuttons for the branch) can be left at their default positions. Generally, if you wanted one of the non-default options for either of those you’d be making structural edits that are better suited for RStudio than GitHub directly so these options will likely never be something you need to engage with.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Your Turn!
+What About Pulling and Pushing?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Let’s take a break while each of you works through the above tutorial on your own computers!</p>
-<p>Once everyone has the fundamental structure of a website created and in GitHub we can move on to “deployment” which turns this collection of files into a living website!</p>
+<p>Because you are editing directly in GitHub there is no pull/push step! Pulling is from GitHub and pushing is to GitHub so neither applies when you are already in GitHub.</p>
 </div>
 </div>
+</section>
+<section id="allow-the-github-action-to-complete" class="level3">
+<h3 class="anchored" data-anchor-id="allow-the-github-action-to-complete">4. Allow the GitHub Action to Complete</h3>
+<p>Wait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Site Not Updating? Refresh the Page!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="what-to-do-if-the-github-action-fails" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-do-if-the-github-action-fails">What to do if the GitHub Action Fails</h2>
+<p>If the GitHub Action (GHA) fails, it is likely that your edits required some additional computing that needed to be done locally. Fortunately, the solution here is straightforward.</p>
+<section id="pull-changes" class="level3">
+<h3 class="anchored" data-anchor-id="pull-changes">1. Pull Changes</h3>
+<p>If the GHA failed after editing directly through GitHub it means that GitHub ‘knows’ about changes that are not present in your local clone of the repository! To prevent a merge conflict, simply pull down those changes however you normally would do that (typically either through RStudio’s Git pane or via the <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line).</p>
+</section>
+<section id="preview-locally" class="level3">
+<h3 class="anchored" data-anchor-id="preview-locally">2. Preview Locally</h3>
+<p>Start a preview on your local machine to see if the site previews correctly. If the only cause of the failed GHA was that some computing was needed, the preview should succeed on your computer. If there is something else causing the failure, the preview will fail on your computer too. In this case, see if the error text in RStudio’s “Terminal” pane gives you any hint to which file is breaking the website and/or what the nature of the error is.</p>
+<p>Remember that you can start a preview with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remember to End the Preview!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The preview will keep going until you manually stop it</strong> so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.</p>
+</div>
+</div>
+</section>
+<section id="render-the-website" class="level3">
+<h3 class="anchored" data-anchor-id="render-the-website">3. Render the Website</h3>
+<p>Once you’re happy with how things look in the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="commit-push" class="level3">
+<h3 class="anchored" data-anchor-id="commit-push">4. Commit &amp; Push!</h3>
+<p>Once you’ve done the preceding steps, <strong>Commit the following things: </strong></p>
+<ol type="1">
+<li>Any changes to <code>_freeze/</code></li>
+<li>Any changes to other files in the website needed to make the preview succeed
+<ul>
+<li>If any</li>
+</ul></li>
+</ol>
+<p>After you’ve committed these, <strong>push them up to the GitHub repository!</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
