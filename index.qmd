@@ -25,11 +25,20 @@ This involves doing all of the [pre-workshop steps](https://lter.github.io/works
 
 Before you can make a website with Quarto you will need to install it! This program seamlessly ties into RStudio so you won't need to learn how to navigate a new program.
 
+:::{.callout-note}
+#### Preparation Shortcut!
+
+**If you are _exclusively_ interested in editing an <u>existing</u> Quarto website, all you need to do is create a GitHub profile!** Additionally, you may want to skip directly to [the 'Edit' module](https://lter.github.io/workshop-quarto/edit.html) as that contains all the information you are likely to need.
+
+However, note that editing websites directly through GitHub can cause issues and most such issues _must be resolved in RStudio_ so the other preparation steps are required if you will be responsible for fixing any issues caused by direct edits to pages in GitHub.
+
+:::
+
 ## Note on Code Snippets
 
 Note that while most facets of this workshop can be accomplished via RStudio or GitHub, there are some code commands that must be run. These commands are mostly <u>C</u>ommand <u>L</u>ine <u>I</u>nterface (CLI) _not_ R code! To make this as clear as possible, **if the plain text instructions have this symbol {{< fa terminal >}} they should be run in the "Terminal" pane of RStudio** while R code--if any--will have this symbol {{< fa brands r-project >}}.
 
-The "Terminal" pane of RStudio should be next to the "Console" pane of RStudio (see below). If you don't have that pane, you can make a new one using the keyboard shortcut `Alt + Shift + R` (Windows) or `Option + Shift + R` (Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: "Code" {{< fa arrow-right >}} "Terminal" {{< fa arrow-right >}} "Open New Terminal at File Location".
+The "Terminal" pane of RStudio should be next to the "Console" pane of RStudio (see below). If you don't have that pane, you can make a new one using the keyboard shortcut `Alt + Shift + R` ({{< fa brands windows >}} Windows) or `Option + Shift + R` ({{< fa brands apple >}} Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: "Code" {{< fa arrow-right >}} "Terminal" {{< fa arrow-right >}} "Open New Terminal at File Location".
 
 <p align="center"/>
 <img src="images/rstudio-terminal.png" alt="Screenshot of 'Terminal' pane of RStudio" width="100%"/>
