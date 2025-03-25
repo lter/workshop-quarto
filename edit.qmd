@@ -107,7 +107,7 @@ If the GHA failed after editing directly through GitHub it means that GitHub 'kn
 
 ### 2. Preview Locally
 
-Start a preview on your local machine to see if the site previews correctly. If the only cause of the failed GHA was that some computing was needed, the preview should succeed on your computer. If there is something else causing the failure, the preview will fail on your computer too. In this case, see if the error text in RStudio's "Termminal" pane gives you any hint to which file is breaking the website and/or what the nature of the error is.
+Start a preview on your local machine to see if the site previews correctly. If the only cause of the failed GHA was that some computing was needed, the preview should succeed on your computer. If there is something else causing the failure, the preview will fail on your computer too. In this case, see if the error text in RStudio's "Terminal" pane gives you any hint to which file is breaking the website and/or what the nature of the error is.
 
 Remember that you can start a preview with an operating system-agnostic {{< fa terminal >}} command line snippet.
 
