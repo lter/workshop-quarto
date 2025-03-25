@@ -47,3 +47,99 @@ If you edit a page through RStudio and running the {{< fa terminal >}} `quarto r
 
 ## How to Edit Through GitHub
 
+### 1. Find the Relevant `.qmd` on GitHub
+
+On GitHub, find and click the name of the `.qmd` file you want to edit. In the example below we have clicked the file that builds the website homepage (`index.qmd`).
+
+<p align="center"/>
+<img src="images/edit-in-gh-01.png" alt="Screenshot of the contents of a single file in a GitHub repository" width="100%"/>
+</p>
+
+### 2. Start Editing
+
+Once you have opened the file you want to edit, click the pencil icon just above and to the right of the file's contents. This should open a slightly different interface that allows you to edit the file with a "Commit changes..." button (in the top right corner) grayed out until you make at least one change.
+
+<p align="center"/>
+<img src="images/edit-in-gh-02.png" alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface" width="100%"/>
+</p>
+
+After you make any edits, the "Commit changes..." button will become click-able.
+
+<p align="center"/>
+<img src="images/edit-in-gh-03.png" alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface after some edits have been made" width="100%"/>
+</p>
+
+### 3. Commit Changes
+
+Once you are done editing, you can commit your changes! Note that the top field is the 'actual' commit message and the "Extended description" will not be immediately apparent when people are looking at the commit history of this repository. **We recommend _replacing_ the default text in the first field with something more informative.** You can of course include extended description if you want but that is not necessary.
+
+<p align="center"/>
+<img src="images/edit-in-gh-04.png" alt="Screenshot of the 'commit changes' pop-up menu that appears when you are editing files directly through GitHub" width="60%"/>
+</p>
+
+The fields in the bottom of the pop-up menu ("Commit Email" and the radiobuttons for the branch) can be left at their default positions. Generally, if you wanted one of the non-default options for either of those you'd be making structural edits that are better suited for RStudio than GitHub directly so these options will likely never be something you need to engage with.
+
+:::{.callout-note}
+#### What About Pulling and Pushing?
+
+Because you are editing directly in GitHub there is no pull/push step! Pulling is from GitHub and pushing is to GitHub so neither applies when you are already in GitHub.
+
+:::
+
+### 4. Allow the GitHub Action to Complete
+
+Wait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the "Actions" tab of the GitHub repository.
+
+:::{.callout-warning}
+#### Site Not Updating? Refresh the Page!
+
+If your site is not updating but you've followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.
+
+:::
+
+## What to do if the GitHub Action Fails
+
+If the GitHub Action (GHA) fails, it is likely that your edits required some additional computing that needed to be done locally. Fortunately, the solution here is straightforward.
+
+### 1. Pull Changes
+
+If the GHA failed after editing directly through GitHub it means that GitHub 'knows' about changes that are not present in your local clone of the repository! To prevent a merge conflict, simply pull down those changes however you normally would do that (typically either through RStudio's Git pane or via the {{< fa terminal >}} command line).
+
+### 2. Preview Locally
+
+Start a preview on your local machine to see if the site previews correctly. If the only cause of the failed GHA was that some computing was needed, the preview should succeed on your computer. If there is something else causing the failure, the preview will fail on your computer too. In this case, see if the error text in RStudio's "Termminal" pane gives you any hint to which file is breaking the website and/or what the nature of the error is.
+
+Remember that you can start a preview with an operating system-agnostic {{< fa terminal >}} command line snippet.
+
+```{r preview-site}
+#| eval: false
+
+quarto preview
+```
+
+:::{.callout-warning}
+#### Remember to End the Preview!
+
+**The preview will keep going until you manually stop it** so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you're ready to move on.
+
+:::
+
+### 3. Render the Website
+
+Once you're happy with how things look in the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
+
+```{r render-site}
+#| eval: false
+
+quarto render
+```
+
+### 4. Commit & Push!
+
+Once you've done the preceding steps, **Commit the following things: **
+
+1. Any changes to `_freeze/` 
+2. Any changes to other files in the website needed to make the preview succeed
+    - If any
+
+After you've committed these, **push them up to the GitHub repository!**
