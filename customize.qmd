@@ -55,8 +55,8 @@ touch theme_dark.scss
 ```{r scss_win}
 #| eval: false
 
-copy NUL theme_light.scss
-copy NUL theme_dark.scss
+touch theme_light.scss
+touch theme_dark.scss
 ```
 
 :::
