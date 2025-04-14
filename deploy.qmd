@@ -99,9 +99,11 @@ touch .github/workflows/publish.yml
 
 mkdir .github # <1>
 mkdir .github\workflows
-touch .github\workflows\publish.yml
+copy NUL .github\workflows\publish.yml
 ```
 1. `mkdir` is CLI-speak for 'make this folder'
+
+If `copy NUL` does not work, try `touch` instead.
 
 :::
 

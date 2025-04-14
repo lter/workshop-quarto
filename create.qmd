@@ -165,9 +165,11 @@ touch _quarto.yml # <1>
 ```{r make-yaml_win}
 #| eval: false
 
-touch _quarto.yml # <1>
+copy NUL _quarto.yml # <1>
 ```
 1. This is CLI-speak for 'create this file'
+
+If `copy NUL` does not work, try `touch` instead.
 
 :::
 
@@ -237,8 +239,10 @@ touch .nojekyll
 ```{r no-jekyll_win}
 #| eval: false
 
-touch .nojekyll
+copy NUL .nojekyll
 ```
+
+If `copy NUL` does not work, try `touch` instead.
 
 :::
 
