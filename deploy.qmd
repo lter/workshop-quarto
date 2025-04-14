@@ -167,6 +167,29 @@ If you don't want to watch the actions complete from the "Actions" tab, you can 
 <img src="images/gha-04.png" alt="Screenshot of the top part of a GitHub repository's landing page after a GitHub Action is complete" width="100%"/>
 </p>
 
+:::{.callout-warning}
+#### Possibly Necessary Settings Tweak
+
+For some reason, _some_ users may need to do an additional step to get their website to deploy as desired. **If _all_ of the following apply to you, <u>you are one of these affected users and will need to make one small change in your repository settings</u>**. See below:
+
+1. Your website renders correctly on your computer
+2. Your GitHub Action succeeds
+3. The GitHub pages link goes to a 404 page
+
+If all three of those are true for you, go to the GitHub Pages settings for your repository. From the GitHub repository's landing page, click "Settings" then select the "Pages" option about halfway down the left sidebar.
+
+Then, <u>make sure your "Build and deployment" section looks _exactly_ like the image below</u>.
+
+<p align="center"/>
+<img src="images/gh-pages-settings-01.png" alt="Screenshot of GitHub Pages settings (for a repository) where the 'Source' dropdown menu is set to 'Deploy from a branch' and the 'Branch' dropdown menus are set to 'gh-pages' and '/ (root)' (from left to right)" width="80%"/>
+</p>
+
+**Once you make your Settings look like the above screen capture, a new GitHub Action should begin**. When that completes your website should now be accessible from the GitHub pages link that previously returned a 404 page.
+
+The workshop authors are not entirely sure--at time of writing--what makes some users need to do this manually; roughly 30% of past workshop participants have needed to do this step manually while all others do not need to do this step separately. It is not presently clear what differs between these groups (operating system, software versions, and other obvious possible solutions do not clearly divide the two camps).
+
+:::
+
 ### 6. Make the Website Link More Accessible
 
 After the GitHub Action completes, your website is live but you'll need to take an extra step to make that link directly accessible from the landing page of the repository. To start **click the gear ({{< fa gear >}}) icon next to "About" in the right sidebar of the repository**.
