@@ -1,0 +1,123 @@
+---
+title: "Formatting Odds & Ends"
+---
+
+## Module Learning Objectives
+
+By the end of this module, you will be able to:
+
+- <u>Use</u> the formatting tips demonstrated in the module
+
+## Format Background
+
+This module is slightly different than the others in that it is sort of a 'grab bag' of miscellaneous formatting tools rather than a clear, sequential tutorial. However, if you do not have much experience with Markdown, some of these operations are likely to be valuable to you and thus make sense to include in a workshop like this one (though admittedly not as part of the core content of said workshop).
+
+## Embedding Images
+
+There are several methods for embedding an image in a Quarto document. In this author's view, the most flexible is the one that uses HTML syntax so, even if you don't have much experience with that language, it is still worth using it for this specific purpose. Let's begin with embedding an image in the simplest way and then build from there.
+
+See the tabs below for what you will write in your `.qmd` file versus what a visitor to your site will see respectively.
+
+:::{.panel-tabset}
+### Back End
+
+```
+<img src="images/logos/lter.png" alt="LTER Network logo" width="10%" align="left"/>
+```
+
+In the above code we've specified the "alternative text" (what people who use screen readers will 'see' when they encounter this image) as well as the width of the image and its alignment). Note also that parameters (e.g., `src`, `align`, etc. ) are not separated by anything! Comparable R code would typically separate arguments with commas but that is not the case with HTML
+
+### Front End
+
+<img src="images/logos/lter.png" alt="LTER Network logo" width="10%" align="left"/>
+
+<br>
+<br>
+<br>
+
+:::
+
+Unfortunately, the `align` parameter used above only accepts `"left"` or `"right"`. In order to center-align, we'll need to add some code.
+
+:::{.panel-tabset}
+### Back End
+
+```
+<p align="center">
+<img src="images/logos/lter.png" alt="LTER Network logo" width="10%"/>
+</p>
+```
+### Front End
+
+<p align="center">
+<img src="images/logos/lter.png" alt="LTER Network logo" width="10%"/>
+</p>
+
+:::
+
+If we wanted to add a figure caption to the image we can extend this syntax even further!
+
+:::{.panel-tabset}
+### Back End
+
+```
+<p>
+<img src="images/logos/lter.png" alt="LTER Network logo" width="10%"/>
+<figcaption>This is the LTER network logo</figcaption>
+</p>
+```
+### Front End
+
+<p>
+<img src="images/logos/lter.png" alt="LTER Network logo" width="10%"/>
+<figcaption>This is the LTER network logo</figcaption>
+</p>
+
+:::
+
+## Hyperlinking Text
+
+Hyperlinking text can be really nice if you want to avoid making visitors to your site manually copy/paste links. This can also be nice if you want to change where an existing website routes people without changing their view of the site. For example, imagine a collaborator has their website linked in the Quarto website but they change institutions and their website link changes. If you embed the hyperlink you can simply change that and the same hyperlinked text that was always in your site will seamlessly redirect users to the correct location.
+
+See the tabs below for what you will write in your `.qmd` file versus what a visitor to your site will see respectively.
+
+:::{.panel-tabset}
+### Back End
+
+```
+Visit [the workshop website](https://lter.github.io/workshop-quarto/) for more details!
+```
+
+### Front End
+
+Visit [the workshop website](https://lter.github.io/workshop-quarto/) for more details!
+
+:::
+
+
+## Collapsible Sections
+
+This is a little more niche but can be really useful in teaching contexts where you want to have some piece of information readily-accessible without being automatically visible to learners. For instance, you could provide some practice problems with associated answers (or hints) but learners would have to click something to expand the section including that hidden information.
+
+See the tabs below for what you will write in your `.qmd` file versus what a visitor to your site will see respectively.
+
+:::{.panel-tabset}
+### Back End
+
+```
+<details>
+<summary>Click Me!</summary>
+Hello!
+</details>
+```
+
+You can of course change the text between the `summary` tags to tailor the button prompt to your context.
+
+### Front End
+
+<details>
+<summary>Click Me!</summary>
+Hello!
+</details>
+
+:::
