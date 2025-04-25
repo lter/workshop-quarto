@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lter.github.io/workshop-quarto/index.html</loc>
-    <lastmod>2025-04-14T15:03:55.875Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lter.github.io/workshop-quarto/deploy.html</loc>
-    <lastmod>2025-04-14T15:03:55.851Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lter.github.io/workshop-quarto/create.html</loc>
-    <lastmod>2025-04-14T15:03:55.851Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lter.github.io/workshop-quarto/add.html</loc>
-    <lastmod>2025-04-14T15:03:55.850Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lter.github.io/workshop-quarto/background.html</loc>
-    <lastmod>2025-04-14T15:03:55.850Z</lastmod>
-  </url>
-  <url>
-    <loc>https://lter.github.io/workshop-quarto/customize.html</loc>
-    <lastmod>2025-04-14T15:03:55.851Z</lastmod>
+    <lastmod>2025-04-25T14:24:50.183Z</lastmod>
   </url>
   <url>
     <loc>https://lter.github.io/workshop-quarto/edit.html</loc>
-    <lastmod>2025-04-14T15:03:55.851Z</lastmod>
+    <lastmod>2025-04-25T14:24:50.160Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lter.github.io/workshop-quarto/customize.html</loc>
+    <lastmod>2025-04-25T14:24:50.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lter.github.io/workshop-quarto/background.html</loc>
+    <lastmod>2025-04-25T14:24:50.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lter.github.io/workshop-quarto/add.html</loc>
+    <lastmod>2025-04-25T14:24:50.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lter.github.io/workshop-quarto/create.html</loc>
+    <lastmod>2025-04-25T14:24:50.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lter.github.io/workshop-quarto/deploy.html</loc>
+    <lastmod>2025-04-25T14:24:50.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lter.github.io/workshop-quarto/format.html</loc>
+    <lastmod>2025-04-25T14:24:50.160Z</lastmod>
   </url>
 </urlset>

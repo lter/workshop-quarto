@@ -50,6 +50,303 @@
     ]
   },
   {
+    "objectID": "edit.html",
+    "href": "edit.html",
+    "title": "Edit an Existing Website Through GitHub",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nUse GitHub to edit an existing website",
+    "crumbs": [
+      "Edit",
+      "Edit via GitHub"
+    ]
+  },
+  {
+    "objectID": "edit.html#module-learning-objectives",
+    "href": "edit.html#module-learning-objectives",
+    "title": "Edit an Existing Website Through GitHub",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nUse GitHub to edit an existing website",
+    "crumbs": [
+      "Edit",
+      "Edit via GitHub"
+    ]
+  },
+  {
+    "objectID": "edit.html#github-editing-background",
+    "href": "edit.html#github-editing-background",
+    "title": "Edit an Existing Website Through GitHub",
+    "section": "GitHub Editing Background",
+    "text": "GitHub Editing Background\nOnce you’ve created and deployed a website some edits can actually be made directly through GitHub! There are some limitations to where this is possible as well as some drawbacks of editing via GitHub but the benefits of this approach can often outweigh the negatives. See below for more details.\n\nStrengthsLimitations\n\n\nSee below for some of the primary benefits of editing websites through GitHub:\n1. Edits to website do not require knowledge of RStudio and/or Git\nThis makes the barrier to entry for collaborators much lower than it would be for the code workflow developed by your group.\n2. Edits can be implemented more quickly\nFor RStudio-Git experts this increase efficiency is reduced (because they are faster at navigating those steps) but for even intermediate RStudio users it is often faster to edit the website directly in this way.\n\n\nSee below for some of the primary weaknesses of editing websites through GitHub:\n1. Can only edit one file at a time\nAs we will shortly demonstrate, GitHub only allows for editing a single file at a time. This is not always an issue but for changes that require editing two files it means that one of the edits is non-functional and may even cause a failure of the GitHub Action for updating the live website. For example adding a new image to the website would require (1) adding the image to GitHub and (2) embedding that image in the website.\n2. Can’t preview changes\nAll of the previous modules in this workshop made extensive use of the  quarto preview command so that changes to the website could be checked to make sure they work as desired. When editing directly through GitHub, there is no such feature and it is easy to make one-character typos that break either part of a page or the entire website.\n3. Editing through GitHub does not work when code computation is needed\nWhen the page to edit includes any code chunks, the edited page must be rendered locally (with the  quarto render command) for the GitHub Action to succeed and the live site to be updated. So, making edits–even if they are not to the code chunks themselves–on pages that contain code chunks cannot be done successfully through GitHub alone. Note that you may edit one page in a website that includes code chunks so long as the specific page you are editing does not include code chunks.\nIf you edit a page through RStudio and running the  quarto render command causes any changes to the _freeze/ folder, that page cannot be edited successfully through GitHub. Your intuition for such changes will improve as you work more with Quarto via RStudio and/or GitHub but keeping an eye out for whether the _freeze/ folder appears in RStudio’s “Git” pane is a good rule of thumb.",
+    "crumbs": [
+      "Edit",
+      "Edit via GitHub"
+    ]
+  },
+  {
+    "objectID": "edit.html#how-to-edit-through-github",
+    "href": "edit.html#how-to-edit-through-github",
+    "title": "Edit an Existing Website Through GitHub",
+    "section": "How to Edit Through GitHub",
+    "text": "How to Edit Through GitHub\n\n1. Find the Relevant .qmd on GitHub\nOn GitHub, find and click the name of the .qmd file you want to edit. In the example below we have clicked the file that builds the website homepage (index.qmd).\n\n\n\n\n\n2. Start Editing\nOnce you have opened the file you want to edit, click the pencil icon just above and to the right of the file’s contents. This should open a slightly different interface that allows you to edit the file with a “Commit changes…” button (in the top right corner) grayed out until you make at least one change.\n\n\n\nAfter you make any edits, the “Commit changes…” button will become click-able.\n\n\n\n\n\n3. Commit Changes\nOnce you are done editing, you can commit your changes! Note that the top field is the ‘actual’ commit message and the “Extended description” will not be immediately apparent when people are looking at the commit history of this repository. We recommend replacing the default text in the first field with something more informative. You can of course include extended description if you want but that is not necessary.\n\n\n\nThe fields in the bottom of the pop-up menu (“Commit Email” and the radiobuttons for the branch) can be left at their default positions. Generally, if you wanted one of the non-default options for either of those you’d be making structural edits that are better suited for RStudio than GitHub directly so these options will likely never be something you need to engage with.\n\n\n\n\n\n\nWhat About Pulling and Pushing?\n\n\n\nBecause you are editing directly in GitHub there is no pull/push step! Pulling is from GitHub and pushing is to GitHub so neither applies when you are already in GitHub.\n\n\n\n\n4. Allow the GitHub Action to Complete\nWait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
+    "crumbs": [
+      "Edit",
+      "Edit via GitHub"
+    ]
+  },
+  {
+    "objectID": "edit.html#what-to-do-if-the-github-action-fails",
+    "href": "edit.html#what-to-do-if-the-github-action-fails",
+    "title": "Edit an Existing Website Through GitHub",
+    "section": "What to do if the GitHub Action Fails",
+    "text": "What to do if the GitHub Action Fails\nIf the GitHub Action (GHA) fails, it is likely that your edits required some additional computing that needed to be done locally. Fortunately, the solution here is straightforward.\n\n1. Pull Changes\nIf the GHA failed after editing directly through GitHub it means that GitHub ‘knows’ about changes that are not present in your local clone of the repository! To prevent a merge conflict, simply pull down those changes however you normally would do that (typically either through RStudio’s Git pane or via the  command line).\n\n\n2. Preview Locally\nStart a preview on your local machine to see if the site previews correctly. If the only cause of the failed GHA was that some computing was needed, the preview should succeed on your computer. If there is something else causing the failure, the preview will fail on your computer too. In this case, see if the error text in RStudio’s “Terminal” pane gives you any hint to which file is breaking the website and/or what the nature of the error is.\nRemember that you can start a preview with an operating system-agnostic  command line snippet.\n\nquarto preview\n\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n3. Render the Website\nOnce you’re happy with how things look in the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n4. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nAny changes to _freeze/\nAny changes to other files in the website needed to make the preview succeed\n\nIf any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!",
+    "crumbs": [
+      "Edit",
+      "Edit via GitHub"
+    ]
+  },
+  {
+    "objectID": "customize.html",
+    "href": "customize.html",
+    "title": "Customizing a Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nIdentify components of SCSS stylesheets\nDescribe key code syntax differences between SCSS and R code\nUse SCSS stylesheets to customize a deployed Quarto website",
+    "crumbs": [
+      "Edit",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#module-learning-objectives",
+    "href": "customize.html#module-learning-objectives",
+    "title": "Customizing a Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nIdentify components of SCSS stylesheets\nDescribe key code syntax differences between SCSS and R code\nUse SCSS stylesheets to customize a deployed Quarto website",
+    "crumbs": [
+      "Edit",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#scss-background",
+    "href": "customize.html#scss-background",
+    "title": "Customizing a Website",
+    "section": "SCSS Background",
+    "text": "SCSS Background\nTechnically, when we render a Quarto project we are asking Quarto to convert the .qmd file into .html and apply a CSS (Cascading Style Sheets) stylesheet. This is why your deployed website up to this point has had a blue navbar, a white background, and black text (to name a few theme elements governed by the implied CSS stylesheet).\nQuarto supports us making our own, customized stylesheets with Sass (Syntactically Awesome Stylesheet) to tailor the look and feel of our website to exactly our personal preference. The relevant file type is .scss (Sassy CSS; still pronounced “sass”). These files can be written in a combination of CSS and Sass so the syntax might look a little alien to you but this workshop will try to provide a useful level of practical detail for you to engage with these stylesheets even if this is your first foray into that world.\n\n\n\n\n\n\nR Versus SCSS Comparison\n\n\n\nIf you’re an R coder, it might be helpful to compare how R assigns values to objects versus how SCSS binds values to variables as well as how to write a comment (i.e., a non-coding line).\n R code\n# Comment\nobject &lt;- value\n Sass code\n// Comment\n$object: value;",
+    "crumbs": [
+      "Edit",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#customize-with-sass-stylesheets",
+    "href": "customize.html#customize-with-sass-stylesheets",
+    "title": "Customizing a Website",
+    "section": "Customize with Sass Stylesheets",
+    "text": "Customize with Sass Stylesheets\n\n1. Create the Files\nWhile RStudio supports creating CSS files through the graphical user interface, we’ll need to use the  command line to create the .scss stylesheets that Quarto most readily accepts. We can do this by running the following  command line snippet.\n\n Mac /  Linux Windows\n\n\n\ntouch theme_light.scss\ntouch theme_dark.scss\n\n\n\n\ncopy NUL theme_light.scss\ncopy NUL theme_dark.scss\n\nIf copy NUL does not work, try touch instead.\n\n\n\nWe recommend naming the two files like this so that when RStudio and GitHub sort your files, the two theme files will be sorted next to one another.\n\n\n2. Add Template Content\nFrom the RStudio “Files” pane, find and open both new .scss files. We can then edit them in RStudio. To start, copy/paste the below code chunk into both files. This will make light and dark mode look identical but it’ll make it easier to change one of them once you’re happy with the other. Copy/pasting also helps make sure the formatting is right in both files.\n\n/*-- scss:defaults --*/\n\n// Colors\n/* Found on https://coolors.co/palettes/trending */\n$org-1: #ff9f1c;\n$org-2: #ffbf69;\n$mint-1: #2ec4b6;\n$mint-2: #cbf3f0;\n$url-blue: #4361ee;\n\n/* generally useful other colors */\n$cream: #F4F3EE;\n$charcoal: #191919;\n$gray-1: #8A817C;\n$gray-2: #BCB8B1;\n$gray-3: #d6d6d6;\n\n// Fonts\n$font-size: 25px;\n@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');\n\n// Base document colors\n$navbar-bg: $org-1; // navbar\n$navbar-fg: $charcoal; // navbar foreground elements\n$navbar-hl: $org-2; // highlight color when hovering on a page\n$sidebar-bg: $org-2; // sidebar\n$sidebar-fg: $charcoal; // sidebar foreground elements\n$body-bg: $cream; // page background\n$body-color: $charcoal; // page text\n$footer-bg: $mint-1; // footer\n$footer-fg: $charcoal; // footer text\n$link-color: $url-blue; // hyperlinks\n\n// Code text\n$code-bg: $gray-2; // inline code background color\n$code-color: $charcoal; // inline code text color\n$code-block-bg: $gray-2; // code block background color\n\n/*-- scss:rules --*/\n\n// Underline URLs\n.reveal .slide a { text-decoration: underline; }\n\n// Improve background contrast for code chunk ouput\npre code:not(.sourceCode) { background-color: $gray-2; }\n\n\n\n3. Integrate into the Website\nTo get your website to use these .scss files, we’ll need to make some minor edits to the website’s YAML. Open _quarto.yml in RStudio and add the following lines.\n\n\n\n\n\n\nPaste in the Right Place!\n\n\n\nNote that the below code chunk includes a html: element but your existing _quarto.yml will already have that element! That bit is included below so you know where to copy/paste the new lines into your existing YAML.\nIf you’re using a mostly unmodified _quarto.yml, this will be about 4 lines up from the very bottom.\n\n\n\n  html:\n    theme:\n      light: theme_light.scss\n      dark: theme_dark.scss\n    mainfont: Open Sans\n\nDouble check that your indenting is right after you copy/paste those lines! theme: and mainfont should both be one indent more than html: while light: and dark: should have an additional indent beyond theme:.\n\n\n4. Customize Stylesheet Contents\nThe Sass code you copy/pasted into your new .scss files is functional and inoffensive but likely does not reflect your personal aesthetic sensibilities. So, take some time to find some colors that you prefer. This is also a great time to make your dark mode actually a dark mode (currently it has the same content as the light mode .scss file).\n\nCustomizing Colors\nFirst, I’d recommend visiting coolors.co and looking at their trending color palettes for one that feels like your vibe. To incorporate that in your site you’ll need to copy the hexadecimal code (6-digit color code) and add it to the relevant .scss file.\nTypically the simplest way to do this is to assign each color to a variable name, just like the default colors you copy/pasted in earlier (e.g., $cream: #F4F3EE;). Be sure that each line starts with a $ and ends with a ;.\nOnce you’ve assigned variable names to your new color(s), update the existing fields in the lower half of the .scss file with those variable names. Consult the comments for some explanation of what those variable names are called. Remember too that each variable name needs to start with $ when you invoke it (so that Sass knows you’re talking about an existing variable).\n\n\nCustomizing Fonts\nTo find new possible fonts, check out Google Fonts (fonts.google.com) and search around for one that seems like a good fit for your personal style. When you have identified a font that you like, follow these instructions:\n\nClick on the font to go to its homepage\nClick the blue “Get font” button in the top right corner of the page\nClick the blue “ Get embed code” button\nClick the @import radiobutton in the top of the resulting sidebar\nIn the first code chunk, copy everything between the two &lt;style&gt; HTML tags\nIn your .scss files, paste the copied text somewhere near the font that is already there to begin with\nFinally, update the mainfont: element of _quarto.yml with the new font name\n\n\n\n\n5. Test it Locally\nThis step can be especially critical when fiddling with (that’s the technical term) colors for your website. Use the preview extensively to be sure you’re happy with your chosen color palette. We can start a preview session with an operating system-agnostic  command line snippet.\n\nquarto preview\n\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n6. Render the Website\nOnce you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n7. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour new .scss files\nAny changes to _quarto.yml\nAny changes to _freeze/\n\nIf there are any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!\n\n\n8. Allow the GitHub Action to Complete\nAs with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
+    "crumbs": [
+      "Edit",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#activity---try-it-out",
+    "href": "customize.html#activity---try-it-out",
+    "title": "Customizing a Website",
+    "section": "Activity - Try it Out",
+    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you fleshes out your custom stylesheets!",
+    "crumbs": [
+      "Edit",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "customize.html#additional-information",
+    "href": "customize.html#additional-information",
+    "title": "Customizing a Website",
+    "section": "Additional Information",
+    "text": "Additional Information\n\nUCSB Master of Environmental Data Science (MEDS) “Customizing Quarto Websites” lesson\n\nLecture slides for that lesson",
+    "crumbs": [
+      "Edit",
+      "Customize a Website"
+    ]
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Background",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nExplain why Quarto is useful in this context\nDefine the three critical parts of a Quarto file\nDescribe why some Quarto projects use a single YAML file across multiple Quarto documents",
+    "crumbs": [
+      "Create",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#module-learning-objectives",
+    "href": "background.html#module-learning-objectives",
+    "title": "Background",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nExplain why Quarto is useful in this context\nDefine the three critical parts of a Quarto file\nDescribe why some Quarto projects use a single YAML file across multiple Quarto documents",
+    "crumbs": [
+      "Create",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#why-quarto",
+    "href": "background.html#why-quarto",
+    "title": "Background",
+    "section": "Why Quarto",
+    "text": "Why Quarto\nQuarto is new software developed by Posit–the company that maintains RStudio. Quarto is extremely versatile and supports several programming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of ‘bells and whistles’ that makes it worthwhile to embrace.\nThis workshop uses Quarto for the following reasons:\n\nThe learning curve for novice coders is relatively gentle\n\nMuch R knowledge and intuition is directly transferable!\n\nMaking a (simple) website is straightforward\nQuarto can be used in a variety of applications\n\nSo learning it here will give you tools you can apply elsewhere!\n\n\nIf you’re broadly curious about Quarto, check out their website, quarto.org.",
+    "crumbs": [
+      "Create",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#core-components-of-a-quarto-file",
+    "href": "background.html#core-components-of-a-quarto-file",
+    "title": "Background",
+    "section": "Core Components of a Quarto File",
+    "text": "Core Components of a Quarto File\nQuarto documents are a type of “computational notebook” like RMarkdown files and–for python coders–Jupyter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!\nNotebook files contain three fundamental components that allow them to be “rendered” (sometimes also called “knit”) to produce a new static report file. This is often a PDF or an HTML file though for website purposes we’ll be using the HTML version so that each notebook file can become a page in your website.\nTypically, these notebooks have three structural components:\n\nYAML\n\nPronounced [ YEAH-mull ]\n\nEmbedded code chunks\nPlain text\n\nPossibly formatted with Markdown syntax\n\n\n\nYAMLPlain TextCode Chunks\n\n\nThe YAML (Yet Another Markup Language) defines document-level metadata. Most fundamentally, the YAML defines what file type will be produced when the report is rendered. It can also be used to define the top-level title, author, and date information. Finally, it can change the default options for code chunks throughout the document (more on code chunk options elsewhere).\nDifferent notebook file types will specify the YAML differently but in both Quarto documents and R Markdown files, the YAML is defined in the first few lines of the report and starts/ends with a line containing three hyphens. This looks something like this:\n---\ntitle: \"Reproducible Reports\"\noutput: html_document\n---\nAmong other roles, the YAML defines what type of output file is produced when the notebook is “rendered” (a.k.a. “knit”). Most commonly this is either a single PDF or HTML file but more complex YAMLs can be used to create full websites or scientific manuscripts!\n\n\nThe text outside of the YAML and code chunks is plain text that accepts Markdown syntax to accomplish text format tweaks. Dedicated text-formatting software (e.g., Microsoft Word, Gmail, etc.) provides buttons and hot keys for these sorts of format alterations but many programming IDEs do not provide such user interface elements.1 Markdown syntax is used to support this same functionality.\nSome fundamental Markdown options include:\n\n**bold text**  bold text\n_italic text_  italic text\n`code text`  code text\n[hyperlinked text](https://lter.github.io/ssecr/mod_reports.html)  hyperlinked text\n\nFor a more complete glossary of fundamental Markdown syntax options see here. You may also want to explore the ‘back end’ of this workshop’s website as every page is built using Quarto documents.\n\n\nThe code chunks embedded in notebooks are essentially a fragmented script containing runnable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you’ll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.\nIn Quarto documents, code chunks look like this2:\n\\```{r demo-chunk}\n1#| echo: true\n\n2# Round pi to 2 digits\nround(x = pi, digits = 2)\n\\```\n\n1\n\nYou may specify chunk-specific options using this syntax (i.e., #| option_name: option_setting). Options you want to apply to all chunks across a notebook should be specified once in the YAML and can exclude the leading #| bit of the format.\n\n2\n\nIf your Markdown text provides sufficient context you may exclude comments in code chunks but opinions differ on which is “more” appropriate\n\n\n# Round pi to 2 digits\nround(x = pi, digits = 2)",
+    "crumbs": [
+      "Create",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#website-yamls",
+    "href": "background.html#website-yamls",
+    "title": "Background",
+    "section": "Website YAMLs",
+    "text": "Website YAMLs\nWhen working in a single Quarto document, that document needs its own YAML so that Quarto ‘knows’ how to render it (and into what!). However, for multi-document projects like websites, this would be intensely cumbersome because every page would need extensive YAML information so that each document showed up where you expected it and all formatting was consistent across documents.\nTo solve this problem Quarto uses a single YAML file for these larger projects that controls project-wide (i.e., across-document) formatting and structure. You can still use the YAML section within a single document if you want it to behave differently from other pages but any formatting you want to apply across all pages should be specified in this cross-document YAML.\nWe’ll discuss what goes into that project-wide YAML in the next workshop module but for now it is only important you understand its general purpose and know that it must always be named _quarto.yml for it to work as you expect.",
+    "crumbs": [
+      "Create",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "background.html#footnotes",
+    "href": "background.html#footnotes",
+    "title": "Background",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nNote that with the addition of the “Visual” tab in RStudio there are button options for many text format changes. Markdown syntax is still useful to know for general knowledge reasons though!↩︎\nNormally code chunks start and end with three backticks (```) but to embed this code chunk example we need to “escape” the first backtick (using a backslash) so that the notebook interprets it correctly.↩︎",
+    "crumbs": [
+      "Create",
+      "Quarto Background"
+    ]
+  },
+  {
+    "objectID": "add.html",
+    "href": "add.html",
+    "title": "Add a Page to the Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nCreate a new page for an existing Quarto website",
+    "crumbs": [
+      "Edit",
+      "Add a Page"
+    ]
+  },
+  {
+    "objectID": "add.html#module-learning-objectives",
+    "href": "add.html#module-learning-objectives",
+    "title": "Add a Page to the Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nCreate a new page for an existing Quarto website",
+    "crumbs": [
+      "Edit",
+      "Add a Page"
+    ]
+  },
+  {
+    "objectID": "add.html#create-a-new-page",
+    "href": "add.html#create-a-new-page",
+    "title": "Add a Page to the Website",
+    "section": "Create a New Page",
+    "text": "Create a New Page\n\n1. Make a .qmd File\nNow that you’ve created and deployed your website, adding content is straightforward! To add a page to your website, first you’ll create a new Quarto file (“File”  “New File”  “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and click “Create”.\nOnce the file exists, edit it as you see fit. Make commits as you would normally but do not push yet!\n\n\n\n\n\n\nFile Name to Page Name\n\n\n\nWhile the website homepage file had to be saved as index.qmd, you can save this Quarto file as whatever makes sense to you! For example:\nfile.qmd        owner.github.io/repository/file.html\n\n\n\n\n\n\n\n\nSub-Folders for Larger Websites\n\n\n\nIf you want to use sub-folders to organize your pages locally and keep the top-level of your GitHub repository nice and tidy, Quarto supports that! The URL produced from .qmd files placed in sub-folders will also include the folder name though, so be aware.\nfolder/file.qmd        owner.github.io/repository/folder/file.html\n\n\n\n\n2. Add the New Page to _quarto.yml\nFor this page to show up in your website, you need to edit _quarto.yml so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.).\nIn RStudio, uses the “Files” pane to open quarto.yml and add the new page to the relevant part of the YAML. In the example below, the new file is papers.qmd and we want it to be accessible from the navigation bar at the top of the website from the word “Publications” (see lines 20-21).\n\n\n\n\n\n\n\n\n\nWatch Out for Indentation!!\n\n\n\nWhile indentation does not affect R code, it absolutely affects YAML code! A common source of error for Quarto websites is improper indentation for a new YAML element so double check the indentation of your additions against comparable rows that you know already work.\n\n\n\n\n3. Test it Locally\nTo make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic  command line snippet.\n\nquarto preview\n\nIf something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n4. Render the Website\nOnce you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n5. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour new .qmd file\nAny changes to _quarto.yml\nAny changes to _freeze/\n\nIf there are any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!\n\n\n6. Allow the GitHub Action to Complete\nWait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
+    "crumbs": [
+      "Edit",
+      "Add a Page"
+    ]
+  },
+  {
+    "objectID": "add.html#activity---try-it-out",
+    "href": "add.html#activity---try-it-out",
+    "title": "Add a Page to the Website",
+    "section": "Activity - Try it Out",
+    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you adds a new page to your website!",
+    "crumbs": [
+      "Edit",
+      "Add a Page"
+    ]
+  },
+  {
+    "objectID": "create.html",
+    "href": "create.html",
+    "title": "Creating a Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nUse GitHub to make a new repository\nCreate a Quarto website\nEdit files hosted on GitHub via RStudio",
+    "crumbs": [
+      "Create",
+      "Make Structure"
+    ]
+  },
+  {
+    "objectID": "create.html#module-learning-objectives",
+    "href": "create.html#module-learning-objectives",
+    "title": "Creating a Website",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nUse GitHub to make a new repository\nCreate a Quarto website\nEdit files hosted on GitHub via RStudio",
+    "crumbs": [
+      "Create",
+      "Make Structure"
+    ]
+  },
+  {
+    "objectID": "create.html#make-a-new-github-repository",
+    "href": "create.html#make-a-new-github-repository",
+    "title": "Creating a Website",
+    "section": "Make a New GitHub Repository",
+    "text": "Make a New GitHub Repository\nFrom your GitHub “Repositories” tab, click the “New” button. It may be either blue or green depending on your GitHub settings.\n\nPick a name for your repository and add a description. Also, set the repository to “Public”; only public repositories can be turned into websites.\n\n\n\n\n\n\nRepository Names & Website URLs\n\n\n\nNote that the name you pick for your repository (and who owns it) has a big impact on the URL for the website hosted there! See an example below for how those pieces of information get translated.\ngithub.com/owner/repository        owner.github.io/repository\nSo, think about a repository name that will make your URL informative without being overly long if someone needs to type it manually.\n\n\n\n\n\n\n\n\nRepository Name / URL Exception\n\n\n\nThere is one critical exception to the above rule for how the website URL is related to the GitHub repository’s name!\nIf you name a repository “owner.github.io” (so the repository link is “github.com/owner/owner.github.io”) then the website’s URL is simplified to be the same as the repository name (i.e., “owner.github.io”).\nFor example, the repository github.com/njlyon0/njlyon0.github.io hosts the website njlyon0.github.io.\n\n\n\n\n\nOnce that is done, scroll down and decide whether to add (1) a README, (2) a .gitignore, and (3) a license. For Quarto websites, you will want a README and a .gitignore but a license is not required. If you are an RStudio user, you should pick the “R” template for your .gitignore. For more information on READMEs see here; for more information on the .gitignore see here.\n\n\n\nOnce you’ve added these two things, scroll down and click the “Create repository” button. Again, this may be either blue or green.\nAfter a few seconds you should be placed on your new repository’s landing page.",
+    "crumbs": [
+      "Create",
+      "Make Structure"
+    ]
+  },
+  {
+    "objectID": "create.html#clone-that-repository",
+    "href": "create.html#clone-that-repository",
+    "title": "Creating a Website",
+    "section": "Clone that Repository",
+    "text": "Clone that Repository\nNow that you have created a repository, we need to clone it locally so we can create the content we want in RStudio. First, open RStudio and click the project button in the top right corner. If you use RStudio projects already, this will be the name of your current project. If you do not use projects it will say “Project: (None)”.\n\n\n\nWhen you click that button you should see a small menu appear. You should click “New Project…” (the topmost option). Note that if you use projects you’ll see a list of up to the 10 most recent projects filling out the rest of this menu.\n\n\n\nThis will create a pop-up window in front of RStudio where you can decide what kind of project you want to create. Because we’re cloning from an existing GitHub repository, click “Version Control”.\n\n\n\nIn the next window, choose “Git”.\n\n\n\nBefore we address the next dialog window, go back to the landing page for the GitHub repository you’d like to clone. Click the “Code” button and copy the link. The “Code” button will likely be either blue or green. In the example image below we’re using a repository that has just been created but the process is the same for repositories that already have work in them.\n\n\n\nNow, return to RStudio and paste the link that you just copied into the top field of the new project pop-up menu. You must also pick a name for your project locally as well as deciding where on your computer you’d like the local copies to live. Feel free to name the project whatever you’d like so that you will be easily able to find it later.\n\n\n\nOnce you’re happy with your entries to those fields, Click “Create Project”. You’ll know this has worked when the top right of RStudio has whatever name you entered in the second field of the preceding menu. Also, you should now have a “Git” tab in your RStudio.",
+    "crumbs": [
+      "Create",
+      "Make Structure"
+    ]
+  },
+  {
+    "objectID": "create.html#start-creating-the-website",
+    "href": "create.html#start-creating-the-website",
+    "title": "Creating a Website",
+    "section": "Start Creating the Website",
+    "text": "Start Creating the Website\nNow we’ve cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.\n\n1. Add to the .gitignore\nUsing the “Files” pane of RStudio, open the .gitignore file. Scroll to the bottom and add the following lines beneath whatever is already in there. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.\n\n# Ignore unneeded Quarto folders\n/.quarto/\ndocs/\n\n\n\n\n\n\n\nOther Good .gitignore Additions\n\n\n\nYou might also consider adding the following to your .gitignore. This well help keep your repository free of unneeded contents as the website grows.\n\n# R Project\n*.Rproj\n\n# Mac files\n.DS_Store\n\n\n\n\n\n2. Create the Website Homepage\nNow we’ll make what will become the home page of your website! Create a new Quarto file (“File”  “New File”  “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and click “Create”.\nSave that file as index.qmd. Technically it doesn’t matter where in your project folder it lives but typically you’d leave it in the top level folder (i.e., not in a sub-folder).\n\n\n\n\n\n\nNote on the File Name\n\n\n\nThis file must be named exactly as indicated above. All lowercase “index” and it is a .qmd file.\n\n\n\n\n3. Make a YAML File\nNow, as discussed in the Quarto Background module, Quarto documents–like many computational notebook files–are controlled by a YAML. In the case of RMarkdown, the YAML is a component of each .Rmd file. Quarto supports that functionality for single-file formatting but also supports a single over-arching YAML file to control the structure of a whole project, in this case: a website!\nSo, in the  Terminal pane of RStudio, run the following command to create the needed type of file with the right name. Note there is a slight difference depending on your operating system so be sure to use the right one!\n\n Mac /  Linux Windows\n\n\n\n1touch _quarto.yml\n\n\n1\n\ntouch is CLI-speak for ‘create this file’\n\n\n\n\n\n\n\n1copy NUL _quarto.yml\n\n\n1\n\nThis is CLI-speak for ‘create this file’\n\n\n\n\nIf copy NUL does not work, try touch instead.\n\n\n\nThis should create a file called _quarto.yml in the top-level of your RStudio project.\n\n\n4. Draft the YAML\nNext, as you did with the .gitignore, use the “Files” pane of RStudio to open this file. Copy/paste all of the following into that file.\n\nproject:\n  type: website\n  execute-dir: project\n  output-dir: docs\n  render:\n    - \"*.qmd\"\n\nexecute: \n  freeze: auto\n\nwebsite:\n1  title: \"My Website\"\n2  repo-url: https://github.com/lter/workshop-quarto\n  repo-actions: [issue]\n  navbar:\n    background: primary\n    left:\n      - text: \"Home\"\n        href: index.qmd\n    right: \n      - icon: github\n3        href: https://github.com/lter/workshop-quarto\n  page-footer: \n4    center: \"Copyright 2025, LTER Network\"\n    background: secondary\n\nformat:\n  html:\n    toc: true\n    link-external-newwindow: true\n    link-external-icon: false\n\n\n1\n\nFeel free to edit this part! It defines the website title that appears on the left side of the navbar with Quarto.\n\n2\n\nChange this link to your GitHub repository’s link\n\n3\n\nEdit this link to the same destination as #2\n\n4\n\nChange this to be the current year and your name\n\n\n\n\nThis YAML will tell GitHub (through Quarto) that you want a simple website with a homepage made from the content of index.qmd and a GitHub logo in the top right corner that takes website visitors to the GitHub repository that hosts the website.\n\n\n5. GitHub Housekeeping\nWe want this to be a Quarto website so we also need to tell GitHub not to use “Jekyll”. Jekyll is the default website generation tool for GitHub and would involve extra processing we don’t want. We can do this by running the following  command line snippet.\n\n Mac /  Linux Windows\n\n\n\ntouch .nojekyll\n\n\n\n\ncopy NUL .nojekyll\n\nIf copy NUL does not work, try touch instead.\n\n\n\nThere won’t actually be anything in this file but the name is enough for GitHub to change its behavior.\n\n\n6. Test it Locally\nTo make sure that everything is set up properly so far, it is good practice to create the website on your computer (i.e., “locally”) before continuing. We can do this with an operating system-agnostic  command line snippet.\n\nquarto preview\n\nThis should create a new tab in your default browser application that shows a living version of what your website will look like after GitHub starts hosting it. The preview will keep going until you manually stop it (from the Terminal pane in RStudio) so feel free to make tweaks to either _quarto.yml or index.qmd while the preview is running. The preview will update a few moments after you save your edits to either of those files.\n\n\n7. Render the Website\nOnce you’re happy with the preview, it’s a good call to completely render the website just to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\nThis may create a docs/ folder and a _freeze/ folder depending on whether you have code chunks in index.qmd (or anything else requiring computing power). docs/ will show up in your file explorer but not the “Git” pane of RStudio because of your edits during step 1. _freeze/ should show up in both locations.\n\n\n8. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour changes to the .gitignore\nindex.qmd\n_quarto.yml\n.nojekyll\n_freeze/ folder and all of its contents\n\nIf it exists\n\n\nAfter you’ve committed these, push them up to the GitHub repository!",
+    "crumbs": [
+      "Create",
+      "Make Structure"
+    ]
+  },
+  {
+    "objectID": "create.html#activity---try-it-out",
+    "href": "create.html#activity---try-it-out",
+    "title": "Creating a Website",
+    "section": "Activity - Try it Out",
+    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you works through the above tutorial on your own computers!\nOnce everyone has the fundamental structure of a website created and in GitHub we can move on to “deployment” which turns this collection of files into a living website!",
+    "crumbs": [
+      "Create",
+      "Make Structure"
+    ]
+  },
+  {
     "objectID": "deploy.html",
     "href": "deploy.html",
     "title": "Deploying a Website",
@@ -127,300 +424,63 @@
     ]
   },
   {
-    "objectID": "create.html",
-    "href": "create.html",
-    "title": "Creating a Website",
+    "objectID": "format.html",
+    "href": "format.html",
+    "title": "Formatting Odds & Ends",
     "section": "",
-    "text": "By the end of this module, you will be able to:\n\nUse GitHub to make a new repository\nCreate a Quarto website\nEdit files hosted on GitHub via RStudio",
+    "text": "By the end of this module, you will be able to:\n\nUse the formatting tips demonstrated in the module",
     "crumbs": [
-      "Create",
-      "Make Structure"
+      "Formatting Notes"
     ]
   },
   {
-    "objectID": "create.html#module-learning-objectives",
-    "href": "create.html#module-learning-objectives",
-    "title": "Creating a Website",
+    "objectID": "format.html#module-learning-objectives",
+    "href": "format.html#module-learning-objectives",
+    "title": "Formatting Odds & Ends",
     "section": "",
-    "text": "By the end of this module, you will be able to:\n\nUse GitHub to make a new repository\nCreate a Quarto website\nEdit files hosted on GitHub via RStudio",
+    "text": "By the end of this module, you will be able to:\n\nUse the formatting tips demonstrated in the module",
     "crumbs": [
-      "Create",
-      "Make Structure"
+      "Formatting Notes"
     ]
   },
   {
-    "objectID": "create.html#make-a-new-github-repository",
-    "href": "create.html#make-a-new-github-repository",
-    "title": "Creating a Website",
-    "section": "Make a New GitHub Repository",
-    "text": "Make a New GitHub Repository\nFrom your GitHub “Repositories” tab, click the “New” button. It may be either blue or green depending on your GitHub settings.\n\nPick a name for your repository and add a description. Also, set the repository to “Public”; only public repositories can be turned into websites.\n\n\n\n\n\n\nRepository Names & Website URLs\n\n\n\nNote that the name you pick for your repository (and who owns it) has a big impact on the URL for the website hosted there! See an example below for how those pieces of information get translated.\ngithub.com/owner/repository        owner.github.io/repository\nSo, think about a repository name that will make your URL informative without being overly long if someone needs to type it manually.\n\n\n\n\n\n\n\n\nRepository Name / URL Exception\n\n\n\nThere is one critical exception to the above rule for how the website URL is related to the GitHub repository’s name!\nIf you name a repository “owner.github.io” (so the repository link is “github.com/owner/owner.github.io”) then the website’s URL is simplified to be the same as the repository name (i.e., “owner.github.io”).\nFor example, the repository github.com/njlyon0/njlyon0.github.io hosts the website njlyon0.github.io.\n\n\n\n\n\nOnce that is done, scroll down and decide whether to add (1) a README, (2) a .gitignore, and (3) a license. For Quarto websites, you will want a README and a .gitignore but a license is not required. If you are an RStudio user, you should pick the “R” template for your .gitignore. For more information on READMEs see here; for more information on the .gitignore see here.\n\n\n\nOnce you’ve added these two things, scroll down and click the “Create repository” button. Again, this may be either blue or green.\nAfter a few seconds you should be placed on your new repository’s landing page.",
+    "objectID": "format.html#format-background",
+    "href": "format.html#format-background",
+    "title": "Formatting Odds & Ends",
+    "section": "Format Background",
+    "text": "Format Background\nThis module is slightly different than the others in that it is sort of a ‘grab bag’ of miscellaneous formatting tools rather than a clear, sequential tutorial. However, if you do not have much experience with Markdown, some of these operations are likely to be valuable to you and thus make sense to include in a workshop like this one (though admittedly not as part of the core content of said workshop).",
     "crumbs": [
-      "Create",
-      "Make Structure"
+      "Formatting Notes"
     ]
   },
   {
-    "objectID": "create.html#clone-that-repository",
-    "href": "create.html#clone-that-repository",
-    "title": "Creating a Website",
-    "section": "Clone that Repository",
-    "text": "Clone that Repository\nNow that you have created a repository, we need to clone it locally so we can create the content we want in RStudio. First, open RStudio and click the project button in the top right corner. If you use RStudio projects already, this will be the name of your current project. If you do not use projects it will say “Project: (None)”.\n\n\n\nWhen you click that button you should see a small menu appear. You should click “New Project…” (the topmost option). Note that if you use projects you’ll see a list of up to the 10 most recent projects filling out the rest of this menu.\n\n\n\nThis will create a pop-up window in front of RStudio where you can decide what kind of project you want to create. Because we’re cloning from an existing GitHub repository, click “Version Control”.\n\n\n\nIn the next window, choose “Git”.\n\n\n\nBefore we address the next dialog window, go back to the landing page for the GitHub repository you’d like to clone. Click the “Code” button and copy the link. The “Code” button will likely be either blue or green. In the example image below we’re using a repository that has just been created but the process is the same for repositories that already have work in them.\n\n\n\nNow, return to RStudio and paste the link that you just copied into the top field of the new project pop-up menu. You must also pick a name for your project locally as well as deciding where on your computer you’d like the local copies to live. Feel free to name the project whatever you’d like so that you will be easily able to find it later.\n\n\n\nOnce you’re happy with your entries to those fields, Click “Create Project”. You’ll know this has worked when the top right of RStudio has whatever name you entered in the second field of the preceding menu. Also, you should now have a “Git” tab in your RStudio.",
+    "objectID": "format.html#embedding-images",
+    "href": "format.html#embedding-images",
+    "title": "Formatting Odds & Ends",
+    "section": "Embedding Images",
+    "text": "Embedding Images\nThere are several methods for embedding an image in a Quarto document. In this author’s view, the most flexible is the one that uses HTML syntax so, even if you don’t have much experience with that language, it is still worth using it for this specific purpose. Let’s begin with embedding an image in the simplest way and then build from there.\nSee the tabs below for what you will write in your .qmd file versus what a visitor to your site will see respectively.\n\nBack EndFront End\n\n\n&lt;img src=\"images/logos/lter.png\" alt=\"LTER Network logo\" width=\"10%\" align=\"left\"/&gt;\nIn the above code we’ve specified the “alternative text” (what people who use screen readers will ‘see’ when they encounter this image) as well as the width of the image and its alignment). Note also that parameters (e.g., src, align, etc. ) are not separated by anything! Comparable R code would typically separate arguments with commas but that is not the case with HTML\n\n\n\n  \n\n\n\nUnfortunately, the align parameter used above only accepts \"left\" or \"right\". In order to center-align, we’ll need to add some code.\n\nBack EndFront End\n\n\n&lt;p align=\"center\"&gt;\n&lt;img src=\"images/logos/lter.png\" alt=\"LTER Network logo\" width=\"10%\"/&gt;\n&lt;/p&gt;\n\n\n\n\n\n\n\n\nIf we wanted to add a figure caption to the image we can extend this syntax even further!\n\nBack EndFront End\n\n\n&lt;p&gt;\n&lt;img src=\"images/logos/lter.png\" alt=\"LTER Network logo\" width=\"10%\"/&gt;\n&lt;figcaption&gt;This is the LTER network logo&lt;/figcaption&gt;\n&lt;/p&gt;\n\n\n\n\n\nThis is the LTER network logo",
     "crumbs": [
-      "Create",
-      "Make Structure"
+      "Formatting Notes"
     ]
   },
   {
-    "objectID": "create.html#start-creating-the-website",
-    "href": "create.html#start-creating-the-website",
-    "title": "Creating a Website",
-    "section": "Start Creating the Website",
-    "text": "Start Creating the Website\nNow we’ve cloned the GitHub repository where we want the repository to live, we can create the critical website architecture. These steps are best handled sequentially but are semi-independent of one another so see the following numbered sub-headings for more instructions.\n\n1. Add to the .gitignore\nUsing the “Files” pane of RStudio, open the .gitignore file. Scroll to the bottom and add the following lines beneath whatever is already in there. Those two folders are important in creating a Quarto website but we don’t want Git to track changes to the files that they contain.\n\n# Ignore unneeded Quarto folders\n/.quarto/\ndocs/\n\n\n\n\n\n\n\nOther Good .gitignore Additions\n\n\n\nYou might also consider adding the following to your .gitignore. This well help keep your repository free of unneeded contents as the website grows.\n\n# R Project\n*.Rproj\n\n# Mac files\n.DS_Store\n\n\n\n\n\n2. Create the Website Homepage\nNow we’ll make what will become the home page of your website! Create a new Quarto file (“File”  “New File”  “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and click “Create”.\nSave that file as index.qmd. Technically it doesn’t matter where in your project folder it lives but typically you’d leave it in the top level folder (i.e., not in a sub-folder).\n\n\n\n\n\n\nNote on the File Name\n\n\n\nThis file must be named exactly as indicated above. All lowercase “index” and it is a .qmd file.\n\n\n\n\n3. Make a YAML File\nNow, as discussed in the Quarto Background module, Quarto documents–like many computational notebook files–are controlled by a YAML. In the case of RMarkdown, the YAML is a component of each .Rmd file. Quarto supports that functionality for single-file formatting but also supports a single over-arching YAML file to control the structure of a whole project, in this case: a website!\nSo, in the  Terminal pane of RStudio, run the following command to create the needed type of file with the right name. Note there is a slight difference depending on your operating system so be sure to use the right one!\n\n Mac /  Linux Windows\n\n\n\n1touch _quarto.yml\n\n\n1\n\ntouch is CLI-speak for ‘create this file’\n\n\n\n\n\n\n\n1copy NUL _quarto.yml\n\n\n1\n\nThis is CLI-speak for ‘create this file’\n\n\n\n\nIf copy NUL does not work, try touch instead.\n\n\n\nThis should create a file called _quarto.yml in the top-level of your RStudio project.\n\n\n4. Draft the YAML\nNext, as you did with the .gitignore, use the “Files” pane of RStudio to open this file. Copy/paste all of the following into that file.\n\nproject:\n  type: website\n  execute-dir: project\n  output-dir: docs\n  render:\n    - \"*.qmd\"\n\nexecute: \n  freeze: auto\n\nwebsite:\n1  title: \"My Website\"\n2  repo-url: https://github.com/lter/workshop-quarto\n  repo-actions: [issue]\n  navbar:\n    background: primary\n    left:\n      - text: \"Home\"\n        href: index.qmd\n    right: \n      - icon: github\n3        href: https://github.com/lter/workshop-quarto\n  page-footer: \n4    center: \"Copyright 2025, LTER Network\"\n    background: secondary\n\nformat:\n  html:\n    toc: true\n    link-external-newwindow: true\n    link-external-icon: false\n\n\n1\n\nFeel free to edit this part! It defines the website title that appears on the left side of the navbar with Quarto.\n\n2\n\nChange this link to your GitHub repository’s link\n\n3\n\nEdit this link to the same destination as #2\n\n4\n\nChange this to be the current year and your name\n\n\n\n\nThis YAML will tell GitHub (through Quarto) that you want a simple website with a homepage made from the content of index.qmd and a GitHub logo in the top right corner that takes website visitors to the GitHub repository that hosts the website.\n\n\n5. GitHub Housekeeping\nWe want this to be a Quarto website so we also need to tell GitHub not to use “Jekyll”. Jekyll is the default website generation tool for GitHub and would involve extra processing we don’t want. We can do this by running the following  command line snippet.\n\n Mac /  Linux Windows\n\n\n\ntouch .nojekyll\n\n\n\n\ncopy NUL .nojekyll\n\nIf copy NUL does not work, try touch instead.\n\n\n\nThere won’t actually be anything in this file but the name is enough for GitHub to change its behavior.\n\n\n6. Test it Locally\nTo make sure that everything is set up properly so far, it is good practice to create the website on your computer (i.e., “locally”) before continuing. We can do this with an operating system-agnostic  command line snippet.\n\nquarto preview\n\nThis should create a new tab in your default browser application that shows a living version of what your website will look like after GitHub starts hosting it. The preview will keep going until you manually stop it (from the Terminal pane in RStudio) so feel free to make tweaks to either _quarto.yml or index.qmd while the preview is running. The preview will update a few moments after you save your edits to either of those files.\n\n\n7. Render the Website\nOnce you’re happy with the preview, it’s a good call to completely render the website just to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\nThis may create a docs/ folder and a _freeze/ folder depending on whether you have code chunks in index.qmd (or anything else requiring computing power). docs/ will show up in your file explorer but not the “Git” pane of RStudio because of your edits during step 1. _freeze/ should show up in both locations.\n\n\n8. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour changes to the .gitignore\nindex.qmd\n_quarto.yml\n.nojekyll\n_freeze/ folder and all of its contents\n\nIf it exists\n\n\nAfter you’ve committed these, push them up to the GitHub repository!",
+    "objectID": "format.html#hyperlinking-text",
+    "href": "format.html#hyperlinking-text",
+    "title": "Formatting Odds & Ends",
+    "section": "Hyperlinking Text",
+    "text": "Hyperlinking Text\nHyperlinking text can be really nice if you want to avoid making visitors to your site manually copy/paste links. This can also be nice if you want to change where an existing website routes people without changing their view of the site. For example, imagine a collaborator has their website linked in the Quarto website but they change institutions and their website link changes. If you embed the hyperlink you can simply change that and the same hyperlinked text that was always in your site will seamlessly redirect users to the correct location.\nSee the tabs below for what you will write in your .qmd file versus what a visitor to your site will see respectively.\n\nBack EndFront End\n\n\nVisit [the workshop website](https://lter.github.io/workshop-quarto/) for more details!\n\n\nVisit the workshop website for more details!",
     "crumbs": [
-      "Create",
-      "Make Structure"
+      "Formatting Notes"
     ]
   },
   {
-    "objectID": "create.html#activity---try-it-out",
-    "href": "create.html#activity---try-it-out",
-    "title": "Creating a Website",
-    "section": "Activity - Try it Out",
-    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you works through the above tutorial on your own computers!\nOnce everyone has the fundamental structure of a website created and in GitHub we can move on to “deployment” which turns this collection of files into a living website!",
+    "objectID": "format.html#collapsible-sections",
+    "href": "format.html#collapsible-sections",
+    "title": "Formatting Odds & Ends",
+    "section": "Collapsible Sections",
+    "text": "Collapsible Sections\nThis is a little more niche but can be really useful in teaching contexts where you want to have some piece of information readily-accessible without being automatically visible to learners. For instance, you could provide some practice problems with associated answers (or hints) but learners would have to click something to expand the section including that hidden information.\nSee the tabs below for what you will write in your .qmd file versus what a visitor to your site will see respectively.\n\nBack EndFront End\n\n\n&lt;details&gt;\n&lt;summary&gt;Click Me!&lt;/summary&gt;\nHello!\n&lt;/details&gt;\nYou can of course change the text between the summary tags to tailor the button prompt to your context.\n\n\n\n\nClick Me!\n\nHello!",
     "crumbs": [
-      "Create",
-      "Make Structure"
-    ]
-  },
-  {
-    "objectID": "add.html",
-    "href": "add.html",
-    "title": "Add a Page to the Website",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nCreate a new page for an existing Quarto website",
-    "crumbs": [
-      "Edit",
-      "Add a Page"
-    ]
-  },
-  {
-    "objectID": "add.html#module-learning-objectives",
-    "href": "add.html#module-learning-objectives",
-    "title": "Add a Page to the Website",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nCreate a new page for an existing Quarto website",
-    "crumbs": [
-      "Edit",
-      "Add a Page"
-    ]
-  },
-  {
-    "objectID": "add.html#create-a-new-page",
-    "href": "add.html#create-a-new-page",
-    "title": "Add a Page to the Website",
-    "section": "Create a New Page",
-    "text": "Create a New Page\n\n1. Make a .qmd File\nNow that you’ve created and deployed your website, adding content is straightforward! To add a page to your website, first you’ll create a new Quarto file (“File”  “New File”  “Quarto Document…”). In the resulting pop-up menu you can leave everything at its default position and click “Create”.\nOnce the file exists, edit it as you see fit. Make commits as you would normally but do not push yet!\n\n\n\n\n\n\nFile Name to Page Name\n\n\n\nWhile the website homepage file had to be saved as index.qmd, you can save this Quarto file as whatever makes sense to you! For example:\nfile.qmd        owner.github.io/repository/file.html\n\n\n\n\n\n\n\n\nSub-Folders for Larger Websites\n\n\n\nIf you want to use sub-folders to organize your pages locally and keep the top-level of your GitHub repository nice and tidy, Quarto supports that! The URL produced from .qmd files placed in sub-folders will also include the folder name though, so be aware.\nfolder/file.qmd        owner.github.io/repository/folder/file.html\n\n\n\n\n2. Add the New Page to _quarto.yml\nFor this page to show up in your website, you need to edit _quarto.yml so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.).\nIn RStudio, uses the “Files” pane to open quarto.yml and add the new page to the relevant part of the YAML. In the example below, the new file is papers.qmd and we want it to be accessible from the navigation bar at the top of the website from the word “Publications” (see lines 20-21).\n\n\n\n\n\n\n\n\n\nWatch Out for Indentation!!\n\n\n\nWhile indentation does not affect R code, it absolutely affects YAML code! A common source of error for Quarto websites is improper indentation for a new YAML element so double check the indentation of your additions against comparable rows that you know already work.\n\n\n\n\n3. Test it Locally\nTo make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic  command line snippet.\n\nquarto preview\n\nIf something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n4. Render the Website\nOnce you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n5. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour new .qmd file\nAny changes to _quarto.yml\nAny changes to _freeze/\n\nIf there are any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!\n\n\n6. Allow the GitHub Action to Complete\nWait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
-    "crumbs": [
-      "Edit",
-      "Add a Page"
-    ]
-  },
-  {
-    "objectID": "add.html#activity---try-it-out",
-    "href": "add.html#activity---try-it-out",
-    "title": "Add a Page to the Website",
-    "section": "Activity - Try it Out",
-    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you adds a new page to your website!",
-    "crumbs": [
-      "Edit",
-      "Add a Page"
-    ]
-  },
-  {
-    "objectID": "background.html",
-    "href": "background.html",
-    "title": "Background",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nExplain why Quarto is useful in this context\nDefine the three critical parts of a Quarto file\nDescribe why some Quarto projects use a single YAML file across multiple Quarto documents",
-    "crumbs": [
-      "Create",
-      "Quarto Background"
-    ]
-  },
-  {
-    "objectID": "background.html#module-learning-objectives",
-    "href": "background.html#module-learning-objectives",
-    "title": "Background",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nExplain why Quarto is useful in this context\nDefine the three critical parts of a Quarto file\nDescribe why some Quarto projects use a single YAML file across multiple Quarto documents",
-    "crumbs": [
-      "Create",
-      "Quarto Background"
-    ]
-  },
-  {
-    "objectID": "background.html#why-quarto",
-    "href": "background.html#why-quarto",
-    "title": "Background",
-    "section": "Why Quarto",
-    "text": "Why Quarto\nQuarto is new software developed by Posit–the company that maintains RStudio. Quarto is extremely versatile and supports several programming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of ‘bells and whistles’ that makes it worthwhile to embrace.\nThis workshop uses Quarto for the following reasons:\n\nThe learning curve for novice coders is relatively gentle\n\nMuch R knowledge and intuition is directly transferable!\n\nMaking a (simple) website is straightforward\nQuarto can be used in a variety of applications\n\nSo learning it here will give you tools you can apply elsewhere!\n\n\nIf you’re broadly curious about Quarto, check out their website, quarto.org.",
-    "crumbs": [
-      "Create",
-      "Quarto Background"
-    ]
-  },
-  {
-    "objectID": "background.html#core-components-of-a-quarto-file",
-    "href": "background.html#core-components-of-a-quarto-file",
-    "title": "Background",
-    "section": "Core Components of a Quarto File",
-    "text": "Core Components of a Quarto File\nQuarto documents are a type of “computational notebook” like RMarkdown files and–for python coders–Jupyter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!\nNotebook files contain three fundamental components that allow them to be “rendered” (sometimes also called “knit”) to produce a new static report file. This is often a PDF or an HTML file though for website purposes we’ll be using the HTML version so that each notebook file can become a page in your website.\nTypically, these notebooks have three structural components:\n\nYAML\n\nPronounced [ YEAH-mull ]\n\nEmbedded code chunks\nPlain text\n\nPossibly formatted with Markdown syntax\n\n\n\nYAMLPlain TextCode Chunks\n\n\nThe YAML (Yet Another Markup Language) defines document-level metadata. Most fundamentally, the YAML defines what file type will be produced when the report is rendered. It can also be used to define the top-level title, author, and date information. Finally, it can change the default options for code chunks throughout the document (more on code chunk options elsewhere).\nDifferent notebook file types will specify the YAML differently but in both Quarto documents and R Markdown files, the YAML is defined in the first few lines of the report and starts/ends with a line containing three hyphens. This looks something like this:\n---\ntitle: \"Reproducible Reports\"\noutput: html_document\n---\nAmong other roles, the YAML defines what type of output file is produced when the notebook is “rendered” (a.k.a. “knit”). Most commonly this is either a single PDF or HTML file but more complex YAMLs can be used to create full websites or scientific manuscripts!\n\n\nThe text outside of the YAML and code chunks is plain text that accepts Markdown syntax to accomplish text format tweaks. Dedicated text-formatting software (e.g., Microsoft Word, Gmail, etc.) provides buttons and hot keys for these sorts of format alterations but many programming IDEs do not provide such user interface elements.1 Markdown syntax is used to support this same functionality.\nSome fundamental Markdown options include:\n\n**bold text**  bold text\n_italic text_  italic text\n`code text`  code text\n[hyperlinked text](https://lter.github.io/ssecr/mod_reports.html)  hyperlinked text\n\nFor a more complete glossary of fundamental Markdown syntax options see here. You may also want to explore the ‘back end’ of this workshop’s website as every page is built using Quarto documents.\n\n\nThe code chunks embedded in notebooks are essentially a fragmented script containing runnable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you’ll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.\nIn Quarto documents, code chunks look like this2:\n\\```{r demo-chunk}\n1#| echo: true\n\n2# Round pi to 2 digits\nround(x = pi, digits = 2)\n\\```\n\n1\n\nYou may specify chunk-specific options using this syntax (i.e., #| option_name: option_setting). Options you want to apply to all chunks across a notebook should be specified once in the YAML and can exclude the leading #| bit of the format.\n\n2\n\nIf your Markdown text provides sufficient context you may exclude comments in code chunks but opinions differ on which is “more” appropriate\n\n\n# Round pi to 2 digits\nround(x = pi, digits = 2)",
-    "crumbs": [
-      "Create",
-      "Quarto Background"
-    ]
-  },
-  {
-    "objectID": "background.html#website-yamls",
-    "href": "background.html#website-yamls",
-    "title": "Background",
-    "section": "Website YAMLs",
-    "text": "Website YAMLs\nWhen working in a single Quarto document, that document needs its own YAML so that Quarto ‘knows’ how to render it (and into what!). However, for multi-document projects like websites, this would be intensely cumbersome because every page would need extensive YAML information so that each document showed up where you expected it and all formatting was consistent across documents.\nTo solve this problem Quarto uses a single YAML file for these larger projects that controls project-wide (i.e., across-document) formatting and structure. You can still use the YAML section within a single document if you want it to behave differently from other pages but any formatting you want to apply across all pages should be specified in this cross-document YAML.\nWe’ll discuss what goes into that project-wide YAML in the next workshop module but for now it is only important you understand its general purpose and know that it must always be named _quarto.yml for it to work as you expect.",
-    "crumbs": [
-      "Create",
-      "Quarto Background"
-    ]
-  },
-  {
-    "objectID": "background.html#footnotes",
-    "href": "background.html#footnotes",
-    "title": "Background",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nNote that with the addition of the “Visual” tab in RStudio there are button options for many text format changes. Markdown syntax is still useful to know for general knowledge reasons though!↩︎\nNormally code chunks start and end with three backticks (```) but to embed this code chunk example we need to “escape” the first backtick (using a backslash) so that the notebook interprets it correctly.↩︎",
-    "crumbs": [
-      "Create",
-      "Quarto Background"
-    ]
-  },
-  {
-    "objectID": "customize.html",
-    "href": "customize.html",
-    "title": "Customizing a Website",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nIdentify components of SCSS stylesheets\nDescribe key code syntax differences between SCSS and R code\nUse SCSS stylesheets to customize a deployed Quarto website",
-    "crumbs": [
-      "Edit",
-      "Customize a Website"
-    ]
-  },
-  {
-    "objectID": "customize.html#module-learning-objectives",
-    "href": "customize.html#module-learning-objectives",
-    "title": "Customizing a Website",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nIdentify components of SCSS stylesheets\nDescribe key code syntax differences between SCSS and R code\nUse SCSS stylesheets to customize a deployed Quarto website",
-    "crumbs": [
-      "Edit",
-      "Customize a Website"
-    ]
-  },
-  {
-    "objectID": "customize.html#scss-background",
-    "href": "customize.html#scss-background",
-    "title": "Customizing a Website",
-    "section": "SCSS Background",
-    "text": "SCSS Background\nTechnically, when we render a Quarto project we are asking Quarto to convert the .qmd file into .html and apply a CSS (Cascading Style Sheets) stylesheet. This is why your deployed website up to this point has had a blue navbar, a white background, and black text (to name a few theme elements governed by the implied CSS stylesheet).\nQuarto supports us making our own, customized stylesheets with Sass (Syntactically Awesome Stylesheet) to tailor the look and feel of our website to exactly our personal preference. The relevant file type is .scss (Sassy CSS; still pronounced “sass”). These files can be written in a combination of CSS and Sass so the syntax might look a little alien to you but this workshop will try to provide a useful level of practical detail for you to engage with these stylesheets even if this is your first foray into that world.\n\n\n\n\n\n\nR Versus SCSS Comparison\n\n\n\nIf you’re an R coder, it might be helpful to compare how R assigns values to objects versus how SCSS binds values to variables as well as how to write a comment (i.e., a non-coding line).\n R code\n# Comment\nobject &lt;- value\n Sass code\n// Comment\n$object: value;",
-    "crumbs": [
-      "Edit",
-      "Customize a Website"
-    ]
-  },
-  {
-    "objectID": "customize.html#customize-with-sass-stylesheets",
-    "href": "customize.html#customize-with-sass-stylesheets",
-    "title": "Customizing a Website",
-    "section": "Customize with Sass Stylesheets",
-    "text": "Customize with Sass Stylesheets\n\n1. Create the Files\nWhile RStudio supports creating CSS files through the graphical user interface, we’ll need to use the  command line to create the .scss stylesheets that Quarto most readily accepts. We can do this by running the following  command line snippet.\n\n Mac /  Linux Windows\n\n\n\ntouch theme_light.scss\ntouch theme_dark.scss\n\n\n\n\ncopy NUL theme_light.scss\ncopy NUL theme_dark.scss\n\nIf copy NUL does not work, try touch instead.\n\n\n\nWe recommend naming the two files like this so that when RStudio and GitHub sort your files, the two theme files will be sorted next to one another.\n\n\n2. Add Template Content\nFrom the RStudio “Files” pane, find and open both new .scss files. We can then edit them in RStudio. To start, copy/paste the below code chunk into both files. This will make light and dark mode look identical but it’ll make it easier to change one of them once you’re happy with the other. Copy/pasting also helps make sure the formatting is right in both files.\n\n/*-- scss:defaults --*/\n\n// Colors\n/* Found on https://coolors.co/palettes/trending */\n$org-1: #ff9f1c;\n$org-2: #ffbf69;\n$mint-1: #2ec4b6;\n$mint-2: #cbf3f0;\n$url-blue: #4361ee;\n\n/* generally useful other colors */\n$cream: #F4F3EE;\n$charcoal: #191919;\n$gray-1: #8A817C;\n$gray-2: #BCB8B1;\n$gray-3: #d6d6d6;\n\n// Fonts\n$font-size: 25px;\n@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');\n\n// Base document colors\n$navbar-bg: $org-1; // navbar\n$navbar-fg: $charcoal; // navbar foreground elements\n$navbar-hl: $org-2; // highlight color when hovering on a page\n$sidebar-bg: $org-2; // sidebar\n$sidebar-fg: $charcoal; // sidebar foreground elements\n$body-bg: $cream; // page background\n$body-color: $charcoal; // page text\n$footer-bg: $mint-1; // footer\n$footer-fg: $charcoal; // footer text\n$link-color: $url-blue; // hyperlinks\n\n// Code text\n$code-bg: $gray-2; // inline code background color\n$code-color: $charcoal; // inline code text color\n$code-block-bg: $gray-2; // code block background color\n\n/*-- scss:rules --*/\n\n// Underline URLs\n.reveal .slide a { text-decoration: underline; }\n\n// Improve background contrast for code chunk ouput\npre code:not(.sourceCode) { background-color: $gray-2; }\n\n\n\n3. Integrate into the Website\nTo get your website to use these .scss files, we’ll need to make some minor edits to the website’s YAML. Open _quarto.yml in RStudio and add the following lines.\n\n\n\n\n\n\nPaste in the Right Place!\n\n\n\nNote that the below code chunk includes a html: element but your existing _quarto.yml will already have that element! That bit is included below so you know where to copy/paste the new lines into your existing YAML.\nIf you’re using a mostly unmodified _quarto.yml, this will be about 4 lines up from the very bottom.\n\n\n\n  html:\n    theme:\n      light: theme_light.scss\n      dark: theme_dark.scss\n    mainfont: Open Sans\n\nDouble check that your indenting is right after you copy/paste those lines! theme: and mainfont should both be one indent more than html: while light: and dark: should have an additional indent beyond theme:.\n\n\n4. Customize Stylesheet Contents\nThe Sass code you copy/pasted into your new .scss files is functional and inoffensive but likely does not reflect your personal aesthetic sensibilities. So, take some time to find some colors that you prefer. This is also a great time to make your dark mode actually a dark mode (currently it has the same content as the light mode .scss file).\n\nCustomizing Colors\nFirst, I’d recommend visiting coolors.co and looking at their trending color palettes for one that feels like your vibe. To incorporate that in your site you’ll need to copy the hexadecimal code (6-digit color code) and add it to the relevant .scss file.\nTypically the simplest way to do this is to assign each color to a variable name, just like the default colors you copy/pasted in earlier (e.g., $cream: #F4F3EE;). Be sure that each line starts with a $ and ends with a ;.\nOnce you’ve assigned variable names to your new color(s), update the existing fields in the lower half of the .scss file with those variable names. Consult the comments for some explanation of what those variable names are called. Remember too that each variable name needs to start with $ when you invoke it (so that Sass knows you’re talking about an existing variable).\n\n\nCustomizing Fonts\nTo find new possible fonts, check out Google Fonts (fonts.google.com) and search around for one that seems like a good fit for your personal style. When you have identified a font that you like, follow these instructions:\n\nClick on the font to go to its homepage\nClick the blue “Get font” button in the top right corner of the page\nClick the blue “ Get embed code” button\nClick the @import radiobutton in the top of the resulting sidebar\nIn the first code chunk, copy everything between the two &lt;style&gt; HTML tags\nIn your .scss files, paste the copied text somewhere near the font that is already there to begin with\nFinally, update the mainfont: element of _quarto.yml with the new font name\n\n\n\n\n5. Test it Locally\nThis step can be especially critical when fiddling with (that’s the technical term) colors for your website. Use the preview extensively to be sure you’re happy with your chosen color palette. We can start a preview session with an operating system-agnostic  command line snippet.\n\nquarto preview\n\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n6. Render the Website\nOnce you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n7. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nYour new .scss files\nAny changes to _quarto.yml\nAny changes to _freeze/\n\nIf there are any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!\n\n\n8. Allow the GitHub Action to Complete\nAs with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
-    "crumbs": [
-      "Edit",
-      "Customize a Website"
-    ]
-  },
-  {
-    "objectID": "customize.html#activity---try-it-out",
-    "href": "customize.html#activity---try-it-out",
-    "title": "Customizing a Website",
-    "section": "Activity - Try it Out",
-    "text": "Activity - Try it Out\n\n\n\n\n\n\nYour Turn!\n\n\n\nLet’s take a break while each of you fleshes out your custom stylesheets!",
-    "crumbs": [
-      "Edit",
-      "Customize a Website"
-    ]
-  },
-  {
-    "objectID": "customize.html#additional-information",
-    "href": "customize.html#additional-information",
-    "title": "Customizing a Website",
-    "section": "Additional Information",
-    "text": "Additional Information\n\nUCSB Master of Environmental Data Science (MEDS) “Customizing Quarto Websites” lesson\n\nLecture slides for that lesson",
-    "crumbs": [
-      "Edit",
-      "Customize a Website"
-    ]
-  },
-  {
-    "objectID": "edit.html",
-    "href": "edit.html",
-    "title": "Edit an Existing Website Through GitHub",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nUse GitHub to edit an existing website",
-    "crumbs": [
-      "Edit",
-      "Edit via GitHub"
-    ]
-  },
-  {
-    "objectID": "edit.html#module-learning-objectives",
-    "href": "edit.html#module-learning-objectives",
-    "title": "Edit an Existing Website Through GitHub",
-    "section": "",
-    "text": "By the end of this module, you will be able to:\n\nUse GitHub to edit an existing website",
-    "crumbs": [
-      "Edit",
-      "Edit via GitHub"
-    ]
-  },
-  {
-    "objectID": "edit.html#github-editing-background",
-    "href": "edit.html#github-editing-background",
-    "title": "Edit an Existing Website Through GitHub",
-    "section": "GitHub Editing Background",
-    "text": "GitHub Editing Background\nOnce you’ve created and deployed a website some edits can actually be made directly through GitHub! There are some limitations to where this is possible as well as some drawbacks of editing via GitHub but the benefits of this approach can often outweigh the negatives. See below for more details.\n\nStrengthsLimitations\n\n\nSee below for some of the primary benefits of editing websites through GitHub:\n1. Edits to website do not require knowledge of RStudio and/or Git\nThis makes the barrier to entry for collaborators much lower than it would be for the code workflow developed by your group.\n2. Edits can be implemented more quickly\nFor RStudio-Git experts this increase efficiency is reduced (because they are faster at navigating those steps) but for even intermediate RStudio users it is often faster to edit the website directly in this way.\n\n\nSee below for some of the primary weaknesses of editing websites through GitHub:\n1. Can only edit one file at a time\nAs we will shortly demonstrate, GitHub only allows for editing a single file at a time. This is not always an issue but for changes that require editing two files it means that one of the edits is non-functional and may even cause a failure of the GitHub Action for updating the live website. For example adding a new image to the website would require (1) adding the image to GitHub and (2) embedding that image in the website.\n2. Can’t preview changes\nAll of the previous modules in this workshop made extensive use of the  quarto preview command so that changes to the website could be checked to make sure they work as desired. When editing directly through GitHub, there is no such feature and it is easy to make one-character typos that break either part of a page or the entire website.\n3. Editing through GitHub does not work when code computation is needed\nWhen the page to edit includes any code chunks, the edited page must be rendered locally (with the  quarto render command) for the GitHub Action to succeed and the live site to be updated. So, making edits–even if they are not to the code chunks themselves–on pages that contain code chunks cannot be done successfully through GitHub alone. Note that you may edit one page in a website that includes code chunks so long as the specific page you are editing does not include code chunks.\nIf you edit a page through RStudio and running the  quarto render command causes any changes to the _freeze/ folder, that page cannot be edited successfully through GitHub. Your intuition for such changes will improve as you work more with Quarto via RStudio and/or GitHub but keeping an eye out for whether the _freeze/ folder appears in RStudio’s “Git” pane is a good rule of thumb.",
-    "crumbs": [
-      "Edit",
-      "Edit via GitHub"
-    ]
-  },
-  {
-    "objectID": "edit.html#how-to-edit-through-github",
-    "href": "edit.html#how-to-edit-through-github",
-    "title": "Edit an Existing Website Through GitHub",
-    "section": "How to Edit Through GitHub",
-    "text": "How to Edit Through GitHub\n\n1. Find the Relevant .qmd on GitHub\nOn GitHub, find and click the name of the .qmd file you want to edit. In the example below we have clicked the file that builds the website homepage (index.qmd).\n\n\n\n\n\n2. Start Editing\nOnce you have opened the file you want to edit, click the pencil icon just above and to the right of the file’s contents. This should open a slightly different interface that allows you to edit the file with a “Commit changes…” button (in the top right corner) grayed out until you make at least one change.\n\n\n\nAfter you make any edits, the “Commit changes…” button will become click-able.\n\n\n\n\n\n3. Commit Changes\nOnce you are done editing, you can commit your changes! Note that the top field is the ‘actual’ commit message and the “Extended description” will not be immediately apparent when people are looking at the commit history of this repository. We recommend replacing the default text in the first field with something more informative. You can of course include extended description if you want but that is not necessary.\n\n\n\nThe fields in the bottom of the pop-up menu (“Commit Email” and the radiobuttons for the branch) can be left at their default positions. Generally, if you wanted one of the non-default options for either of those you’d be making structural edits that are better suited for RStudio than GitHub directly so these options will likely never be something you need to engage with.\n\n\n\n\n\n\nWhat About Pulling and Pushing?\n\n\n\nBecause you are editing directly in GitHub there is no pull/push step! Pulling is from GitHub and pushing is to GitHub so neither applies when you are already in GitHub.\n\n\n\n\n4. Allow the GitHub Action to Complete\nWait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the “Actions” tab of the GitHub repository.\n\n\n\n\n\n\nSite Not Updating? Refresh the Page!\n\n\n\nIf your site is not updating but you’ve followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.",
-    "crumbs": [
-      "Edit",
-      "Edit via GitHub"
-    ]
-  },
-  {
-    "objectID": "edit.html#what-to-do-if-the-github-action-fails",
-    "href": "edit.html#what-to-do-if-the-github-action-fails",
-    "title": "Edit an Existing Website Through GitHub",
-    "section": "What to do if the GitHub Action Fails",
-    "text": "What to do if the GitHub Action Fails\nIf the GitHub Action (GHA) fails, it is likely that your edits required some additional computing that needed to be done locally. Fortunately, the solution here is straightforward.\n\n1. Pull Changes\nIf the GHA failed after editing directly through GitHub it means that GitHub ‘knows’ about changes that are not present in your local clone of the repository! To prevent a merge conflict, simply pull down those changes however you normally would do that (typically either through RStudio’s Git pane or via the  command line).\n\n\n2. Preview Locally\nStart a preview on your local machine to see if the site previews correctly. If the only cause of the failed GHA was that some computing was needed, the preview should succeed on your computer. If there is something else causing the failure, the preview will fail on your computer too. In this case, see if the error text in RStudio’s “Terminal” pane gives you any hint to which file is breaking the website and/or what the nature of the error is.\nRemember that you can start a preview with an operating system-agnostic  command line snippet.\n\nquarto preview\n\n\n\n\n\n\n\nRemember to End the Preview!\n\n\n\nThe preview will keep going until you manually stop it so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you’re ready to move on.\n\n\n\n\n3. Render the Website\nOnce you’re happy with how things look in the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following  command line code.\n\nquarto render\n\n\n\n4. Commit & Push!\nOnce you’ve done the preceding steps, Commit the following things: \n\nAny changes to _freeze/\nAny changes to other files in the website needed to make the preview succeed\n\nIf any\n\n\nAfter you’ve committed these, push them up to the GitHub repository!",
-    "crumbs": [
-      "Edit",
-      "Edit via GitHub"
+      "Formatting Notes"
     ]
   }
 ]
