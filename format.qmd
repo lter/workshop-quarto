@@ -10,7 +10,7 @@ By the end of this module, you will be able to:
 
 ## Format Background
 
-This module is slightly different than the others in that it is sort of a 'grab bag' of miscellaneous formatting syntaxes rather than a clear, sequential tutorial. However, if you do not have much experience with Markdown, some of these operations are likely to be valuable to you and thus make sense to include in a workshop like this one (though admittedly not as part of the core content of said workshop).
+This module is slightly different than the others in that it is sort of a 'grab bag' of miscellaneous formatting tools rather than a clear, sequential tutorial. However, if you do not have much experience with Markdown, some of these operations are likely to be valuable to you and thus make sense to include in a workshop like this one (though admittedly not as part of the core content of said workshop).
 
 ## Embedding Images
 
