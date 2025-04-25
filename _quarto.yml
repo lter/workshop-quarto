@@ -47,6 +47,8 @@ website:
            href: edit.qmd
          - text: "Customize a Website"
            href: customize.qmd
+      - text: "Formatting Notes"
+        href: format.qmd
   page-footer: 
     center: "Copyright 2025, LTER Network"
     background: secondary
