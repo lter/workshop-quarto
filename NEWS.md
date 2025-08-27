@@ -4,4 +4,9 @@ This is the first functioning version of this workshop.
 
 Features include:
 
-- TBD
+- Background on Quarto
+- Instructions for making the core structure of a Quarto website
+- Tutorial on deploying that website on GitHub Pages (using a GitHub Action)
+- Guidelines for (1) adding a page, (2) editing via GitHub, and (3) customizing an existing website
+
+Also includes miscellaneous formatting tips that some users may find helpful.
