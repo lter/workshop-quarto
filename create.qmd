@@ -9,6 +9,7 @@ By the end of this module, you will be able to:
 
 - <u>Use</u> GitHub to make a new repository
 - <u>Create</u> a Quarto website
+- <u>Make</u> a new branch on a GitHub repository
 - <u>Edit</u> files hosted on GitHub with an IDE
 
 :::
@@ -52,6 +53,51 @@ Generic: github.com/**<span style="color:purple">owner</span>**/**<span style="c
 Specific: github.com/**<span style="color:purple">njlyon0</span>**/**<span style="color:orange">njlyon0.github.io</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **njlyon0.github.io**
 
 :::
+
+## Make a "gh-pages" Branch
+
+GitHub **branches** are typically short-lived development spaces that operate parallel to the 'main' branch of a repository. The main branch is either called "main" or (for older repositories) "master." If you don't think you've used branches so far, you're mistaken! All repositories have at least the main branch by default.
+
+For more information on branches, see the LTER SciComp GitHub workshop [here](https://lter.github.io/workshop-github/).
+
+**Deploying a Quarto website requires you make a branch named _exactly_ "gh-pages".** We will never have to directly work in that branch but GitHub will use it behind-the-scenes to host the website. We could make this branch later, but let's go ahead and do so now while we're here.
+
+### 1. Check the Active Branches
+
+From your repository's home page, **click the "{{< fa code-branch >}} 1 Branch" button**. It is on the left side of the same row of buttons as the "Code" button. Note that you can see your current branch name (likely "main") just to the left of the desired button. 
+
+<p align="center"/>
+<img src="images/branch-01.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%"/>
+</p>
+
+### 2. Start Creating a New Branch
+
+In the resulting page, **click the "New Branch" button** in the top right corner.
+
+<p align="center"/>
+<img src="images/branch-02.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%"/>
+</p>
+
+### 3. Actually Create the "gh-pages" Branch
+
+The previous step will create a small pop-up window with an empty text field for you to enter the name of your branch. **Type _exactly_ "gh-pages" and click "Create new branch"**. Note that "gh" and "pages" are separated by a hyphen. If you name this branch anything other than "gh-pages", _GitHub will not correctly host your website!_ So, triple check spelling/casing.
+
+<p align="center"/>
+<img src="images/branch-03.png" alt="Screenshot of the pop-up window where new branches are named before they are created" width="50%"/>
+</p>
+
+Once you've done that, the pop-up window should close and you should find yourself back on the 'branches' page but there will now be two active branches: your default starting branch and "gh-pages"!
+
+<p align="center"/>
+<img src="images/branch-04.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%"/>
+</p>
+
+You can now return to your repository's landing page. You may see an **<span style="color:orange">orange</span>** circle or a check mark that is either **<span style="color:blue">blue</span>** or **<span style="color:green">green</span>** next to the most recent commit message but we can safely ignore this for now.
+
+<p align="center"/>
+<img src="images/branch-05.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%"/>
+</p>
+
 
 ## Clone that Repository
 

@@ -34,42 +34,6 @@ Another benefit of this approach is that <u>GitHub Actions are free for public r
 
 ## Set Up a Quarto Website Deployment GHA
 
-### 1. Make a `gh-pages` Branch
-
-GitHub "branches" are typically short-lived development spaces that operate parallel to the 'main' branch of a repository. The main branch is either called `main` or `master` (for older repositories) and if you don't think you are using branches, you are at least using `main`! Branches are not the focus of this workshop but if you'd like to learn more, check out [the relevant module of the SciComp GitHub workshop](https://lter.github.io/workshop-github/branches.html).
-
-For deploying a Quarto website though we'll create a `gh-pages` branch that we will never have to work on directly! Once this branch exists, we'll set up a GitHub action that renders your website into this branch and deploys from there. Doing this means you will rarely have to render your site on your machine and can instead trust the magic of GitHub Actions to transform your edits into a living website on its own.
-
-To begin, **go to your repository's home page**. Once there, **click the "1 Branch" button**. It is in the same row of buttons as the "Code" button. Note that you can see your current branch name (likely `main`) just to the left of that button. 
-
-<p align="center"/>
-<img src="images/branch-01.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%"/>
-</p>
-
-In the resulting page, **click the "New Branch" button**. As with the "Code" button, it will be either **<span style="color:blue">blue</span>** or **<span style="color:green">green</span>** depending on your GitHub settings.
-
-<p align="center"/>
-<img src="images/branch-02.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%"/>
-</p>
-
-A small pop-up window will appear with an empty text field for you to enter the name of your branch. **Type _exactly_ "gh-pages" and click "Create new branch"**. The following steps will not work if you type something other than `gh-pages` (hyphen between "gh" and "pages). Also note that you _can_ make the  "gh-pages" branch in RStudio and push it up to this repository but making this branch through GitHub and pulling it to your computer is more straightforward.
-
-<p align="center"/>
-<img src="images/branch-03.png" alt="Screenshot of the pop-up window where new branches are named before they are created" width="50%"/>
-</p>
-
-Once you've done that, the pop-up window should close and you should find yourself back on the 'branches' page but there will now be two active branches: `main` (or `master`) and `gh-pages`!
-
-<p align="center"/>
-<img src="images/branch-04.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%"/>
-</p>
-
-You can now return to your repository's landing page. You may see an **<span style="color:orange">orange</span>** circle or a check mark that is either **<span style="color:blue">blue</span>** or **<span style="color:green">green</span>** next to the most recent commit message but we can safely ignore this for now.
-
-<p align="center"/>
-<img src="images/branch-05.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%"/>
-</p>
-
 ### 2. Pull the New Branch
 
 Return to your local clone of this repository (i.e., the relevant RStudio project) and pull. This should change nothing but now your RStudio 'knows' that the repository has two branches. Note that if you instead make the new branch in RStudio you'd instead push that branch up to GitHub at this point.
