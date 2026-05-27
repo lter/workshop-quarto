@@ -56,31 +56,23 @@ If you edit a page through an IDE and running the {{< fa terminal >}} `quarto re
 
 **On GitHub, find and click the name of the Quarto file file you want to edit.** In the example below we have clicked the file that builds the website homepage ("index.qmd").
 
-<p align="center"/>
-<img src="images/edit-in-gh-01.png" alt="Screenshot of the contents of a single file in a GitHub repository" width="100%"/>
-</p>
+![](images/edit-in-gh-01.png){fig-alt="Screenshot of the contents of a single file in a GitHub repository" .lightbox}
 
 ### 2. Start Editing
 
 Once you have opened the file you want to edit, click the pencil icon just above and to the right of the file's contents. This should open a slightly different interface that allows you to edit the file with a "Commit changes..." button (in the top right corner) grayed out until you make at least one change.
 
-<p align="center"/>
-<img src="images/edit-in-gh-02.png" alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface" width="100%"/>
-</p>
+![](images/edit-in-gh-02.png){fig-alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface" .lightbox}
 
 After you make any edits, the "Commit changes..." button will become click-able.
 
-<p align="center"/>
-<img src="images/edit-in-gh-03.png" alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface after some edits have been made" width="100%"/>
-</p>
+![](images/edit-in-gh-03.png){fig-alt="Screenshot of the contents of a single file in a GitHub repository in the editing interface after some edits have been made" .lightbox}
 
 ### 3. Commit Changes
 
 Once you are done editing, you can commit your changes! Note that the top field is the 'actual' commit message and the "Extended description" will not be immediately apparent when people are looking at the commit history of this repository. **We recommend _replacing_ the default text in the first field with something more informative.** You can of course include extended description if you want but that is not necessary.
 
-<p align="center"/>
-<img src="images/edit-in-gh-04.png" alt="Screenshot of the 'commit changes' pop-up menu that appears when you are editing files directly through GitHub" width="60%"/>
-</p>
+![](images/edit-in-gh-04.png){fig-alt="Screenshot of the 'commit changes' pop-up menu that appears when you are editing files directly through GitHub" width="60%" fig-align="center" .lightbox}
 
 All other fields in this pop-up menu can be left at their default positions. Generally, if you wanted one of the non-default options for those you'd be making structural edits that are better suited for editing via an IDE than GitHub directly so these options will likely never be something you need to engage with.
 
