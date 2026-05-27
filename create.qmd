@@ -2,13 +2,16 @@
 title: "Creating a Website"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
 - <u>Use</u> GitHub to make a new repository
 - <u>Create</u> a Quarto website
-- <u>Edit</u> files hosted on GitHub via RStudio
+- <u>Edit</u> files hosted on GitHub with an IDE
+
+:::
 
 ## Make a New GitHub Repository
 
