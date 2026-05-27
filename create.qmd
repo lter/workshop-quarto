@@ -13,49 +13,45 @@ By the end of this module, you will be able to:
 
 :::
 
-## Make a New GitHub Repository
+## Make the Website's GitHub Repository
 
-From your GitHub **"Repositories"** tab, click the **"New"** button. It may be either **<span style="color:blue">blue</span>** or **<span style="color:green">green</span>** depending on your GitHub settings.
+From your GitHub **"Repositories"** tab, click the **"New"** button.
 
-<img src="images/new-github-1.png" alt="Screen capture of top bit of 'Repositories' tab of a GitHub user's profile" width="100%" />
+![](images/new-github-1.png){fig-alt="Screencapture of top bit of 'Repositories' tab of a GitHub user's profile" .lightbox}
 
-**Pick a name** for your repository and **add a description**. Also, **set the repository to "Public"**; only public repositories can be turned into websites.
+In the resulting page, do _all_ of the following
 
-:::{.callout-note}
-### Repository Names & Website URLs
+1. Name the repository
+2. Add a (short) description
+3. **Make it Public**
+    - Only public repositories can support websites
+4. Click the toggle to include a README
+5. Add the R template for the .gitignore
+6. Consider whether you want to add a LICENSE
+    - Useful if you want to make sure visitors to your website have guidelines on how they're allowed to use the content there
 
-Note that the name you pick for your repository (and who owns it) has a big impact on the URL for the website hosted there! See an example below for how those pieces of information get translated.
+For more information on repository creation or on the .gitignore specifically, see the LTER SciComp GitHub workshop [here](https://lter.github.io/workshop-github/).
 
-github.com/**<span style="color:purple">owner</span>**/**<span style="color:orange">repository</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **<span style="color:purple">owner</span>**.github.io/**<span style="color:orange">repository</span>**
+### Repository Name & Website URL Aside
+
+The name you pick for your repository (and whose GitHub account owns that repository) determines the URL for the website hosted there! See below for some examples.
+
+Generic: github.com/**<span style="color:purple">owner</span>**/**<span style="color:orange">repository</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **<span style="color:purple">owner</span>**.github.io/**<span style="color:orange">repository</span>**
+
+Specific: github.com/**<span style="color:purple">lter</span>**/**<span style="color:orange">workshop-quarto</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **<span style="color:purple">lter</span>**.github.io/**<span style="color:orange">workshop-quarto</span>**
 
 So, think about a repository name that will make your URL informative without being overly long if someone needs to type it manually.
 
-:::
-
 :::{.callout-warning}
-### Repository Name / URL Exception
+### Repository Name-URL Exception
 
-There is one critical exception to the above rule for how the website URL is related to the GitHub repository's name!
+**There is one critical exception to the above rule** for how the website URL is related to the GitHub repository's name! If the _repository name_ is "owner.github.io" then that will also be the URL for the website (i.e., the "owner" part gets dropped from the URL to simplify things). See below for some examples.
 
-If you name a repository "**<span style="color:orange">owner.github.io</span>**" (so the repository link is "github.com/**<span style="color:purple">owner</span>**/**<span style="color:orange">owner.github.io</span>**") then the website's URL is simplified to be the _same as the repository name_ (i.e., "**owner.github.io**").
+Generic: github.com/**<span style="color:purple">owner</span>**/**<span style="color:orange">owner.github.io</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **owner.github.io**
 
-For example, the repository [github.com/njlyon0/njlyon0.github.io](https://github.com/njlyon0/njlyon0.github.io) hosts the website [njlyon0.github.io](https://njlyon0.github.io/).
+Specific: github.com/**<span style="color:purple">njlyon0</span>**/**<span style="color:orange">njlyon0.github.io</span>** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **njlyon0.github.io**
 
 :::
-
-<p align="center">
-<img src="images/new-github-2.png" alt="Screen capture of the top half of the Github page where new repositories are created" width="70%" />
-</p>
-
-Once that is done, scroll down and decide whether to add (1) a README, (2) a `.gitignore`, and (3) a license. For Quarto websites, **you will want a README and a `.gitignore`** but a license is not _required_. If you are an RStudio user, **you should pick the "R" template for your `.gitignore`**. For more information on READMEs see [here](https://lter.github.io/workshop-github/readmes.html); for more information on the `.gitignore` see [here](https://lter.github.io/workshop-github/git_ignore.html).
-
-<p align="center">
-<img src="images/new-github-3.png" alt="Screen capture of the bottom half of the Github page where new repositories are created" width="70%" />
-</p>
-
-Once you've added these two things, scroll down and click the **"Create repository" button**. Again, this may be either **<span style="color:blue">blue</span>** or **<span style="color:green">green</span>**.
-
-After a few seconds you should be placed on your new repository's landing page.
 
 ## Clone that Repository
 
