@@ -23,7 +23,7 @@ To follow along with this workshop you will need to take the following steps:
 This workshop requires using an <u>I</u>ntegrated <u>D</u>evelopment <u>E</u>nvironment of your choice (e.g., RStudio, Positron), as well as both Git and GitHub. In order to prepare, do all the [pre-workshop steps](https://lter.github.io/workshop-github/#workshop-preparation) relevant to our "Collaborative Coding with GitHub" workshop
 
 ```{=html}
-<iframe src="https://lter.github.io/workshop-github/#workshop-preparation" height="420" width="750" style="border: 1px solid #2e3846;"></iframe>
+<iframe src="https://lter.github.io/workshop-github/#workshop-preparation" height="420" width="850" style="border: 1px solid #2e3846;"></iframe>
 ```
 
 ### 2. Install Quarto
