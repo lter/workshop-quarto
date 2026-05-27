@@ -2,13 +2,16 @@
 title: "Customizing a Website"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
 - <u>Identify</u> components of SCSS stylesheets
 - <u>Describe</u> key code syntax differences between SCSS and R code
 - <u>Use</u> SCSS stylesheets to customize a deployed Quarto website
+
+:::
 
 ## SCSS Background
 
@@ -34,42 +37,19 @@ $object: value;
 ```
 :::
 
-## Customize with Sass Stylesheets
+## Customize the Website with Sass
 
-### 1. Create the Files
+### 1. Create Sass Stylesheets
 
-While RStudio supports creating CSS files through the graphical user interface, we'll need to use the {{< fa terminal >}} command line to create the `.scss` stylesheets that Quarto most readily accepts. We can do this by running the following {{< fa terminal >}} command line snippet.
+**Create two new files: "theme_light.scss" and "theme_dark.scss".** This will let us easily create a light mode and a dark mode for our website so that visitors can click a toggle in the navbar to choose their desired aesthetic.
 
-:::{.panel-tabset}
-#### {{< fa brands apple >}} Mac / {{< fa brands linux >}} Linux
+Once you have these files, **click the collapsed menu below and copy/paste all of its contents into both empty SCSS files.**
 
-```{r scss_mac}
-#| eval: false
+<details> 
+<summary>SCSS Contents</summary>
 
-touch theme_light.scss
-touch theme_dark.scss
-```
-
-#### {{< fa brands windows >}} Windows
-
-```{r scss_win}
-#| eval: false
-
-copy NUL theme_light.scss
-copy NUL theme_dark.scss
-```
-
-If `copy NUL` does not work, try `touch` instead.
-
-:::
-
-We recommend naming the two files like this so that when RStudio and GitHub sort your files, the two theme files will be sorted next to one another.
-
-### 2. Add Template Content
-
-From the RStudio "Files" pane, **find and open both new `.scss` files**. We can then edit them in RStudio. **To start, copy/paste the below code chunk into _both_ files**. This will make light and dark mode look identical but it'll make it easier to change one of them once you're happy with the other. Copy/pasting also helps make sure the formatting is right in both files.
-
-```{r customize-scss}
+```{r}
+#| label: customize-scss
 #| eval: false
 
 /*-- scss:defaults --*/
@@ -119,21 +99,25 @@ $code-block-bg: $gray-2; // code block background color
 pre code:not(.sourceCode) { background-color: $gray-2; }
 ```
 
-### 3. Integrate into the Website
+</details>
 
-To get your website to use these `.scss` files, we'll need to make some minor edits to the website's YAML. **Open `_quarto.yml` in RStudio and add the following lines**.
+This will result in your light and dark mode being identical to start with but that's okay because this method makes sure that the format of both SCSS files is correct.
+
+### 2. Integrate Into the Website
+
+To get your website to use these `.scss` files, we'll need to make some minor edits to the website's YAML. **Open your "_quarto.yml" file in your IDE and add the following lines**.
 
 :::{.callout-warning}
 #### Paste in the Right Place!
 
-Note that the below code chunk includes a `html:` element but your existing `_quarto.yml` will already have that element! That bit is included below so you know _where_ to copy/paste the new lines into your existing YAML.
+Note that the below code chunk includes a `html:` element but your existing `_quarto.yml` _will already have that element!_ That bit is included below so you know _where_ to copy/paste the new lines into your existing YAML.
 
 If you're using a mostly unmodified `_quarto.yml`, this will be about 4 lines up from the very bottom.
 :::
 
-```{r yaml-scss}
+```{r}
+#| label: global-yaml-scss
 #| eval: false
-
   html:
     theme:
       light: theme_light.scss
@@ -141,12 +125,13 @@ If you're using a mostly unmodified `_quarto.yml`, this will be about 4 lines up
     mainfont: Open Sans
 ```
 
-**Double check that your indenting is right after you copy/paste those lines!** `theme:` and `mainfont` should both be one indent more than `html:` while `light:` and `dark:` should have an additional indent beyond `theme:`.
+**Double check that your indentation is right after you copy/paste those lines!** `theme:` and `mainfont` should both be one indent more than `html:` while `light:` and `dark:` should have an additional indent beyond `theme:`.
 
-### 4. Customize Stylesheet Contents
+### 3. Customize to Your Taste
 
-The Sass code you copy/pasted into your new `.scss` files is functional and inoffensive but likely does not reflect your personal aesthetic sensibilities. So, take some time to find some colors that you prefer. This is also a great time to make your dark mode actually a dark mode (currently it has the same content as the light mode `.scss` file).
+The Sass code you copy/pasted is functional and inoffensive but likely does not reflect your personal aesthetic sensibilities. So, take some time to find some colors that you prefer. This is also a great time to make your dark mode actually a dark mode (currently it has the same content as the light mode `.scss` file).
 
+:::{.panel-tabset}
 #### Customizing Colors
 
 First, I'd recommend visiting [coolors.co](https://coolors.co/palettes/popular) and looking at their trending color palettes for one that feels like your vibe. To incorporate that in your site **you'll need to copy the hexadecimal code (6-digit color code) and add it to the relevant `.scss` file**.
@@ -167,62 +152,28 @@ To find new possible fonts, check out Google Fonts ([fonts.google.com](https://f
 6. In your `.scss` files, paste the copied text somewhere near the font that is already there to begin with
 7. Finally, update the `mainfont:` element of `_quarto.yml` with the new font name
 
-### 5. Test it Locally
-
-This step can be especially critical when fiddling with (that's the technical term) colors for your website. Use the preview extensively to be sure you're happy with your chosen color palette. We can start a preview session with an operating system-agnostic {{< fa terminal >}} command line snippet.
-
-```{r preview-site}
-#| eval: false
-
-quarto preview
-```
-
-:::{.callout-warning}
-#### Remember to End the Preview!
-
-**The preview will keep going until you manually stop it** so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you're ready to move on.
-
 :::
 
-### 6. Render the Website
+### 4. Test it Locally
 
-Once you're happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
+To make sure that your new website displays correctly, run {{< fa terminal >}} `quarto preview`. If it doesn't, edit the offending file(s), save those edits, and look at the preview again.
 
-```{r render-site}
-#| eval: false
+This step can be especially critical when fiddling with (yes, that's the technical term {{< fa smile >}}) colors for your website. Use the preview extensively to be sure you're happy with your chosen color palette.
 
-quarto render
-```
+### 5. Render & Push
 
-### 7. Commit & Push!
+Once you're happy with how the preview looks:
 
-Once you've done the preceding steps, **Commit the following things: **
-
-1. Your new `.scss` files
-2. Any changes to `_quarto.yml`
-3. Any changes to `_freeze/` 
-    - If there are any
-
-After you've committed these, **push them up to the GitHub repository!**
-
-### 8. Allow the GitHub Action to Complete
-
-As with adding pages to your site, give the GitHub Action a minute to complete and you should see your website sporting the lovely colors and font that you picked out!
-
-:::{.callout-warning}
-#### Site Not Updating? Refresh the Page!
-
-If your site is not updating but you've followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.
-
-:::
+1. Run {{< fa terminal >}} `quarto render`
+2. Commit & push/sync all the files that you changed
+3. Wait for the GHA to complete
 
 ## Activity - Try it Out
 
 :::{.callout-note}
 ### Your Turn!
 
-Let's take a break while each of you fleshes out your custom stylesheets!
-
+Let's take a bit for you to customize your Sass stylesheets!
 :::
 
 ## Additional Information

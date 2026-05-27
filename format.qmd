@@ -2,11 +2,14 @@
 title: "Formatting Odds & Ends"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
-- <u>Use</u> the formatting tips demonstrated in the module
+- <u>Use</u> the formatting tips demonstrated below
+
+:::
 
 ## Format Background
 
