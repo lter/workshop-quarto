@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Add a Page to the Website – SciComp Workshop - Creating Websites with Quarto</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2ee37e68671429e00a3513df792d7283.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-3b354a1435ca544fadebb485632ba8f1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-2ee37e68671429e00a3513df792d7283.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7ddaa2004a4b511685372caf64c0f632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-09991c88a3ea7dc4cd29da34e3ef12b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-7ddaa2004a4b511685372caf64c0f632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -482,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-File Name to Page Name
+<span class="screen-reader-only">Note</span>File Name to Page Name
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -496,7 +499,7 @@ File Name to Page Name
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Sub-Folders for Larger Websites
+<span class="screen-reader-only">Note</span>Sub-Folders for Larger Websites
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -518,7 +521,7 @@ Sub-Folders for Larger Websites
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Watch Out for Indentation!!
+<span class="screen-reader-only">Warning</span>Watch Out for Indentation!!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -530,7 +533,7 @@ Watch Out for Indentation!!
 <h3 class="anchored" data-anchor-id="test-it-locally">3. Test it Locally</h3>
 <p>To make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line snippet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>quarto preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -539,7 +542,7 @@ Watch Out for Indentation!!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Remember to End the Preview!
+<span class="screen-reader-only">Warning</span>Remember to End the Preview!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -551,7 +554,7 @@ Remember to End the Preview!
 <h3 class="anchored" data-anchor-id="render-the-website">4. Render the Website</h3>
 <p>Once you’re happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following <i class="fa-solid fa-terminal" aria-label="terminal"></i> command line code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>quarto render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="commit-push" class="level3">
@@ -576,7 +579,7 @@ Remember to End the Preview!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Site Not Updating? Refresh the Page!
+<span class="screen-reader-only">Warning</span>Site Not Updating? Refresh the Page!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -593,7 +596,7 @@ Site Not Updating? Refresh the Page!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Your Turn!
+<span class="screen-reader-only">Note</span>Your Turn!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -669,13 +672,14 @@ Your Turn!
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
