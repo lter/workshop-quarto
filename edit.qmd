@@ -7,6 +7,7 @@ title: "Edit an Existing Website Through GitHub"
 
 By the end of this module, you will be able to:
 
+- <u>Paraphrase</u> strengths/weaknesses of editing a website directly through GitHub
 - <u>Use</u> GitHub to edit an existing website
 - <u>Explain</u> what to do if a GitHub Action fails after editing through GitHub
 
