@@ -2,13 +2,16 @@
 title: "Customizing a Website"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
 - <u>Identify</u> components of SCSS stylesheets
 - <u>Describe</u> key code syntax differences between SCSS and R code
 - <u>Use</u> SCSS stylesheets to customize a deployed Quarto website
+
+:::
 
 ## SCSS Background
 
