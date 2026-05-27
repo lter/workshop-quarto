@@ -1,3 +1,9 @@
+## Development Version
+
+Changes from the preceding version/GitHub release are listed below as they are made.
+
+- No changes from preceding version (yet)
+
 ## Version 2.0
 
 Changes from the preceding version/GitHub release are listed below.
