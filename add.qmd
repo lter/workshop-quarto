@@ -2,47 +2,34 @@
 title: "Add a Page to the Website"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
 - <u>Create</u> a new page for an existing Quarto website
 
+:::
+
 ## Create a New Page
 
-### 1. Make a `.qmd` File
+Once you have a working website, adding content is straightforward! On your local computer, work through the following steps.
 
-Now that you've created and deployed your website, adding content is straightforward! To add a page to your website, first **you'll create a new Quarto file** ("File" {{< fa arrow-right >}} "New File" {{< fa arrow-right >}} "Quarto Document..."). In the resulting pop-up menu you can leave everything at its default position and **click "Create"**.
+### 1. Make a Quarto File
 
-Once the file exists, edit it as you see fit. **Make commits as you would normally but _do not_ push yet!**
+Each new page requires a new file. **Go ahead and create a new Quarto file.** When you save it, keep in mind that the repository-name-to-website-URL relationship will also affect the link to this specific page. Check out the example below for one way of visualizing this relationship.
 
-:::{.callout-note}
-#### File Name to Page Name
+github.com/**<span style="color:purple">owner</span>**/**<span style="color:orange">repository</span>**/**<span style="color:blue">folder</span>**/**<span style="color:green">file</span>****.qmd** &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; **<span style="color:purple">owner</span>**.github.io/**<span style="color:orange">repository</span>**/**<span style="color:blue">folder</span>**/**<span style="color:green">file</span>****.html**
 
-While the website homepage file _had_ to be saved as `index.qmd`, **you can save this Quarto file as whatever makes sense to you!** For example:
+If you do not use sub-folders, the same relationship would occur just without the "**<span style="color:blue">folder</span>**" part. The take-away of the above is essentially that **you should save this Quarto file with a brief name that is descriptive of this page's purpose** in your website.
 
-**<span style="color:green">file</span>****.qmd**  &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; owner.github.io/repository/**<span style="color:green">file</span>****.html**
+### 2. Update the Global YAML
 
-:::
+For this new page to show up in your website, you need to edit your "_quarto.yml" file so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.). To do this:
 
-:::{.callout-note}
-#### Sub-Folders for Larger Websites
-
-If you want to use sub-folders to organize your pages locally and keep the top-level of your GitHub repository nice and tidy, Quarto supports that! The URL produced from `.qmd` files placed in sub-folders will also include the folder name though, so be aware.
-
-**<span style="color:blue">folder</span>**/**<span style="color:green">file</span>****.qmd**  &nbsp;&nbsp; {{< fa arrow-right >}} &nbsp;&nbsp; owner.github.io/repository/**<span style="color:blue">folder</span>**/**<span style="color:green">file</span>****.html**
-
-:::
-
-### 2. Add the New Page to `_quarto.yml`
-
-For this page to show up in your website, you need to edit `_quarto.yml` so that Quarto knows where your page should be linked (e.g., in the navbar, in a dropdown menu, etc.).
-
-In RStudio, uses the "Files" pane to **open `quarto.yml` and add the new page to the relevant part of the YAML**. In the example below, the new file is `papers.qmd` and we want it to be accessible from the navigation bar at the top of the website from the word "Publications" (see lines 20-21).
-
-<p align="center"/>
-<img src="images/new-page-yaml-edits-01.png" alt="Screenshot of the YAML from a Quarto website where a new page has been linked from the navbar" width="100%"/>
-</p>
+1. Open your "_quarto.yml"
+2. Add the new Quarto file to the relevant place
+    - If you're unsure, just add it beneath the line that references "index.qmd"
 
 :::{.callout-warning}
 #### Watch Out for Indentation!!
@@ -53,53 +40,27 @@ While indentation does not affect R code, it <u>_absolutely_ affects YAML code</
 
 ### 3. Test it Locally
 
-To make sure that everything is set up properly so far, it is good practice to create the website on your computer before continuing. We can do this with an operating system-agnostic {{< fa terminal >}} command line snippet.
-
-```{r preview-site}
-#| eval: false
-
-quarto preview
-```
-
-If something looks wrong, revisit the website YAML and your new file and edit them until the preview works as desired.
+To make sure that your new page displays as you desire, run {{< fa terminal >}} `quarto preview` and make sure your website looks how you want it to. If it doesn't, edit the offending file(s), save those edits, and look at the preview again.
 
 :::{.callout-warning}
-#### Remember to End the Preview!
+#### Remember to End the Preview When Done!
 
-**The preview will keep going until you manually stop it** so be sure to stop it (by click the stop sign icon in the Terminal pane in RStudio) when you're ready to move on.
-
+**The preview will keep going until you manually stop it** so be sure to stop it when you're ready to move on.
 :::
 
-### 4. Render the Website
+### 4. Render & Push
 
-Once you're happy with the preview, completely render the website to make sure all of your most recent edits are reflected. You can do this with the following {{< fa terminal >}} command line code.
+Once you're happy with how the preview looks:
 
-```{r render-site}
-#| eval: false
-
-quarto render
-```
-
-### 5. Commit & Push!
-
-Once you've done the preceding steps, **Commit the following things: **
-
-1. Your new `.qmd` file
-2. Any changes to `_quarto.yml`
-3. Any changes to `_freeze/` 
-    - If there are any
-
-**After you've committed these, push them up to the GitHub repository!**
-
-### 6. Allow the GitHub Action to Complete
-
-Wait a minute or two for the GitHub Action to complete and you should be able to revisit your website and see the new page! The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the "Actions" tab of the GitHub repository.
+1. Run {{< fa terminal >}} `quarto render`
+2. Commit & push/sync all changed files related to the new page
+3. Wait for the GHA to complete
+    - The process for the GitHub Action is the same as it was when you first deployed your site so you can either watch the symbol on the repository landing page or get more granular information in the "Actions" tab of the GitHub repository
 
 :::{.callout-warning}
 #### Site Not Updating? Refresh the Page!
 
 If your site is not updating but you've followed the above steps (and the GitHub Action is finished), you might try closing the page and re-opening it or refreshing the page. Sometimes it takes a moment for updates to the site to be visible if you opened the page before the GitHub Action is complete or as it completes and refreshing the page can fix it in this case.
-
 :::
 
 ## Activity - Try it Out
