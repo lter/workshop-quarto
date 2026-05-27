@@ -50,7 +50,7 @@ website:
       - text: "Formatting Notes"
         href: format.qmd
   page-footer: 
-    center: "Copyright 2025, LTER Network"
+    center: "Copyright &copy; 2026, LTER Network"
     background: secondary
   margin-footer: |
     <img src="images/logos/nceas.png" alt="Logo for NCEAS (National Center for Ecological Analysis and Synthesis)" width="40%"/>
