@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Background – SciComp Workshop - Creating Websites with Quarto</title>
+<title>Quarto Background – SciComp Workshop - Creating Websites with Quarto</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -427,10 +427,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
-  <li><a href="#why-quarto" id="toc-why-quarto" class="nav-link" data-scroll-target="#why-quarto">Why Quarto</a></li>
-  <li><a href="#core-components-of-a-quarto-file" id="toc-core-components-of-a-quarto-file" class="nav-link" data-scroll-target="#core-components-of-a-quarto-file">Core Components of a Quarto File</a></li>
-  <li><a href="#website-yamls" id="toc-website-yamls" class="nav-link" data-scroll-target="#website-yamls">Website YAMLs</a></li>
+  <li><a href="#why-quarto" id="toc-why-quarto" class="nav-link active" data-scroll-target="#why-quarto">Why Quarto</a></li>
+  <li><a href="#key-quarto-file-components" id="toc-key-quarto-file-components" class="nav-link" data-scroll-target="#key-quarto-file-components">Key Quarto File Components</a></li>
+  <li><a href="#file-specific-vs.-global-yamls" id="toc-file-specific-vs.-global-yamls" class="nav-link" data-scroll-target="#file-specific-vs.-global-yamls">File-Specific vs.&nbsp;Global YAMLs</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -442,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html">Create</a></li><li class="breadcrumb-item"><a href="./background.html">Quarto Background</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Background</h1>
+<h1 class="title">Quarto Background</h1>
 </div>
 
 
@@ -459,18 +458,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="module-learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><i class="fa-solid fa-brain" aria-label="brain"></i> Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <p>By the end of this module, you will be able to:</p>
 <ul>
 <li><u>Explain</u> why Quarto is useful in this context</li>
 <li><u>Define</u> the three critical parts of a Quarto file</li>
 <li><u>Describe</u> why some Quarto projects use a single YAML file across multiple Quarto documents</li>
 </ul>
-</section>
+</div>
+</div>
+</div>
 <section id="why-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="why-quarto">Why Quarto</h2>
-<p>Quarto is new software developed by Posit–the company that maintains RStudio. Quarto is extremely versatile and supports several programming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but is more efficient and easily supports a variety of ‘bells and whistles’ that makes it worthwhile to embrace.</p>
+<p>Quarto is new software developed by Posit–the company that maintains Positron and RStudio. Quarto is extremely versatile and supports several programming languages. Quarto documents are structurally similar to RMarkdown files (more on this later) but are more efficient and easily support a variety of ‘bells and whistles’ that make it worthwhile to embrace.</p>
 <p>This workshop uses Quarto for the following reasons:</p>
 <ul>
 <li>The learning curve for novice coders is relatively gentle
@@ -485,8 +496,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>If you’re broadly curious about Quarto, check out their website, <a href="https://quarto.org/">quarto.org</a>.</p>
 </section>
-<section id="core-components-of-a-quarto-file" class="level2">
-<h2 class="anchored" data-anchor-id="core-components-of-a-quarto-file">Core Components of a Quarto File</h2>
+<section id="key-quarto-file-components" class="level2">
+<h2 class="anchored" data-anchor-id="key-quarto-file-components">Key Quarto File Components</h2>
 <p>Quarto documents are a type of “computational notebook” like RMarkdown files and–for python coders–Jupyter Notebooks. These notebook files can include runnable-code as well as plain text description of that code. Often, notebooks are used to simultaneously run a given code workflow while embedding the documentation for that workflow in the same file; this can be a great choice for reproducibility!</p>
 <p>Notebook files contain three fundamental components that allow them to be “rendered” (sometimes also called “knit”) to produce a new static report file. This is often a PDF or an HTML file though for website purposes we’ll be using the HTML version so that each notebook file can become a page in your website.</p>
 <p>Typically, these notebooks have three structural components:</p>
@@ -514,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Among other roles, the YAML defines what type of output file is produced when the notebook is “rendered” (a.k.a. “knit”). Most commonly this is either a single PDF or HTML file but more complex YAMLs can be used to create full websites or scientific manuscripts!</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>The text outside of the YAML and code chunks is plain text that accepts Markdown syntax to accomplish text format tweaks. Dedicated text-formatting software (e.g., Microsoft Word, Gmail, etc.) provides buttons and hot keys for these sorts of format alterations but many programming IDEs do not provide such user interface elements.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Markdown syntax is used to support this same functionality.</p>
+<p>The text outside of the YAML and code chunks is plain text that accepts Markdown syntax to accomplish text format tweaks. Dedicated text-formatting software (e.g., Microsoft Word, Gmail, etc.) provides buttons and hot keys for these sorts of format alterations but many programming IDEs do not provide such user interface elements.[^1] Markdown syntax is used to support this same functionality.</p>
 <p>Some fundamental Markdown options include:</p>
 <ul>
 <li>**bold text** <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> <strong>bold text</strong></li>
@@ -526,46 +537,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The code chunks embedded in notebooks are essentially a fragmented script containing runnable code. These chunks may contain code and/or comments and share an environment with one another when rendered (i.e., if you load a particular library in one chunk you’ll be able to use functions from that library in subsequent chunks). When used in concert with the Markdown text in a given notebook the code chunks can be used to effectively demonstrate a workflow while providing as much human-readable context as is desired.</p>
-<p>In Quarto documents, code chunks look like this<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\`</span><span class="kw">``</span>{r demo-chunk}</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-2" class="code-annotation-target"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-4" class="code-annotation-target"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Round pi to 2 digits</span></span>
-<span id="annotated-cell-2-5"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">round</span><span class="er">(</span><span class="ex">x</span> = pi, digits = 2<span class="kw">)</span></span>
-<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">\`</span><span class="kw">``</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In Quarto documents, code chunks look like this[^2]:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode markdown code-annotation-code code-with-copy code-annotated"><code class="sourceCode markdown"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: demo-chunk</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Round pi to 2 digits</span></span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> pi, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="2" data-code-annotation="1">You may specify chunk-specific options using this syntax (i.e., <code>#| option_name: option_setting</code>). Options you want to apply to <em>all</em> chunks across a notebook should be specified once in the YAML and can exclude the leading <code>#|</code> bit of the format.</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="1">You may specify chunk-specific options using this syntax (i.e., <code>#| option_name: option_setting</code>). Options you want to apply to <em>all</em> chunks across a notebook should be specified once in the YAML and can exclude the leading <code>#|</code> bit of the format.</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="4" data-code-annotation="2">If your Markdown text provides sufficient context you may exclude comments in code chunks but opinions differ on which is “more” appropriate</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="5" data-code-annotation="2">If your Markdown text provides sufficient context you may exclude comments in code chunks but opinions differ on which is “more” appropriate</span>
 </dd>
 </dl>
-<pre><code># Round pi to 2 digits
-round(x = pi, digits = 2)</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="website-yamls" class="level2">
-<h2 class="anchored" data-anchor-id="website-yamls">Website YAMLs</h2>
-<p>When working in a single Quarto document, that document needs its own YAML so that Quarto ‘knows’ how to render it (and into what!). However, for multi-document projects like websites, this would be intensely cumbersome because every page would need extensive YAML information so that each document showed up where you expected it and all formatting was consistent across documents.</p>
-<p>To solve this problem Quarto uses a single YAML file for these larger projects that controls project-wide (i.e., across-document) formatting and structure. You can still use the YAML section within a single document if you want it to behave <em>differently</em> from other pages but any formatting you want to apply across all pages should be specified in this cross-document YAML.</p>
-<p>We’ll discuss what goes into that project-wide YAML in the next workshop module but for now it is only important you understand its general purpose and know that <u>it <em>must</em> always be named <code>_quarto.yml</code></u> for it to work as you expect.</p>
+<section id="file-specific-vs.-global-yamls" class="level2">
+<h2 class="anchored" data-anchor-id="file-specific-vs.-global-yamls">File-Specific vs.&nbsp;Global YAMLs</h2>
+<p>When working in a single Quarto document, that document needs its own YAML so that Quarto ‘knows’ how to render it. However, <strong>for multi-document projects like websites a global YAML is required.</strong> This is because defining project-wide behavior across each file’s specific YAML would be intensely cumbersome.</p>
+<p>This global YAML file controls project-wide (i.e., across-document) formatting and structure. You can still use the YAML section within a single document if you want it to behave <em>differently</em> from other pages but any formatting you want to apply across all Quarto files in the project should be specified in this cross-document, global YAML.</p>
+<p>We’ll discuss what goes into that project-wide YAML later in the workshop but for now it is only important you understand its general purpose and know that <u>it <em>must</em> always be named <code>_quarto.yml</code></u> for it to work as you expect.</p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Note that with the addition of the “Visual” tab in RStudio there are button options for many text format changes. Markdown syntax is still useful to know for general knowledge reasons though!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Normally code chunks start and end with three backticks (```) but to embed this code chunk example we need to “escape” the first backtick (using a backslash) so that the notebook interprets it correctly.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1030,7 +1033,7 @@ round(x = pi, digits = 2)</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2025, LTER Network</p>
+<p>Copyright © 2026, LTER Network</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;

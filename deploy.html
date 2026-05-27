@@ -85,6 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/bootstrap/bootstrap-7ddaa2004a4b511685372caf64c0f632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -427,19 +430,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#module-learning-objectives" id="toc-module-learning-objectives" class="nav-link active" data-scroll-target="#module-learning-objectives">Module Learning Objectives</a></li>
-  <li><a href="#deployment-options" id="toc-deployment-options" class="nav-link" data-scroll-target="#deployment-options">Deployment Options</a></li>
+  <li><a href="#deployment-options" id="toc-deployment-options" class="nav-link active" data-scroll-target="#deployment-options">Deployment Options</a></li>
   <li><a href="#github-actions-ghas" id="toc-github-actions-ghas" class="nav-link" data-scroll-target="#github-actions-ghas">GitHub Actions (GHAs)</a></li>
-  <li><a href="#set-up-a-quarto-website-deployment-gha" id="toc-set-up-a-quarto-website-deployment-gha" class="nav-link" data-scroll-target="#set-up-a-quarto-website-deployment-gha">Set Up a Quarto Website Deployment GHA</a>
+  <li><a href="#set-up-the-deployment-gha" id="toc-set-up-the-deployment-gha" class="nav-link" data-scroll-target="#set-up-the-deployment-gha">Set Up the Deployment GHA</a>
   <ul class="collapse">
-  <li><a href="#make-a-gh-pages-branch" id="toc-make-a-gh-pages-branch" class="nav-link" data-scroll-target="#make-a-gh-pages-branch">1. Make a <code>gh-pages</code> Branch</a></li>
-  <li><a href="#pull-the-new-branch" id="toc-pull-the-new-branch" class="nav-link" data-scroll-target="#pull-the-new-branch">2. Pull the New Branch</a></li>
-  <li><a href="#create-the-local-part-of-a-gha" id="toc-create-the-local-part-of-a-gha" class="nav-link" data-scroll-target="#create-the-local-part-of-a-gha">3. Create the Local Part of a GHA</a></li>
-  <li><a href="#commit-push-publish.yml-to-github" id="toc-commit-push-publish.yml-to-github" class="nav-link" data-scroll-target="#commit-push-publish.yml-to-github">4. Commit &amp; Push <code>publish.yml</code> to GitHub</a></li>
-  <li><a href="#watch-the-github-action-work" id="toc-watch-the-github-action-work" class="nav-link" data-scroll-target="#watch-the-github-action-work">5. Watch the GitHub Action Work</a></li>
-  <li><a href="#make-the-website-link-more-accessible" id="toc-make-the-website-link-more-accessible" class="nav-link" data-scroll-target="#make-the-website-link-more-accessible">6. Make the Website Link More Accessible</a></li>
-  <li><a href="#pull-updates-locally" id="toc-pull-updates-locally" class="nav-link" data-scroll-target="#pull-updates-locally">7. Pull Updates Locally</a></li>
+  <li><a href="#create-the-gha-yaml" id="toc-create-the-gha-yaml" class="nav-link" data-scroll-target="#create-the-gha-yaml">1. Create the GHA YAML</a></li>
+  <li><a href="#tweak-github-repository-settings" id="toc-tweak-github-repository-settings" class="nav-link" data-scroll-target="#tweak-github-repository-settings">2. Tweak GitHub Repository Settings</a></li>
+  <li><a href="#push-the-gha-yaml" id="toc-push-the-gha-yaml" class="nav-link" data-scroll-target="#push-the-gha-yaml">3. Push the GHA YAML</a></li>
   </ul></li>
+  <li><a href="#github-housekeeping" id="toc-github-housekeeping" class="nav-link" data-scroll-target="#github-housekeeping">GitHub Housekeeping</a></li>
   <li><a href="#activity---try-it-out" id="toc-activity---try-it-out" class="nav-link" data-scroll-target="#activity---try-it-out">Activity - Try it Out</a></li>
   <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   </ul>
@@ -470,26 +469,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="module-learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="module-learning-objectives">Module Learning Objectives</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><i class="fa-solid fa-brain" aria-label="brain"></i> Learning Objectives
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <p>By the end of this module, you will be able to:</p>
 <ul>
 <li><u>Define</u> “deploy” in the context of Quarto websites</li>
 <li><u>Describe</u> the purpose of GitHub Actions (GHAs)</li>
 <li><u>Use</u> a GHA to deploy a Quarto website</li>
 </ul>
-</section>
+</div>
+</div>
+</div>
 <section id="deployment-options" class="level2">
 <h2 class="anchored" data-anchor-id="deployment-options">Deployment Options</h2>
-<p>While you created the structure and content of a website in the prior workshop module, you will need to take some additional steps in order to get the ‘actual’ website to exist. This process of translating a Quarto project into a living website is known as “deploying” that website. There are <em>many</em> options for where a website can be deployed and hosted but for the purposes of this workshop, we’ll be focusing on deploying via GitHub Pages.</p>
+<p>While you created the structure and content of a website earlier in this workshop, you will need to take some additional steps in order to get the website to really exist. This process of translating a Quarto project into a living website is known as “deploying” that website. There are <em>many</em> options for where a website can be deployed but for the purposes of this workshop, we’ll be focusing on deploying via GitHub Pages.</p>
 <p>We’re focusing on deploying via GitHub Pages because:</p>
 <ul>
-<li>general GitHub knowledge translates smoothly to GitHub Pages</li>
-<li>websites hosted in GitHub can be edited directly through GitHub
+<li>General GitHub knowledge translates smoothly to GitHub Pages</li>
+<li>Websites hosted in GitHub can be edited directly through GitHub
 <ul>
 <li>Reducing the barrier to entry for novice coders interested in editing an existing website</li>
 </ul></li>
-<li>the LTER Scientific Computing team already encourages the adoption of GitHub for many other purposes
+<li>The LTER Scientific Computing team already encourages the adoption of GitHub for many other purposes
 <ul>
 <li>E.g., reproducibility, code citation, collaboration, project management</li>
 </ul></li>
@@ -500,80 +511,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Once you’ve chosen to deploy via GitHub Pages, there are still several methods for successfully deploying! The instructions in this workshop use a GitHub feature called a “GitHub Action” (GHA) because this allows GitHub to automatically re-render and update the website whenever changes are made to any part of the website’s content.</p>
 <p>This is a <em>huge</em> benefit for website updating because it reduces the need for manual “rendering” of website files locally and makes it simpler to maintain the website in the long term. Additionally, it also allows many pages in the website to be edited directly through GitHub (because rendering can be done online rather than needing to be done locally).</p>
 <p>GitHub supports GHAs for a wide variety of automation purposes beyond website rendering (e.g., running tests on new code, checking compatibility with multiple operating systems, etc.) but the website rendering functionality is a great entry point into the world of GHAs if you do not already use them in your work on GitHub.</p>
-<p>Another benefit of this approach is that <u>GitHub Actions are free for public repositories</u>! So you can host a personal, lab, or project website without needing to pay anything.</p>
+<p>Another benefit of this approach is that <u>GitHub Actions are free for public repositories</u>! So you can host a personal, lab, or project website through GitHub without needing to pay anything.</p>
 </section>
-<section id="set-up-a-quarto-website-deployment-gha" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-a-quarto-website-deployment-gha">Set Up a Quarto Website Deployment GHA</h2>
-<section id="make-a-gh-pages-branch" class="level3">
-<h3 class="anchored" data-anchor-id="make-a-gh-pages-branch">1. Make a <code>gh-pages</code> Branch</h3>
-<p>GitHub “branches” are typically short-lived development spaces that operate parallel to the ‘main’ branch of a repository. The main branch is either called <code>main</code> or <code>master</code> (for older repositories) and if you don’t think you are using branches, you are at least using <code>main</code>! Branches are not the focus of this workshop but if you’d like to learn more, check out <a href="https://lter.github.io/workshop-github/branches.html">the relevant module of the SciComp GitHub workshop</a>.</p>
-<p>For deploying a Quarto website though we’ll create a <code>gh-pages</code> branch that we will never have to work on directly! Once this branch exists, we’ll set up a GitHub action that renders your website into this branch and deploys from there. Doing this means you will rarely have to render your site on your machine and can instead trust the magic of GitHub Actions to transform your edits into a living website on its own.</p>
-<p>To begin, <strong>go to your repository’s home page</strong>. Once there, <strong>click the “1 Branch” button</strong>. It is in the same row of buttons as the “Code” button. Note that you can see your current branch name (likely <code>main</code>) just to the left of that button.</p>
-<p align="center">
-<img src="images/branch-01.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%">
-</p>
-<p>In the resulting page, <strong>click the “New Branch” button</strong>. As with the “Code” button, it will be either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> depending on your GitHub settings.</p>
-<p align="center">
-<img src="images/branch-02.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%">
-</p>
-<p>A small pop-up window will appear with an empty text field for you to enter the name of your branch. <strong>Type <em>exactly</em> “gh-pages” and click “Create new branch”</strong>. The following steps will not work if you type something other than <code>gh-pages</code> (hyphen between “gh” and “pages). Also note that you <em>can</em> make the”gh-pages” branch in RStudio and push it up to this repository but making this branch through GitHub and pulling it to your computer is more straightforward.</p>
-<p align="center">
-<img src="images/branch-03.png" alt="Screenshot of the pop-up window where new branches are named before they are created" width="50%">
-</p>
-<p>Once you’ve done that, the pop-up window should close and you should find yourself back on the ‘branches’ page but there will now be two active branches: <code>main</code> (or <code>master</code>) and <code>gh-pages</code>!</p>
-<p align="center">
-<img src="images/branch-04.png" alt="Screenshot of the page in a GitHub repostiory where all active branches can be viewed" width="100%">
-</p>
-<p>You can now return to your repository’s landing page. You may see an <strong><span style="color:orange">orange</span></strong> circle or a check mark that is either <strong><span style="color:blue">blue</span></strong> or <strong><span style="color:green">green</span></strong> next to the most recent commit message but we can safely ignore this for now.</p>
-<p align="center">
-<img src="images/branch-05.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%">
-</p>
-</section>
-<section id="pull-the-new-branch" class="level3">
-<h3 class="anchored" data-anchor-id="pull-the-new-branch">2. Pull the New Branch</h3>
-<p>Return to your local clone of this repository (i.e., the relevant RStudio project) and pull. This should change nothing but now your RStudio ‘knows’ that the repository has two branches. Note that if you instead make the new branch in RStudio you’d instead push that branch up to GitHub at this point.</p>
-</section>
-<section id="create-the-local-part-of-a-gha" class="level3">
-<h3 class="anchored" data-anchor-id="create-the-local-part-of-a-gha">3. Create the Local Part of a GHA</h3>
-<p>Now that GitHub is properly set up, we need to define our desired GitHub Action. We do this by creating a new file locally in a particular file path then committing and pushing that file. Interestingly, the type of file that controls GHA settings is actually another YAML file!</p>
-<p>So, <u>in the <i class="fa-solid fa-terminal" aria-label="terminal"></i> Terminal pane of RStudio</u>, <strong>run the following commands to create the needed file path and the GitHub Action’s YAML file with the right name</strong>. Note there is a slight difference depending on your operating system so be sure to use the right one!</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><i class="fa-brands fa-apple" aria-label="apple"></i> Mac / <i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>mkdir .github</span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a>mkdir .github<span class="sc">/</span>workflows</span>
-<span id="annotated-cell-2-3"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>touch .github<span class="sc">/</span>workflows<span class="sc">/</span>publish.yml </span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1"><code>mkdir</code> is CLI-speak for ‘make this folder’</span>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>mkdir .github</span>
-<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>mkdir .github\workflows</span>
-<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>copy NUL .github\workflows\publish.yml</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1"><code>mkdir</code> is CLI-speak for ‘make this folder’</span>
-</dd>
-</dl>
-</div>
-</div>
-<p>If <code>copy NUL</code> does not work, try <code>touch</code> instead.</p>
-</div>
-</div>
-</div>
-<p>One <code>publish.yml</code> exists on your computer, <strong>use the “Files” pane of RStudio to navigate to the file and open it</strong>. When you have it open, <strong>copy/paste <em>all</em> of the following into that file</strong>.</p>
+<section id="set-up-the-deployment-gha" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-the-deployment-gha">Set Up the Deployment GHA</h2>
+<section id="create-the-gha-yaml" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-gha-yaml">1. Create the GHA YAML</h3>
+<p>Because we created a “gh-pages” branch when we first made the repository, all that we need to do to start our GHA is to create the YAML file that tells GitHub what action we want it to perform. GitHub requires that this file be called “publish.yml” and be at the following path within your website repository: <code>.github</code> / <code>workflows</code> / <code>publish.yml</code>. <u>Note that the <code>.github/</code> folder name starts with a period!</u></p>
+<p>Once you have this file, <strong>click the collapsed menu below and copy/paste all of its contents into your empty publish.yml file.</strong></p>
+<details>
+<summary>
+publish.yml Contents
+</summary>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>on<span class="sc">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  workflow_dispatch<span class="sc">:</span></span>
@@ -601,76 +550,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        env<span class="sc">:</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>          GITHUB_TOKEN<span class="sc">:</span> <span class="er">$</span>{{ secrets.GITHUB_TOKEN }}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</details>
+<p><strong>Do not commit or push/sync this file yet!</strong> We’ll get to that in a moment.</p>
 </section>
-<section id="commit-push-publish.yml-to-github" class="level3">
-<h3 class="anchored" data-anchor-id="commit-push-publish.yml-to-github">4. Commit &amp; Push <code>publish.yml</code> to GitHub</h3>
-<p>Once you have created <code>publish.yml</code> and put the necessary stuff into it, <strong>commit the new file and push it</strong>! Be sure that it is in the correct file path (i.e., “.github” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “workflows” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “publish.yml”).</p>
-</section>
-<section id="watch-the-github-action-work" class="level3">
-<h3 class="anchored" data-anchor-id="watch-the-github-action-work">5. Watch the GitHub Action Work</h3>
-<p>After you push <code>publish.yml</code>, return to your repository landing page and you should see an <strong><span style="color:orange">orange</span></strong> circle next to that commit message.</p>
-<p align="center">
-<img src="images/gha-01.png" alt="Screenshot of the top part of a GitHub repository's landing page while a GitHub Action is in progress" width="100%">
-</p>
-<p>If you <strong>click the “Actions” tab</strong> at the top of the repository’s landing page you can get more specific information about the GitHub Action’s progress.</p>
-<p align="center">
-<img src="images/gha-02.png" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is in progress" width="100%">
-</p>
-<p>At first, there will be a progress circle next to a “workflow run” that has the same name as the most recent commit. When that finishes it will be replaced by a check mark. Once this finishes, a new action called “pages build and deployment” will automatically start. Once <em>that</em> action is done, you should have an updated website!</p>
-<p align="center">
-<img src="images/gha-03.png" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is complete" width="100%">
-</p>
-<p>If you don’t want to watch the actions complete from the “Actions” tab, you can check their status from the repository landing page; a circle means one of those actions is in progress and a checkmark indicates they are finished.</p>
-<p align="center">
-<img src="images/gha-04.png" alt="Screenshot of the top part of a GitHub repository's landing page after a GitHub Action is complete" width="100%">
-</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Possibly Necessary Settings Tweak
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For some reason, <em>some</em> users may need to do an additional step to get their website to deploy as desired. <strong>If <em>all</em> of the following apply to you, <u>you are one of these affected users and will need to make one small change in your repository settings</u></strong>. See below:</p>
+<section id="tweak-github-repository-settings" class="level3">
+<h3 class="anchored" data-anchor-id="tweak-github-repository-settings">2. Tweak GitHub Repository Settings</h3>
+<p>Before we can push our GHA file, we need to change one setting in your GitHub repository. Do the following:</p>
 <ol type="1">
-<li>Your website renders correctly on your computer</li>
-<li>Your GitHub Action succeeds</li>
-<li>The GitHub pages link goes to a 404 page</li>
+<li>Go to your GitHub repository’s landing page</li>
+<li>Click “Settings”</li>
+<li>Select “Pages” from about halfway down the left sidebar</li>
+<li><strong>Make sure your “Build and deployment” section looks <em>exactly</em> like the image below</strong></li>
 </ol>
-<p>If all three of those are true for you, go to the GitHub Pages settings for your repository. From the GitHub repository’s landing page, click “Settings” then select the “Pages” option about halfway down the left sidebar.</p>
-<p>Then, <u>make sure your “Build and deployment” section looks <em>exactly</em> like the image below</u>.</p>
-<p align="center">
-<img src="images/gh-pages-settings-01.png" alt="Screenshot of GitHub Pages settings (for a repository) where the 'Source' dropdown menu is set to 'Deploy from a branch' and the 'Branch' dropdown menus are set to 'gh-pages' and '/ (root)' (from left to right)" width="80%">
-</p>
-<p><strong>Once you make your Settings look like the above screen capture, a new GitHub Action should begin</strong>. When that completes your website should now be accessible from the GitHub pages link that previously returned a 404 page.</p>
-<p>The workshop authors are not entirely sure–at time of writing–what makes some users need to do this manually; roughly 30% of past workshop participants have needed to do this step manually while all others do not need to do this step separately. It is not presently clear what differs between these groups (operating system, software versions, and other obvious possible solutions do not clearly divide the two camps).</p>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/gh-pages-settings-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/gh-pages-settings-01.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of GitHub Pages settings (for a repository) where the 'Source' dropdown menu is set to 'Deploy from a branch' and the 'Branch' dropdown menus are set to 'gh-pages' and '/ (root)' (from left to right)"></a></p>
+</figure>
 </div>
 </section>
-<section id="make-the-website-link-more-accessible" class="level3">
-<h3 class="anchored" data-anchor-id="make-the-website-link-more-accessible">6. Make the Website Link More Accessible</h3>
-<p>After the GitHub Action completes, your website is live but you’ll need to take an extra step to make that link directly accessible from the landing page of the repository. To start <strong>click the gear (<i class="fa-solid fa-gear" aria-label="gear"></i>) icon next to “About” in the right sidebar of the repository</strong>.</p>
-<p align="center">
-<img src="images/about-mod-01.png" alt="Screenshot of the pop-up menu that allows editing the 'About' sidebar of a GitHub repository with all fields left at defaults" width="60%">
-</p>
+<section id="push-the-gha-yaml" class="level3">
+<h3 class="anchored" data-anchor-id="push-the-gha-yaml">3. Push the GHA YAML</h3>
+<p>Once you have created “publish.yml” (in the correct folder) and put the necessary stuff into it, <strong>commit that file and push it</strong>! You may want to run the <code>quarto render</code> <i class="fa-solid fa-cli" aria-label="cli"></i> CLI code again if you’ve edited other website files since your last push/sync.</p>
+<p>Once you’ve pushed the “publish.yml” file, return to your repository landing page and you should see an <strong><span style="color:orange">orange</span></strong> circle next to that commit message.</p>
+<p><a href="images/gha-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/gha-01.png" class="img-fluid" alt="Screenshot of the top part of a GitHub repository's landing page while a GitHub Action is in progress"></a></p>
+<p>If you <strong>click the “Actions” tab</strong> at the top of the repository’s landing page you can get more specific information about the GitHub Action’s progress.</p>
+<p><a href="images/gha-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="images/gha-02.png" class="img-fluid" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is in progress"></a></p>
+<p>At first, there will be a progress circle next to a “workflow run” that has the same name as the most recent commit. When that finishes it will be replaced by a check mark. Once this finishes, a new action called “pages build and deployment” will automatically start. Once <em>that</em> action is done, you should have an updated website!</p>
+<p><a href="images/gha-03.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="images/gha-03.png" class="img-fluid" alt="Screenshot of the 'Actions' tab of a GitHub repository while a GitHub Action is complete"></a></p>
+<p>If you don’t want to watch the actions complete from the “Actions” tab, you can check their status from the repository landing page; a circle means one of those actions is in progress and a checkmark indicates they are finished.</p>
+<p><a href="images/gha-04.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="images/gha-04.png" class="img-fluid" alt="Screenshot of the top part of a GitHub repository's landing page after a GitHub Action is complete"></a></p>
+</section>
+</section>
+<section id="github-housekeeping" class="level2">
+<h2 class="anchored" data-anchor-id="github-housekeeping">GitHub Housekeeping</h2>
+<p>After the GitHub Action completes, your website is live but you’ll need to take an extra step to make that link directly-accessible from the landing page of the repository. To start <strong>click the gear (<i class="fa-solid fa-gear" aria-label="gear"></i>) icon next to “About” in the right sidebar of the repository</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/about-mod-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="images/about-mod-01.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Screenshot of the pop-up menu that allows editing the 'About' sidebar of a GitHub repository with all fields left at defaults"></a></p>
+</figure>
+</div>
 <p>In the resulting pop-up menu, <strong>check the box for “Use your GitHub Pages website”</strong> under the “Website” field. Feel free to customize the other fields however you’d like! When you’re done, <strong>click the “Save changes” button</strong> to close this menu and update your “About” sidebar.</p>
-<p align="center">
-<img src="images/about-mod-03.png" alt="Screenshot of the 'About' sidebar of a GitHub repository with a GitHub Pages website included" width="40%">
-</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/about-mod-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="images/about-mod-02.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the 'About' sidebar of a GitHub repository with a GitHub Pages website included"></a></p>
+</figure>
+</div>
 <p>You should now see the website in the “About” sidebar of the repository!</p>
-</section>
-<section id="pull-updates-locally" class="level3">
-<h3 class="anchored" data-anchor-id="pull-updates-locally">7. Pull Updates Locally</h3>
-<p>As with any other time when you work in your GitHub repository, <strong>you should now pull the latest changes to your local clone</strong>. This is unlikely to be the cause of a conflict because (A) no files have changed since you last pushed and (B) the only edits in the <code>gh-pages</code> branch should be whatever the GitHub Action does behind the scenes. However, <u>it’s still good practice to pull regularly</u>!</p>
-<p>RStudio should return a message like the following:</p>
-<p align="center">
-<img src="images/post-gha-pull-01.png" alt="Screenshot of the message from RStudio when you pull after a GitHub Action is completed" width="70%">
-</p>
-<p>Essentially this just means the your local <code>gh-pages</code> branch is now caught up with the website rendering / deployment that you set up GitHub to do on your behalf.</p>
-</section>
 </section>
 <section id="activity---try-it-out" class="level2">
 <h2 class="anchored" data-anchor-id="activity---try-it-out">Activity - Try it Out</h2>
@@ -1164,13 +1089,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Copyright 2025, LTER Network</p>
+<p>Copyright © 2026, LTER Network</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lter/workshop-quarto/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
