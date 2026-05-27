@@ -50,6 +50,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-7ddaa2004a4b511685372caf64c0f632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -398,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#workshop-preparation" id="toc-workshop-preparation" class="nav-link" data-scroll-target="#workshop-preparation">Workshop Preparation</a>
   <ul class="collapse">
-  <li><a href="#prepare-to-use-github-via-rstudio" id="toc-prepare-to-use-github-via-rstudio" class="nav-link" data-scroll-target="#prepare-to-use-github-via-rstudio">1. Prepare to use GitHub via RStudio</a></li>
+  <li><a href="#prepare-to-use-github-via-an-ide" id="toc-prepare-to-use-github-via-an-ide" class="nav-link" data-scroll-target="#prepare-to-use-github-via-an-ide">1. Prepare to use GitHub via an IDE</a></li>
   <li><a href="#install-quarto" id="toc-install-quarto" class="nav-link" data-scroll-target="#install-quarto">2. Install Quarto</a></li>
   </ul></li>
   <li><a href="#note-on-code-snippets" id="toc-note-on-code-snippets" class="nav-link" data-scroll-target="#note-on-code-snippets">Note on Code Snippets</a></li>
@@ -433,7 +436,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="welcome" class="level2">
 <h2 class="anchored" data-anchor-id="welcome">Welcome!</h2>
-<p>This workshop covers how to use <a href="https://quarto.org/">Quarto</a>–a tool developed by Posit–to create easily customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in RStudio so many of your existing technical skills will likely serve you well here.</p>
+<p><img src="images/logos/quarto.png" alt="Quarto's logo; a blue circle divided into four equal quadrants" width="30%" align="right"></p>
+<p>This workshop covers how to use <a href="https://quarto.org/">Quarto</a>–a tool developed by Posit–to create easily customizable websites and host those sites on GitHub. Quarto includes a variety of user-friendly tools including a visual editor that allows users to insert headings and embed figures via buttons that are intuitively labeled rather than through somewhat arcane HTML text or symbols. Creating websites using Quarto is very similar to any other work in an <u>I</u>ntegrated <u>D</u>evelopment <u>E</u>nvironment (IDE; e.g., RStudio, Positron) so many of your existing technical skills will likely serve you well here.</p>
 <section id="citing-these-materials" class="level3">
 <h3 class="anchored" data-anchor-id="citing-these-materials">Citing These Materials</h3>
 <p>If you’d like to cite these materials, please use the following citation:</p>
@@ -445,21 +449,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="workshop-preparation" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-preparation">Workshop Preparation</h2>
 <p>To follow along with this workshop you will need to take the following steps:</p>
-<section id="prepare-to-use-github-via-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="prepare-to-use-github-via-rstudio">1. Prepare to use GitHub via RStudio</h3>
-<p>This involves doing all of the <a href="https://lter.github.io/workshop-github/#workshop-preparation">pre-workshop steps</a> relevant to our “Collaborative Coding with GitHub” workshop.</p>
-<ul>
-<li>Install R</li>
-<li>Install RStudio</li>
-<li>Install Git</li>
-<li>Make a GitHub account</li>
-<li>Connect Git and GitHub</li>
-<li>Celebrate!</li>
-</ul>
+<section id="prepare-to-use-github-via-an-ide" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-to-use-github-via-an-ide">1. Prepare to use GitHub via an IDE</h3>
+<p>This workshop requires using an <u>I</u>ntegrated <u>D</u>evelopment <u>E</u>nvironment of your choice (e.g., RStudio, Positron), as well as both Git and GitHub. In order to prepare, do all the <a href="https://lter.github.io/workshop-github/#workshop-preparation">pre-workshop steps</a> relevant to our “Collaborative Coding with GitHub” workshop</p>
+<iframe src="https://lter.github.io/workshop-github/#workshop-preparation" height="420" width="750" style="border: 1px solid #2e3846;"></iframe>
 </section>
 <section id="install-quarto" class="level3">
-<h3 class="anchored" data-anchor-id="install-quarto">2. Install <a href="https://quarto.org/docs/get-started/">Quarto</a></h3>
-<p>Before you can make a website with Quarto you will need to install it! This program seamlessly ties into RStudio so you won’t need to learn how to navigate a new program.</p>
+<h3 class="anchored" data-anchor-id="install-quarto">2. Install Quarto</h3>
+<p>Before you can make a website with Quarto you will need to install it! Go to <a href="https://quarto.org/docs/get-started/">quarto.org</a> to get started. Quarto seamlessly ties into your IDE software (e.g., RStudio, Positron) so you won’t need to learn how to navigate a new program.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -470,19 +467,51 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>If you are <em>exclusively</em> interested in editing an <u>existing</u> Quarto website, all you need to do is create a GitHub profile!</strong> Additionally, you may want to skip directly to <a href="https://lter.github.io/workshop-quarto/edit.html">the ‘Edit’ module</a> as that contains all the information you are likely to need.</p>
-<p>However, note that editing websites directly through GitHub can cause issues and most such issues <em>must be resolved in RStudio</em> so the other preparation steps are required if you will be responsible for fixing any issues caused by direct edits to pages in GitHub.</p>
+<p><strong>If you are <em>exclusively</em> interested in editing an <u>existing</u> Quarto website, all you need to do is create a GitHub profile!</strong></p>
+<p>However, note that editing websites directly through GitHub can cause issues and most such issues <em>must be resolved in Positron/RStudio</em> so the other preparation steps are required if you will be responsible for fixing any issues caused by direct edits to pages in GitHub.</p>
 </div>
 </div>
 </section>
 </section>
 <section id="note-on-code-snippets" class="level2">
 <h2 class="anchored" data-anchor-id="note-on-code-snippets">Note on Code Snippets</h2>
-<p>Note that while most facets of this workshop can be accomplished via RStudio or GitHub, there are some code commands that must be run. These commands are mostly <u>C</u>ommand <u>L</u>ine <u>I</u>nterface (CLI) <em>not</em> R code! To make this as clear as possible, <strong>if the plain text instructions have this symbol <i class="fa-solid fa-terminal" aria-label="terminal"></i> they should be run in the “Terminal” pane of RStudio</strong> while R code–if any–will have this symbol <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
-<p>The “Terminal” pane of RStudio should be next to the “Console” pane of RStudio (see below). If you don’t have that pane, you can make a new one using the keyboard shortcut <code>Alt + Shift + R</code> (<i class="fa-brands fa-windows" aria-label="windows"></i> Windows) or <code>Option + Shift + R</code> (<i class="fa-brands fa-apple" aria-label="apple"></i> Mac). Alternately you can open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: “Code” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Terminal” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Open New Terminal at File Location”.</p>
-<p align="center">
-<img src="images/rstudio-terminal.png" alt="Screenshot of 'Terminal' pane of RStudio" width="100%">
-</p>
+<p>Note that while most facets of this workshop can be accomplished in either an IDE or in GitHub, there are some code commands that must be run in an IDE. These commands are mostly <u>C</u>ommand <u>L</u>ine <u>I</u>nterface (CLI) <em>not</em> R code! To make this as clear as possible, <strong>if the plain text instructions have this symbol (<i class="fa-solid fa-terminal" aria-label="terminal"></i>) they should be run in the “Terminal” pane of your IDE</strong> while R code–if any–will have this symbol (<i class="fa-brands fa-r-project" aria-label="r-project"></i>).</p>
+<p>In either Positron or RStudio, the “Terminal” tab should be just to the right of the “Console” tab.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Positron</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">RStudio</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><a href="images/positron-terminal.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/positron-terminal.png" class="img-fluid" alt="Screenshot of 'Terminal' pane of Positron"></a></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><a href="images/rstudio-terminal.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="images/rstudio-terminal.png" class="img-fluid" alt="Screenshot of 'Terminal' pane of RStudio"></a></p>
+</div>
+</div>
+</div>
+<p>If you do not have an active Terminal session or don’t see a Terminal tab at all (only applies to RStudio), follow the instructions below for your IDE.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Positron</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">RStudio</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>In Positron, you can make a new Terminal in any of the following ways:</p>
+<ol type="1">
+<li>Go to the Terminal tab in the lower half of your Positron window and click the <i class="fa-solid fa-plus" aria-label="plus"></i> button</li>
+<li>Go to the Terminal menu at the top of your screen, click it, and select “New Terminal”</li>
+<li>Use the keyboard shortcut <code>Ctrl + Shift + backtick</code>
+<ul>
+<li>You can find the backtick (`) key just above the tab key (upper left corner) on most keyboards</li>
+</ul></li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>In RStudio, you can make a new Terminal in any of the following ways:</p>
+<ol type="1">
+<li>Open a file in the top-level of your RStudio project then click through the following menu items at the top of the screen: “Code” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Terminal” <i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i> “Open New Terminal at File Location”.</li>
+<li>Use the keyboard shortcut <code>Alt + Shift + R</code> (<i class="fa-brands fa-windows" aria-label="windows"></i> Windows) or <code>Option + Shift + R</code> (<i class="fa-brands fa-apple" aria-label="apple"></i> Mac)</li>
+</ol>
+</div>
+</div>
+</div>
 </section>
 <section id="additional-information" class="level2">
 <h2 class="anchored" data-anchor-id="additional-information">Additional Information</h2>
@@ -964,6 +993,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
