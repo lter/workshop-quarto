@@ -1,14 +1,17 @@
 ---
-title: "Background"
+title: "Quarto Background"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
 - <u>Explain</u> why Quarto is useful in this context 
 - <u>Define</u> the three critical parts of a Quarto file
 - <u>Describe</u> why some Quarto projects use a single YAML file across multiple Quarto documents
+
+:::
 
 ## Why Quarto
 
