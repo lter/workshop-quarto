@@ -98,50 +98,13 @@ You can now return to your repository's landing page. You may see an **<span sty
 <img src="images/branch-05.png" alt="Screenshot of the top of a GitHub repository's landing page" width="100%"/>
 </p>
 
-
 ## Clone that Repository
 
-Now that you have created a repository, we need to clone it locally so we can create the content we want in RStudio. First, open RStudio and click the **project button** in the top right corner. If you use RStudio projects already, this will be the name of your current project. If you do not use projects it will say "Project: (None)".
+Now that you have created a repository, we need to clone it locally so we can create the content we want in our IDE. This workshop assumes that you have some familiarity with the cloning workflow but please feel free to revisit the instructions embedded below from the LTER SciComp GitHub workshop.
 
-<p align="center">
-<img src="images/rstudio-clone-1.png" alt="Screen capture of the top right corner of RStudio when there is no active project" width="60%" />
-</p>
-
-When you click that button you should see a small menu appear. You should **click "New Project..."** (the topmost option). Note that if you use projects you'll see a list of up to the 10 most recent projects filling out the rest of this menu.
-
-<p align="center">
-<img src="images/rstudio-clone-2.png" alt="Screen capture of the top right corner of RStudio after the project button is clicked" width="60%" />
-</p>
-
-This will create a pop-up window in front of RStudio where you can decide what kind of project you want to create. Because we're cloning from an existing GitHub repository, **click "Version Control"**.
-
-<p align="center">
-<img src="images/rstudio-clone-3.png" alt="Screen capture of the first pop-up window from RStudio when a new project is being created" width="70%" />
-</p>
-
-In the next window, **choose "Git"**.
-
-<p align="center">
-<img src="images/rstudio-clone-4.png" alt="Screen capture of the second pop-up window from RStudio when a new project is being created from version control" width="70%" />
-</p>
-
-Before we address the next dialog window, go back to the landing page for the GitHub repository you'd like to clone. **Click the "Code" button and _copy the link_**. The "Code" button will likely be either **<span style="color:blue">blue</span>** or **<span style="color:green">green</span>**. In the example image below we're using a repository that has just been created but the process is the same for repositories that already have work in them.
-
-<p align="center">
-<img src="images/rstudio-clone-5.png" alt="Screen capture of a GitHub repository with the 'Code' button clicked and the resulting menu open" width="100%" />
-</p>
-
-Now, return to RStudio and **paste the link that you just copied** into the top field of the new project pop-up menu. You must also **pick a name for your project locally** as well as **deciding where on your computer you'd like the local copies to live**. Feel free to name the project whatever you'd like so that you will be easily able to find it later.
-
-<p align="center">
-<img src="images/rstudio-clone-6.png" alt="Screen capture of a GitHub repository with the 'Code' button clicked and the resulting menu open" width="70%" />
-</p>
-
-Once you're happy with your entries to those fields, **Click "Create Project"**. You'll know this has worked when the top right of RStudio has whatever name you entered in the second field of the preceding menu. Also, you should now have a "Git" tab in your RStudio.
-
-<p align="center">
-<img src="images/rstudio-clone-7.png" alt="Screen capture of the top right corner of RStudio when there is an active project" width="60%" />
-</p>
+```{=html}
+<iframe src="https://lter.github.io/workshop-github/ide.html" height="420" width="850" style="border: 1px solid #2e3846;"></iframe>
+```
 
 ## Start Creating the Website
 
