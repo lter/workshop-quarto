@@ -15,14 +15,14 @@ By the end of this module, you will be able to:
 
 ## Deployment Options
 
-While you created the structure and content of a website in the prior workshop module, you will need to take some additional steps in order to get the 'actual' website to exist. This process of translating a Quarto project into a living website is known as "deploying" that website. There are _many_ options for where a website can be deployed and hosted but for the purposes of this workshop, we'll be focusing on deploying via GitHub Pages.
+While you created the structure and content of a website earlier in this workshop, you will need to take some additional steps in order to get the website to really exist. This process of translating a Quarto project into a living website is known as "deploying" that website. There are _many_ options for where a website can be deployed but for the purposes of this workshop, we'll be focusing on deploying via GitHub Pages.
 
 We're focusing on deploying via GitHub Pages because:
 
-- general GitHub knowledge translates smoothly to GitHub Pages
-- websites hosted in GitHub can be edited directly through GitHub
+- General GitHub knowledge translates smoothly to GitHub Pages
+- Websites hosted in GitHub can be edited directly through GitHub
     - Reducing the barrier to entry for novice coders interested in editing an existing website
-- the LTER Scientific Computing team already encourages the adoption of GitHub for many other purposes
+- The LTER Scientific Computing team already encourages the adoption of GitHub for many other purposes
     - E.g., reproducibility, code citation, collaboration, project management
 
 ## GitHub Actions (GHAs)
@@ -33,52 +33,22 @@ This is a _huge_ benefit for website updating because it reduces the need for ma
 
 GitHub supports GHAs for a wide variety of automation purposes beyond website rendering (e.g., running tests on new code, checking compatibility with multiple operating systems, etc.) but the website rendering functionality is a great entry point into the world of GHAs if you do not already use them in your work on GitHub.
 
-Another benefit of this approach is that <u>GitHub Actions are free for public repositories</u>! So you can host a personal, lab, or project website without needing to pay anything.
+Another benefit of this approach is that <u>GitHub Actions are free for public repositories</u>! So you can host a personal, lab, or project website through GitHub without needing to pay anything.
 
-## Set Up a Quarto Website Deployment GHA
+## Set Up the Deployment GHA
 
-### 2. Pull the New Branch
+### 1. Create the GHA YAML
 
-Return to your local clone of this repository (i.e., the relevant RStudio project) and pull. This should change nothing but now your RStudio 'knows' that the repository has two branches. Note that if you instead make the new branch in RStudio you'd instead push that branch up to GitHub at this point.
+Because we created a "gh-pages" branch when we first made the repository, all that we need to do to start our GHA is to create the YAML file that tells GitHub what action we want it to perform. GitHub requires that this file be called "publish.yml" and be at the following path within your website repository: `.github` / `workflows` / `publish.yml`. <u>Note that the `.github/` folder name starts with a period!</u>
 
-### 3. Create the Local Part of a GHA
+Once you have this file, **click the collapsed menu below and copy/paste all of its contents into your empty publish.yml file.**
 
-Now that GitHub is properly set up, we need to define our desired GitHub Action. We do this by creating a new file locally in a particular file path then committing and pushing that file. Interestingly, the type of file that controls GHA settings is actually another YAML file!
+<details> 
+<summary>publish.yml Contents</summary>
 
-So, <u>in the {{< fa terminal >}} Terminal pane of RStudio</u>, **run the following commands to create the needed file path and the GitHub Action's YAML file with the right name**. Note there is a slight difference depending on your operating system so be sure to use the right one!
-
-:::{.panel-tabset}
-#### {{< fa brands apple >}} Mac / {{< fa brands linux >}} Linux
-
-```{r make-gha-yaml_mac}
+```{r}
+#| label: make-publish-yaml
 #| eval: false
-
-mkdir .github # <1>
-mkdir .github/workflows
-touch .github/workflows/publish.yml 
-```
-1. `mkdir` is CLI-speak for 'make this folder'
-
-#### {{< fa brands windows >}} Windows
-
-```{r make-gha-yaml_win}
-#| eval: false
-
-mkdir .github # <1>
-mkdir .github\workflows
-copy NUL .github\workflows\publish.yml
-```
-1. `mkdir` is CLI-speak for 'make this folder'
-
-If `copy NUL` does not work, try `touch` instead.
-
-:::
-
-One `publish.yml` exists on your computer, **use the "Files" pane of RStudio to navigate to the file and open it**. When you have it open, **copy/paste _all_ of the following into that file**.
-
-```{r gha-yaml-contents}
-#| eval: false
-
 on:
   workflow_dispatch:
   push:
@@ -106,13 +76,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-### 4. Commit & Push `publish.yml` to GitHub
+</details>
 
-Once you have created `publish.yml` and put the necessary stuff into it, **commit the new file and push it**! Be sure that it is in the correct file path (i.e., ".github" {{< fa arrow-right >}} "workflows" {{< fa arrow-right >}} "publish.yml").
+**Do not commit or push/sync this file yet!** We'll get to that in a moment.
 
-### 5. Watch the GitHub Action Work
+### 2. Tweak GitHub Repository Settings
 
-After you push `publish.yml`, return to your repository landing page and you should see an **<span style="color:orange">orange</span>** circle next to that commit message.
+Before we can push our GHA file, we need to change one setting in your GitHub repository. Do the following:
+
+1. Go to your GitHub repository's landing page
+2. Click "Settings"
+3. Select "Pages" from about halfway down the left sidebar
+4. **Make sure your "Build and deployment" section looks _exactly_ like the image below**
+
+<p align="center"/>
+<img src="images/gh-pages-settings-01.png" alt="Screenshot of GitHub Pages settings (for a repository) where the 'Source' dropdown menu is set to 'Deploy from a branch' and the 'Branch' dropdown menus are set to 'gh-pages' and '/ (root)' (from left to right)" width="80%"/>
+</p>
+
+### 3. Push the GHA YAML
+
+Once you have created "publish.yml" (in the correct folder) and put the necessary stuff into it, **commit that file and push it**! You may want to run the `quarto render` {{< fa cli >}} CLI code again if you've edited other website files since your last push/sync.
+
+Once you've pushed the "publish.yml" file, return to your repository landing page and you should see an **<span style="color:orange">orange</span>** circle next to that commit message.
 
 <p align="center"/>
 <img src="images/gha-01.png" alt="Screenshot of the top part of a GitHub repository's landing page while a GitHub Action is in progress" width="100%"/>
@@ -136,32 +121,9 @@ If you don't want to watch the actions complete from the "Actions" tab, you can 
 <img src="images/gha-04.png" alt="Screenshot of the top part of a GitHub repository's landing page after a GitHub Action is complete" width="100%"/>
 </p>
 
-:::{.callout-warning}
-#### Possibly Necessary Settings Tweak
+## GitHub Housekeeping
 
-For some reason, _some_ users may need to do an additional step to get their website to deploy as desired. **If _all_ of the following apply to you, <u>you are one of these affected users and will need to make one small change in your repository settings</u>**. See below:
-
-1. Your website renders correctly on your computer
-2. Your GitHub Action succeeds
-3. The GitHub pages link goes to a 404 page
-
-If all three of those are true for you, go to the GitHub Pages settings for your repository. From the GitHub repository's landing page, click "Settings" then select the "Pages" option about halfway down the left sidebar.
-
-Then, <u>make sure your "Build and deployment" section looks _exactly_ like the image below</u>.
-
-<p align="center"/>
-<img src="images/gh-pages-settings-01.png" alt="Screenshot of GitHub Pages settings (for a repository) where the 'Source' dropdown menu is set to 'Deploy from a branch' and the 'Branch' dropdown menus are set to 'gh-pages' and '/ (root)' (from left to right)" width="80%"/>
-</p>
-
-**Once you make your Settings look like the above screen capture, a new GitHub Action should begin**. When that completes your website should now be accessible from the GitHub pages link that previously returned a 404 page.
-
-The workshop authors are not entirely sure--at time of writing--what makes some users need to do this manually; roughly 30% of past workshop participants have needed to do this step manually while all others do not need to do this step separately. It is not presently clear what differs between these groups (operating system, software versions, and other obvious possible solutions do not clearly divide the two camps).
-
-:::
-
-### 6. Make the Website Link More Accessible
-
-After the GitHub Action completes, your website is live but you'll need to take an extra step to make that link directly accessible from the landing page of the repository. To start **click the gear ({{< fa gear >}}) icon next to "About" in the right sidebar of the repository**.
+After the GitHub Action completes, your website is live but you'll need to take an extra step to make that link directly-accessible from the landing page of the repository. To start **click the gear ({{< fa gear >}}) icon next to "About" in the right sidebar of the repository**.
 
 <p align="center"/>
 <img src="images/about-mod-01.png" alt="Screenshot of the pop-up menu that allows editing the 'About' sidebar of a GitHub repository with all fields left at defaults" width="60%"/>
@@ -174,18 +136,6 @@ In the resulting pop-up menu, **check the box for "Use your GitHub Pages website
 </p>
 
 You should now see the website in the "About" sidebar of the repository!
-
-### 7. Pull Updates Locally
-
-As with any other time when you work in your GitHub repository, **you should now pull the latest changes to your local clone**. This is unlikely to be the cause of a conflict because (A) no files have changed since you last pushed and (B) the only edits in the `gh-pages` branch should be whatever the GitHub Action does behind the scenes. However, <u>it's still good practice to pull regularly</u>!
-
-RStudio should return a message like the following:
-
-<p align="center"/>
-<img src="images/post-gha-pull-01.png" alt="Screenshot of the message from RStudio when you pull after a GitHub Action is completed" width="70%"/>
-</p>
-
-Essentially this just means the your local `gh-pages` branch is now caught up with the website rendering / deployment that you set up GitHub to do on your behalf.
 
 ## Activity - Try it Out
 
