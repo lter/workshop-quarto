@@ -56,4 +56,5 @@ rsconnect/
 
 # Quarto rendering folders
 /.quarto/
+**/*.quarto_ipynb
 docs/
