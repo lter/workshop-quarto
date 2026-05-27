@@ -2,7 +2,10 @@
 
 This reflects the current state of the repository. Changes from the preceding version/GitHub release are listed here as they are made.
 
-- Added Zenodo DOI and full workshop citation to README and homepage of workshop
+- Overhauls text throughout for clarity, brevity, and logical flow
+- Makes instructions IDE-agnostic (where previously they were RStudio-specific)
+- Removes deprecated image files
+- Adds Zenodo DOI and full workshop citation to README and homepage of workshop
 
 ## Version 1.0
 
