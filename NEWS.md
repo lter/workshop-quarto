@@ -1,6 +1,6 @@
-## Development Version
+## Version 2.0
 
-This reflects the current state of the repository. Changes from the preceding version/GitHub release are listed here as they are made.
+Changes from the preceding version/GitHub release are listed below.
 
 - Overhauls text throughout for clarity, brevity, and logical flow
 - Makes instructions IDE-agnostic (where previously they were RStudio-specific)
