@@ -1,13 +1,13 @@
 # LTER Scientific Computing Workshop - Creating Websites with Quarto
 
-[![Zenodo DOI](https://img.shields.io/badge/Zenodo%20DOI-10.5281/zenodo.16967486-blue.svg)](https://doi.org/10.5281/zenodo.16967486)
+[![Zenodo DOI](https://img.shields.io/badge/Zenodo%20DOI-10.5281/zenodo.20416930-blue.svg)](https://doi.org/10.5281/zenodo.20416930)
 
 ## Citing these Materials
 
 We hope this workshop is useful to you and encourage you to use these materials! If you do use these materials, please use the following citation:
 
 ```
-Lyon, N.J. (2025). Creating Websites with Quarto (v1.0). Zenodo. https://doi.org/10.5281/zenodo.16967486
+Lyon, N.J. (2026). Creating Websites with Quarto (v2.0). Zenodo. https://doi.org/10.5281/zenodo.20416930
 ```
 
 ## Funding Acknowledgment

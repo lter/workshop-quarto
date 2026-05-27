@@ -12,7 +12,7 @@ This workshop covers how to use [Quarto](https://quarto.org/)--a tool developed 
 
 If you'd like to cite these materials, please use the following citation:
 
-> Lyon, N.J. (2025). Creating Websites with Quarto (v1.0). Zenodo. [https://doi.org/10.5281/zenodo.16967486](https://doi.org/10.5281/zenodo.16967486)
+> Lyon, N.J. (2026). Creating Websites with Quarto (v2.0). Zenodo. [https://doi.org/10.5281/zenodo.20416930](https://doi.org/10.5281/zenodo.20416930)
 
 ## Workshop Preparation
 
