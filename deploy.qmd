@@ -2,13 +2,16 @@
 title: "Deploying a Website"
 ---
 
-## Module Learning Objectives
+:::{.callout-tip icon="false" collapse="false"}
+### {{< fa brain >}} Learning Objectives
 
 By the end of this module, you will be able to:
 
 - <u>Define</u> "deploy" in the context of Quarto websites
 - <u>Describe</u> the purpose of GitHub Actions (GHAs)
 - <u>Use</u> a GHA to deploy a Quarto website
+
+:::
 
 ## Deployment Options
 
